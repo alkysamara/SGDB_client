@@ -1,5 +1,5 @@
 ﻿namespace SGDBclient {
-	partial class FormAddStorage {
+	partial class FormAddOrder {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -32,6 +32,7 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -123,11 +124,19 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
-			// FormAddStorage
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(38, 2);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+			this.dateTimePicker1.TabIndex = 7;
+			// 
+			// FormAddOrder
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(250, 142);
+			this.Controls.Add(this.dateTimePicker1);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.label3);
@@ -136,8 +145,8 @@
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.label1);
 			this.MinimumSize = new System.Drawing.Size(200, 39);
-			this.Name = "FormAddStorage";
-			this.Text = "FormAddStorage";
+			this.Name = "FormAddOrder";
+			this.Text = "Add order";
 			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -155,5 +164,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 	}
 }

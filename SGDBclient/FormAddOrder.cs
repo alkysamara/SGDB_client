@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
-	public partial class FormAddStorage : Form {
+	public partial class FormAddOrder : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
-		public FormAddStorage(MySql.Data.MySqlClient.MySqlConnection con) {
+		public FormAddOrder(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;
 		}

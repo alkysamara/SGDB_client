@@ -10,17 +10,17 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
-	public partial class FormAddOrder : Form {
+	public partial class FormAddOwner : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
-		public FormAddOrder(MySql.Data.MySqlClient.MySqlConnection con) {
+		public FormAddOwner(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e) {
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.orders (`Date`, `Comment`, `TotalCost`, `PaySource`) VALUES(\'" +
-					dateTimePicker1.Text + "\',\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.owners (`LastName`, `FirstName`, `AdditionalInfo`, `Rank`) VALUES(\'" +
+					textBox4.Text + "\',\'" +
 					textBox1.Text + "\',\'" +
 					textBox2.Text + "\',\'" +
 					textBox3.Text + "\')", SQLconnection);

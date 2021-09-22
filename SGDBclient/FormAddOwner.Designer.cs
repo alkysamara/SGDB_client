@@ -1,5 +1,5 @@
 ﻿namespace SGDBclient {
-	partial class FormAddOrder {
+	partial class FormAddOwner {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
@@ -32,9 +32,9 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.textBox4 = new System.Windows.Forms.TextBox();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -45,9 +45,9 @@
 			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.label1.Location = new System.Drawing.Point(3, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(94, 24);
+			this.label1.Size = new System.Drawing.Size(94, 22);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Date";
+			this.label1.Text = "Last name";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// textBox1
@@ -55,21 +55,21 @@
 			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(103, 27);
-			this.textBox1.MaxLength = 255;
+			this.textBox1.Location = new System.Drawing.Point(103, 25);
+			this.textBox1.MaxLength = 45;
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(175, 20);
+			this.textBox1.Size = new System.Drawing.Size(178, 20);
 			this.textBox1.TabIndex = 1;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
 			this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2.Location = new System.Drawing.Point(3, 24);
+			this.label2.Location = new System.Drawing.Point(3, 22);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(94, 24);
+			this.label2.Size = new System.Drawing.Size(94, 22);
 			this.label2.TabIndex = 2;
-			this.label2.Text = "Comment";
+			this.label2.Text = "First name";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// textBox2
@@ -77,20 +77,21 @@
 			this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox2.Location = new System.Drawing.Point(103, 51);
+			this.textBox2.Location = new System.Drawing.Point(103, 47);
+			this.textBox2.MaxLength = 100;
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(175, 20);
+			this.textBox2.Size = new System.Drawing.Size(178, 20);
 			this.textBox2.TabIndex = 3;
 			// 
 			// label3
 			// 
 			this.label3.AutoSize = true;
 			this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3.Location = new System.Drawing.Point(3, 48);
+			this.label3.Location = new System.Drawing.Point(3, 44);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(94, 20);
 			this.label3.TabIndex = 4;
-			this.label3.Text = "Total cost";
+			this.label3.Text = "Additional info";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// textBox3
@@ -98,10 +99,10 @@
 			this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox3.Location = new System.Drawing.Point(103, 71);
+			this.textBox3.Location = new System.Drawing.Point(103, 67);
 			this.textBox3.MaxLength = 45;
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(175, 20);
+			this.textBox3.Size = new System.Drawing.Size(178, 20);
 			this.textBox3.TabIndex = 5;
 			// 
 			// panel1
@@ -135,25 +136,15 @@
 			this.button1.UseVisualStyleBackColor = true;
 			this.button1.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
-			// dateTimePicker1
-			// 
-			this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.dateTimePicker1.Location = new System.Drawing.Point(103, 3);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(175, 20);
-			this.dateTimePicker1.TabIndex = 7;
-			// 
 			// label4
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label4.Location = new System.Drawing.Point(3, 68);
+			this.label4.Location = new System.Drawing.Point(3, 64);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(94, 21);
 			this.label4.TabIndex = 8;
-			this.label4.Text = "Pay source";
+			this.label4.Text = "Rank";
 			this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// tableLayoutPanel1
@@ -164,7 +155,7 @@
 			this.tableLayoutPanel1.ColumnCount = 2;
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
 			this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
@@ -179,10 +170,22 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 89);
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 85);
 			this.tableLayoutPanel1.TabIndex = 9;
 			// 
-			// FormAddOrder
+			// textBox4
+			// 
+			this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox4.Location = new System.Drawing.Point(103, 3);
+			this.textBox4.MaxLength = 45;
+			this.textBox4.Name = "textBox4";
+			this.textBox4.Size = new System.Drawing.Size(178, 20);
+			this.textBox4.TabIndex = 10;
+			// 
+			// FormAddOwner
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,7 +194,7 @@
 			this.Controls.Add(this.panel1);
 			this.MaximumSize = new System.Drawing.Size(1000, 160);
 			this.MinimumSize = new System.Drawing.Size(300, 160);
-			this.Name = "FormAddOrder";
+			this.Name = "FormAddOwner";
 			this.Text = "Add order";
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
@@ -211,8 +214,8 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.TextBox textBox4;
 	}
 }

@@ -15,8 +15,15 @@ namespace SGDBclient {
 		public string selectedOrderName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {
-			MySqlCommand command = new MySqlCommand("SELECT * FROM Orders", SQLconnection);
-			MySqlDataReader reader = command.ExecuteReader();
+			MySqlDataReader reader;
+			try {
+				MySqlCommand command = new MySqlCommand("SELECT * FROM Orders " +
+				"WHERE Orders.Comment LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
+				reader = command.ExecuteReader();
+			} catch (Exception e) {
+				MessageBox.Show(e.Message);
+				return;
+			}
 			dataGridView1.Rows.Clear();
 			dataGridView1.Columns.Clear();
 			for (int i = 0; i < reader.FieldCount; i++) {
@@ -37,7 +44,6 @@ namespace SGDBclient {
 
 		private void button1_Click(object sender, EventArgs e) {
 			try {
-				//selectedStorageID = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
 				selectedOrderID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
 				selectedOrderName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
 			} catch (Exception) {

@@ -15,8 +15,15 @@ namespace SGDBclient {
 		public string selectedOwnerName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {
-			MySqlCommand command = new MySqlCommand("SELECT * FROM Owners", SQLconnection);
-			MySqlDataReader reader = command.ExecuteReader();
+			MySqlDataReader reader;
+			try {
+				MySqlCommand command = new MySqlCommand("SELECT * FROM Owners " +
+				"WHERE Owners.LastName LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
+				reader = command.ExecuteReader();
+			} catch (Exception e) {
+				MessageBox.Show(e.Message);
+				return;
+			}
 			dataGridView1.Rows.Clear();
 			dataGridView1.Columns.Clear();
 			for (int i = 0; i < reader.FieldCount; i++) {

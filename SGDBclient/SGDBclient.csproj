@@ -125,6 +125,12 @@
     <Compile Include="FormSelectOwner.Designer.cs">
       <DependentUpon>FormSelectOwner.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectOrder.Designer.cs">
+      <DependentUpon>FormSelectOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSelectStorage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectOwner.resx">
       <DependentUpon>FormSelectOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectOrder.resx">
+      <DependentUpon>FormSelectOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectStorage.resx">
       <DependentUpon>FormSelectStorage.cs</DependentUpon>

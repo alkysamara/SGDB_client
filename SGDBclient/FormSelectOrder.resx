@@ -117,14 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox2.Text" xml:space="preserve">
-    <value>+Owners: add - ok, select - ok
-Usages: add - no, select - no
-Orders: add - ???, seect - ???
-Items: add - in progress, select - no
-+Storages: add - ok, select - ok
-Movements: add - no, select - no
-Components: add - no, select - no
-Componenttypes: add-no, select-no</value>
-  </data>
 </root>

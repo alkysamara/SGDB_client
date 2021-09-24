@@ -15,15 +15,20 @@ namespace SGDBclient {
 		public FormAddOrder(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;
+			dateTimePicker1.Format = DateTimePickerFormat.Custom;
+			dateTimePicker1.CustomFormat = "yyyy-MM-dd";
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e) {
+			if (textBoxTotalCost.Text == "") {
+				textBoxTotalCost.Text = "0";
+			}
 			try {
 				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.orders (`Date`, `Comment`, `TotalCost`, `PaySource`) VALUES(\'" +
 					dateTimePicker1.Text + "\',\'" +
-					textBox1.Text + "\',\'" +
-					textBox2.Text + "\',\'" +
-					textBox3.Text + "\')", SQLconnection);
+					textBoxComment.Text + "\',\'" +
+					textBoxTotalCost.Text + "\',\'" +
+					textBoxPaySource.Text + "\')", SQLconnection);
 				command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {

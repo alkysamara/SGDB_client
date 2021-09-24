@@ -41,14 +41,14 @@ namespace SGDBclient
 			this.textBoxQuantity = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.textBoxPrice = new System.Windows.Forms.TextBox();
-			this.textBoxOrder = new System.Windows.Forms.TextBox();
-			this.textBoxComponent = new System.Windows.Forms.TextBox();
 			this.textBoxOwner = new System.Windows.Forms.TextBox();
+			this.textBoxComponent = new System.Windows.Forms.TextBox();
+			this.textBoxOrder = new System.Windows.Forms.TextBox();
+			this.textBoxPrice = new System.Windows.Forms.TextBox();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.btnSelectOrder = new System.Windows.Forms.Button();
-			this.btnSelectComponent = new System.Windows.Forms.Button();
 			this.btnSelectOwner = new System.Windows.Forms.Button();
+			this.btnSelectComponent = new System.Windows.Forms.Button();
+			this.btnSelectOrder = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -173,22 +173,14 @@ namespace SGDBclient
 			this.panel2.Size = new System.Drawing.Size(130, 186);
 			this.panel2.TabIndex = 11;
 			// 
-			// textBoxPrice
+			// textBoxOwner
 			// 
-			this.textBoxPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBoxPrice.Location = new System.Drawing.Point(5, 34);
-			this.textBoxPrice.Name = "textBoxPrice";
-			this.textBoxPrice.Size = new System.Drawing.Size(124, 20);
-			this.textBoxPrice.TabIndex = 10;
-			// 
-			// textBoxOrder
-			// 
-			this.textBoxOrder.Enabled = false;
-			this.textBoxOrder.Location = new System.Drawing.Point(5, 92);
-			this.textBoxOrder.Name = "textBoxOrder";
-			this.textBoxOrder.Size = new System.Drawing.Size(122, 20);
-			this.textBoxOrder.TabIndex = 11;
-			this.textBoxOrder.Text = "<click select>";
+			this.textBoxOwner.Enabled = false;
+			this.textBoxOwner.Location = new System.Drawing.Point(3, 152);
+			this.textBoxOwner.Name = "textBoxOwner";
+			this.textBoxOwner.Size = new System.Drawing.Size(122, 20);
+			this.textBoxOwner.TabIndex = 13;
+			this.textBoxOwner.Text = "<click select>";
 			// 
 			// textBoxComponent
 			// 
@@ -199,14 +191,22 @@ namespace SGDBclient
 			this.textBoxComponent.TabIndex = 12;
 			this.textBoxComponent.Text = "<click select>";
 			// 
-			// textBoxOwner
+			// textBoxOrder
 			// 
-			this.textBoxOwner.Enabled = false;
-			this.textBoxOwner.Location = new System.Drawing.Point(3, 152);
-			this.textBoxOwner.Name = "textBoxOwner";
-			this.textBoxOwner.Size = new System.Drawing.Size(122, 20);
-			this.textBoxOwner.TabIndex = 13;
-			this.textBoxOwner.Text = "<click select>";
+			this.textBoxOrder.Enabled = false;
+			this.textBoxOrder.Location = new System.Drawing.Point(5, 92);
+			this.textBoxOrder.Name = "textBoxOrder";
+			this.textBoxOrder.Size = new System.Drawing.Size(122, 20);
+			this.textBoxOrder.TabIndex = 11;
+			this.textBoxOrder.Text = "<click select>";
+			// 
+			// textBoxPrice
+			// 
+			this.textBoxPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textBoxPrice.Location = new System.Drawing.Point(5, 34);
+			this.textBoxPrice.Name = "textBoxPrice";
+			this.textBoxPrice.Size = new System.Drawing.Size(124, 20);
+			this.textBoxPrice.TabIndex = 10;
 			// 
 			// panel3
 			// 
@@ -219,14 +219,15 @@ namespace SGDBclient
 			this.panel3.Size = new System.Drawing.Size(112, 186);
 			this.panel3.TabIndex = 12;
 			// 
-			// btnSelectOrder
+			// btnSelectOwner
 			// 
-			this.btnSelectOrder.Location = new System.Drawing.Point(3, 91);
-			this.btnSelectOrder.Name = "btnSelectOrder";
-			this.btnSelectOrder.Size = new System.Drawing.Size(101, 23);
-			this.btnSelectOrder.TabIndex = 1;
-			this.btnSelectOrder.Text = "Select order";
-			this.btnSelectOrder.UseVisualStyleBackColor = true;
+			this.btnSelectOwner.Location = new System.Drawing.Point(3, 151);
+			this.btnSelectOwner.Name = "btnSelectOwner";
+			this.btnSelectOwner.Size = new System.Drawing.Size(101, 23);
+			this.btnSelectOwner.TabIndex = 3;
+			this.btnSelectOwner.Text = "Select owner";
+			this.btnSelectOwner.UseVisualStyleBackColor = true;
+			this.btnSelectOwner.Click += new System.EventHandler(this.btnSelectOwner_Click);
 			// 
 			// btnSelectComponent
 			// 
@@ -237,15 +238,15 @@ namespace SGDBclient
 			this.btnSelectComponent.Text = "Select component";
 			this.btnSelectComponent.UseVisualStyleBackColor = true;
 			// 
-			// btnSelectOwner
+			// btnSelectOrder
 			// 
-			this.btnSelectOwner.Location = new System.Drawing.Point(3, 151);
-			this.btnSelectOwner.Name = "btnSelectOwner";
-			this.btnSelectOwner.Size = new System.Drawing.Size(101, 23);
-			this.btnSelectOwner.TabIndex = 3;
-			this.btnSelectOwner.Text = "Select owner";
-			this.btnSelectOwner.UseVisualStyleBackColor = true;
-			this.btnSelectOwner.Click += new System.EventHandler(this.btnSelectOwner_Click);
+			this.btnSelectOrder.Location = new System.Drawing.Point(3, 91);
+			this.btnSelectOrder.Name = "btnSelectOrder";
+			this.btnSelectOrder.Size = new System.Drawing.Size(101, 23);
+			this.btnSelectOrder.TabIndex = 1;
+			this.btnSelectOrder.Text = "Select order";
+			this.btnSelectOrder.UseVisualStyleBackColor = true;
+			this.btnSelectOrder.Click += new System.EventHandler(this.btnSelectOrder_Click);
 			// 
 			// btnCancel
 			// 

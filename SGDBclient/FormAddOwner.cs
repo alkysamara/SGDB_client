@@ -20,10 +20,10 @@ namespace SGDBclient {
 		private void btnAdd_Click(object sender, EventArgs e) {
 			try {
 				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.owners (`LastName`, `FirstName`, `AdditionalInfo`, `Rank`) VALUES(\'" +
-					textBox4.Text + "\',\'" +
-					textBox1.Text + "\',\'" +
-					textBox2.Text + "\',\'" +
-					textBox3.Text + "\')", SQLconnection);
+					textBoxLastName.Text + "\',\'" +
+					textBoxFirstName.Text + "\',\'" +
+					textBoxAdditionalInfo.Text + "\',\'" +
+					textBoxRank.Text + "\')", SQLconnection);
 				command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {

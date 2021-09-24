@@ -24,11 +24,11 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBoxPlaceName = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.textBoxPlaceDetails = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.textBoxComments = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button1 = new System.Windows.Forms.Button();
@@ -40,19 +40,19 @@
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(12, 9);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(65, 13);
+			this.label1.Size = new System.Drawing.Size(69, 13);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Place Name";
+			this.label1.Text = "Place Name*";
 			// 
-			// textBox1
+			// textBoxPlaceName
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.textBoxPlaceName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(122, 6);
-			this.textBox1.MaxLength = 45;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(116, 20);
-			this.textBox1.TabIndex = 1;
+			this.textBoxPlaceName.Location = new System.Drawing.Point(122, 6);
+			this.textBoxPlaceName.MaxLength = 45;
+			this.textBoxPlaceName.Name = "textBoxPlaceName";
+			this.textBoxPlaceName.Size = new System.Drawing.Size(116, 20);
+			this.textBoxPlaceName.TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -63,15 +63,15 @@
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Place Details";
 			// 
-			// textBox2
+			// textBoxPlaceDetails
 			// 
-			this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.textBoxPlaceDetails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox2.Location = new System.Drawing.Point(122, 35);
-			this.textBox2.MaxLength = 45;
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(116, 20);
-			this.textBox2.TabIndex = 3;
+			this.textBoxPlaceDetails.Location = new System.Drawing.Point(122, 35);
+			this.textBoxPlaceDetails.MaxLength = 45;
+			this.textBoxPlaceDetails.Name = "textBoxPlaceDetails";
+			this.textBoxPlaceDetails.Size = new System.Drawing.Size(116, 20);
+			this.textBoxPlaceDetails.TabIndex = 3;
 			// 
 			// label3
 			// 
@@ -82,15 +82,15 @@
 			this.label3.TabIndex = 4;
 			this.label3.Text = "Additional comments";
 			// 
-			// textBox3
+			// textBoxComments
 			// 
-			this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			this.textBoxComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox3.Location = new System.Drawing.Point(122, 67);
-			this.textBox3.MaxLength = 100;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(116, 20);
-			this.textBox3.TabIndex = 5;
+			this.textBoxComments.Location = new System.Drawing.Point(122, 67);
+			this.textBoxComments.MaxLength = 100;
+			this.textBoxComments.Name = "textBoxComments";
+			this.textBoxComments.Size = new System.Drawing.Size(116, 20);
+			this.textBoxComments.TabIndex = 5;
 			// 
 			// panel1
 			// 
@@ -129,11 +129,11 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(250, 142);
 			this.Controls.Add(this.panel1);
-			this.Controls.Add(this.textBox3);
+			this.Controls.Add(this.textBoxComments);
 			this.Controls.Add(this.label3);
-			this.Controls.Add(this.textBox2);
+			this.Controls.Add(this.textBoxPlaceDetails);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.textBoxPlaceName);
 			this.Controls.Add(this.label1);
 			this.MinimumSize = new System.Drawing.Size(200, 39);
 			this.Name = "FormAddStorage";
@@ -147,11 +147,11 @@
 		#endregion
 
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBoxPlaceName;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox textBoxPlaceDetails;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox textBoxComments;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;

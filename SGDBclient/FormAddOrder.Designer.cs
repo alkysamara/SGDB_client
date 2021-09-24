@@ -24,14 +24,14 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.textBoxComment = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.textBoxTotalCost = new System.Windows.Forms.TextBox();
 			this.label3 = new System.Windows.Forms.Label();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.textBoxPaySource = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button2 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
+			this.buttonAdd = new System.Windows.Forms.Button();
 			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -50,16 +50,16 @@
 			this.label1.Text = "Date";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// textBox1
+			// textBoxComment
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1.Location = new System.Drawing.Point(103, 27);
-			this.textBox1.MaxLength = 255;
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(175, 20);
-			this.textBox1.TabIndex = 1;
+			this.textBoxComment.Location = new System.Drawing.Point(103, 27);
+			this.textBoxComment.MaxLength = 255;
+			this.textBoxComment.Name = "textBoxComment";
+			this.textBoxComment.Size = new System.Drawing.Size(175, 20);
+			this.textBoxComment.TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -72,15 +72,15 @@
 			this.label2.Text = "Comment";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// textBox2
+			// textBoxTotalCost
 			// 
-			this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.textBoxTotalCost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox2.Location = new System.Drawing.Point(103, 51);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(175, 20);
-			this.textBox2.TabIndex = 3;
+			this.textBoxTotalCost.Location = new System.Drawing.Point(103, 51);
+			this.textBoxTotalCost.Name = "textBoxTotalCost";
+			this.textBoxTotalCost.Size = new System.Drawing.Size(175, 20);
+			this.textBoxTotalCost.TabIndex = 3;
 			// 
 			// label3
 			// 
@@ -93,21 +93,21 @@
 			this.label3.Text = "Total cost";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// textBox3
+			// textBoxPaySource
 			// 
-			this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.textBoxPaySource.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox3.Location = new System.Drawing.Point(103, 71);
-			this.textBox3.MaxLength = 45;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(175, 20);
-			this.textBox3.TabIndex = 5;
+			this.textBoxPaySource.Location = new System.Drawing.Point(103, 71);
+			this.textBoxPaySource.MaxLength = 45;
+			this.textBoxPaySource.Name = "textBoxPaySource";
+			this.textBoxPaySource.Size = new System.Drawing.Size(175, 20);
+			this.textBoxPaySource.TabIndex = 5;
 			// 
 			// panel1
 			// 
 			this.panel1.Controls.Add(this.button2);
-			this.panel1.Controls.Add(this.button1);
+			this.panel1.Controls.Add(this.buttonAdd);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.panel1.Location = new System.Drawing.Point(0, 91);
 			this.panel1.Name = "panel1";
@@ -125,15 +125,15 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.btnClick_Click);
 			// 
-			// button1
+			// buttonAdd
 			// 
-			this.button1.Location = new System.Drawing.Point(6, 4);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(75, 23);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "Add";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.btnAdd_Click);
+			this.buttonAdd.Location = new System.Drawing.Point(6, 4);
+			this.buttonAdd.Name = "buttonAdd";
+			this.buttonAdd.Size = new System.Drawing.Size(75, 23);
+			this.buttonAdd.TabIndex = 0;
+			this.buttonAdd.Text = "Add";
+			this.buttonAdd.UseVisualStyleBackColor = true;
+			this.buttonAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
 			// dateTimePicker1
 			// 
@@ -166,11 +166,11 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-			this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxPaySource, 1, 3);
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxTotalCost, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxComment, 1, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -203,14 +203,14 @@
 		#endregion
 
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.TextBox textBoxComment;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.TextBox textBoxTotalCost;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox textBoxPaySource;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button buttonAdd;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;

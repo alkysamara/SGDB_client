@@ -18,11 +18,15 @@ namespace SGDBclient {
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e) {
+			if (textBoxPlaceName.Text == "") {
+				MessageBox.Show("Name cannot be empty!");
+				return;
+			}
 			try {
 				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.storages (`Place`, `PlaceDetail`, `AdditionalComments`) VALUES(\'" +
-					textBox1.Text + "\',\'" +
-					textBox2.Text + "\',\'" +
-					textBox3.Text + "\')", SQLconnection);
+					textBoxPlaceName.Text + "\',\'" +
+					textBoxPlaceDetails.Text + "\',\'" +
+					textBoxComments.Text + "\')", SQLconnection);
 				command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {

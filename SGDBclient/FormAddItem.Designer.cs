@@ -237,6 +237,7 @@ namespace SGDBclient
 			this.btnSelectComponent.TabIndex = 2;
 			this.btnSelectComponent.Text = "Select component";
 			this.btnSelectComponent.UseVisualStyleBackColor = true;
+			this.btnSelectComponent.Click += new System.EventHandler(this.btnSelectComponent_Click);
 			// 
 			// btnSelectOrder
 			// 

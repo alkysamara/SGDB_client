@@ -15,6 +15,7 @@ namespace SGDBclient {
 		private FormSelectStorage StorageListForm;
 		private FormSelectOwner OwnerListForm;
 		private FormSelectOrder OrderListForm;
+		private FormSelectComponent ComponentListForm;
 
 		public FormAddItem(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
@@ -51,6 +52,14 @@ namespace SGDBclient {
 			}
 			OrderListForm.ShowDialog();
 			textBoxOrder.Text = OrderListForm.selectedOrderName;
+		}
+
+		private void btnSelectComponent_Click(object sender, EventArgs e) {
+			if (ComponentListForm == null) {
+				ComponentListForm = new FormSelectComponent(SQLconnection);
+			}
+			ComponentListForm.ShowDialog();
+			textBoxComponent.Text = ComponentListForm.selectedComponentName;
 		}
 	}
 }

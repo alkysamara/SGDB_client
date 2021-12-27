@@ -11,14 +11,14 @@ using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
 	public partial class FormSelectComponentType : Form {
-		public int selectedComponentID = 0;
-		public string selectedComponentName = "";
+		public int selectedComponentTypeID = 0;
+		public string selectedComponentTypeName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {
 			MySqlDataReader reader;
 			try {
-				MySqlCommand command = new MySqlCommand("SELECT * FROM Components " + 
-					"WHERE Components.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
+				MySqlCommand command = new MySqlCommand("SELECT * FROM ComponentTypes " +
+					"WHERE ComponentTypes.TypeName LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
 				reader = command.ExecuteReader();
 			} catch (Exception e) {
 				MessageBox.Show(e.Message);
@@ -48,10 +48,10 @@ namespace SGDBclient {
 
 		private void buttonSelect_Click(object sender, EventArgs e) {
 			try {
-				selectedComponentID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
-				selectedComponentName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
+				selectedComponentTypeID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
+				selectedComponentTypeName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
 			} catch (Exception) {
-				selectedComponentID = 0;
+				selectedComponentTypeID = 0;
 			}
 			this.Close();
 		}
@@ -74,6 +74,7 @@ namespace SGDBclient {
 		private void btnAddComponent_Click(object sender, EventArgs e) {
 			FormAddComponentType form = new FormAddComponentType(SQLconnection);
 			form.Show();
+			updateTable();
 		}
 	}
 }

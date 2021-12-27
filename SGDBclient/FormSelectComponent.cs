@@ -74,6 +74,7 @@ namespace SGDBclient {
 		private void btnAddComponent_Click(object sender, EventArgs e) {
 			FormAddComponent form = new FormAddComponent(SQLconnection);
 			form.Show();
+			updateTable();
 		}
 	}
 }

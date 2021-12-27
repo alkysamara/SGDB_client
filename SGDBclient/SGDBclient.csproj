@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddComponentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddComponentType.Designer.cs">
+      <DependentUpon>FormAddComponentType.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,12 @@
     <Compile Include="FormAddStorage.Designer.cs">
       <DependentUpon>FormAddStorage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectComponentType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectComponentType.Designer.cs">
+      <DependentUpon>FormSelectComponentType.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSelectOwner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddComponentType.resx">
+      <DependentUpon>FormAddComponentType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddItem.resx">
       <DependentUpon>FormAddItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddStorage.resx">
       <DependentUpon>FormAddStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectComponentType.resx">
+      <DependentUpon>FormSelectComponentType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectOwner.resx">
       <DependentUpon>FormSelectOwner.cs</DependentUpon>

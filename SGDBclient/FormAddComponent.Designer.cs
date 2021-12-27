@@ -182,7 +182,7 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 89);
 			this.tableLayoutPanel1.TabIndex = 9;
 			// 
-			// FormAddOrder
+			// FormAddComponent
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -191,8 +191,8 @@
 			this.Controls.Add(this.panel1);
 			this.MaximumSize = new System.Drawing.Size(1000, 160);
 			this.MinimumSize = new System.Drawing.Size(300, 160);
-			this.Name = "FormAddOrder";
-			this.Text = "Add order";
+			this.Name = "FormAddComponent";
+			this.Text = "Add component";
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

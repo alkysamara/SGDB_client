@@ -28,6 +28,10 @@ namespace SGDBclient {
 			dataGridView1.Columns.Clear();
 			for (int i = 0; i < reader.FieldCount; i++) {
 				dataGridView1.Columns.Add(reader.GetName(i), reader.GetName(i));
+				if (reader.GetName(i).StartsWith("id")) { //this is an id field, hide it
+					dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
+					dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
+				}
 			}
 			while (reader.Read()) {
 				dataGridView1.Rows.Add();

@@ -20,7 +20,7 @@ namespace SGDBclient {
 
 		private void btnAdd_Click(object sender, EventArgs e) {
 			if (textBoxParameters.Text == "{}") {//special case in sql query
-				textBoxParameters.Text = "\'{}\'";
+				textBoxParameters.Text = "\\\"{}\\\"";
 			}
 			string parentID;
 			

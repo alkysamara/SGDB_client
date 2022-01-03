@@ -37,7 +37,7 @@ namespace SGDBclient {
 		private void button1_Click(object sender, EventArgs e) {
 			FormSelectComponentType formSelectComponentType = new FormSelectComponentType(SQLconnection);
 			formSelectComponentType.ShowDialog();
-			richTextBox2.Text += formSelectComponentType.selectedComponentTypeName;
+			richTextBox1.Text += "Selected component type: "+formSelectComponentType.selectedComponentTypeName+"\n";
 		}
 	}
 }

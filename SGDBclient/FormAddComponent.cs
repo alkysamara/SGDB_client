@@ -15,8 +15,6 @@ namespace SGDBclient {
 		public FormAddComponent(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;
-			dateTimePicker1.Format = DateTimePickerFormat.Custom;
-			dateTimePicker1.CustomFormat = "yyyy-MM-dd";
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e) {

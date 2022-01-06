@@ -18,16 +18,13 @@ namespace SGDBclient {
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e) {
-			if (textBoxTotalCost.Text == "") {
-				textBoxTotalCost.Text = "0";
-			}
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.orders (`Date`, `Comment`, `TotalCost`, `PaySource`) VALUES(\'" +
+				/*MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.orders (`Date`, `Comment`, `TotalCost`, `PaySource`) VALUES(\'" +
 					dateTimePicker1.Text + "\',\'" +
 					textBoxComment.Text + "\',\'" +
 					textBoxTotalCost.Text + "\',\'" +
 					textBoxPaySource.Text + "\')", SQLconnection);
-				command.ExecuteNonQuery();
+				command.ExecuteNonQuery();*/
 				this.Close();
 			} catch (Exception ee) {
 				MessageBox.Show(ee.Message);

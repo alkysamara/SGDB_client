@@ -51,7 +51,6 @@
             this.button1.Text = "Select";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyDown);
             // 
             // dataGridView1
             // 
@@ -95,7 +94,7 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "Add package";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnAddStorage_Click);
+            this.button3.Click += new System.EventHandler(this.btnAddPackage_Click);
             // 
             // panel1
             // 

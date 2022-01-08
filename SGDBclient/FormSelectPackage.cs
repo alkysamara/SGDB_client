@@ -11,8 +11,8 @@ using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
 	public partial class FormSelectPackage : Form {
-		public int selectedStorageID = 0;
-		public string selectedStorageName = "";
+		public int selectedPackageID = 0;
+		public string selectedPackageName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {
 			MySqlDataReader reader;
@@ -48,21 +48,17 @@ namespace SGDBclient {
 
 		private void button1_Click(object sender, EventArgs e) {
 			try {
-				//selectedStorageID = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-				selectedStorageID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
-				selectedStorageName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
+				//selectedPackageID = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+				selectedPackageID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
+				selectedPackageName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
 			} catch (Exception) {
-				selectedStorageID = 0;
+				selectedPackageID = 0;
 			}
 			this.Close();
 		}
 
 		private void button2_Click(object sender, EventArgs e) {
 			updateTable();
-		}
-
-		private void button1_KeyDown(object sender, KeyEventArgs e) {
-
 		}
 
 		private void dataGridView1_KeyDown(object sender, KeyEventArgs e) {
@@ -76,9 +72,9 @@ namespace SGDBclient {
 			button1_Click(sender, e);
 		}
 
-		private void btnAddStorage_Click(object sender, EventArgs e) {
-			FormAddStorage form = new FormAddStorage(SQLconnection);
-			form.Show();
+		private void btnAddPackage_Click(object sender, EventArgs e) {
+			FormAddPackage form = new FormAddPackage(SQLconnection);
+			form.ShowDialog();
 			updateTable();
 		}
 	}

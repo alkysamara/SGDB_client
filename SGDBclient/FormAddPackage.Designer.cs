@@ -28,12 +28,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPackageType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxComments = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.numericUpDownPinCount = new System.Windows.Forms.NumericUpDown();
+            this.buttonJSONEditor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPinCount)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             this.textBoxPackageName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPackageName.Location = new System.Drawing.Point(163, 7);
-            this.textBoxPackageName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPackageName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPackageName.MaxLength = 45;
             this.textBoxPackageName.Name = "textBoxPackageName";
             this.textBoxPackageName.Size = new System.Drawing.Size(199, 22);
@@ -74,7 +74,7 @@
             this.textBoxPackageType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxPackageType.Location = new System.Drawing.Point(163, 43);
-            this.textBoxPackageType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPackageType.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPackageType.MaxLength = 45;
             this.textBoxPackageType.Name = "textBoxPackageType";
             this.textBoxPackageType.Size = new System.Drawing.Size(199, 22);
@@ -86,20 +86,9 @@
             this.label3.Location = new System.Drawing.Point(16, 122);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 17);
+            this.label3.Size = new System.Drawing.Size(120, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Additional comments";
-            // 
-            // textBoxComments
-            // 
-            this.textBoxComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxComments.Location = new System.Drawing.Point(163, 118);
-            this.textBoxComments.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBoxComments.MaxLength = 100;
-            this.textBoxComments.Name = "textBoxComments";
-            this.textBoxComments.Size = new System.Drawing.Size(199, 22);
-            this.textBoxComments.TabIndex = 5;
+            this.label3.Text = "Other parametres";
             // 
             // panel1
             // 
@@ -107,16 +96,17 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 160);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(379, 37);
             this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(275, 5);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 1;
@@ -127,7 +117,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(8, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 0;
@@ -153,23 +143,32 @@
             this.numericUpDownPinCount.Name = "numericUpDownPinCount";
             this.numericUpDownPinCount.Size = new System.Drawing.Size(199, 22);
             this.numericUpDownPinCount.TabIndex = 8;
-            this.numericUpDownPinCount.Minimum = 0;
+            // 
+            // buttonJSONEditor
+            // 
+            this.buttonJSONEditor.Location = new System.Drawing.Point(163, 122);
+            this.buttonJSONEditor.Name = "buttonJSONEditor";
+            this.buttonJSONEditor.Size = new System.Drawing.Size(199, 23);
+            this.buttonJSONEditor.TabIndex = 9;
+            this.buttonJSONEditor.Text = "Edit JSON";
+            this.buttonJSONEditor.UseVisualStyleBackColor = true;
+            this.buttonJSONEditor.Click += new System.EventHandler(this.buttonJSONEditor_Click);
             // 
             // FormAddPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(379, 197);
+            this.Controls.Add(this.buttonJSONEditor);
             this.Controls.Add(this.numericUpDownPinCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBoxComments);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxPackageType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPackageName);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(261, 47);
             this.Name = "FormAddPackage";
             this.Text = "FormAddPackage";
@@ -188,11 +187,11 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBoxPackageType;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBoxComments;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.NumericUpDown numericUpDownPinCount;
+        private System.Windows.Forms.Button buttonJSONEditor;
     }
 }

@@ -13,6 +13,7 @@ namespace SGDBclient {
 	public partial class FormAddPackage : Form {
 
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
+		public String json = "'{}'";
 		public FormAddPackage(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;
@@ -24,11 +25,11 @@ namespace SGDBclient {
 				return;
 			}
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.storages (`PackageName`, `Type`, `Pins`, 'PackageParameters) VALUES(\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.packages (`PackageName`, `Type`, `Pins`, `PackageParameters`) VALUES(\'" +
 					textBoxPackageName.Text + "\',\'" +
 					textBoxPackageType.Text + "\',\'" +
-					numericUpDownPinCount.Text + "\',\'" +
-					textBoxComments.Text + "\')", SQLconnection);
+					numericUpDownPinCount.Text + "\'," +
+					json + ")", SQLconnection);
 				command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {
@@ -41,6 +42,18 @@ namespace SGDBclient {
 		}
 
         private void FormAddPackage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonJSONEditor_Click(object sender, EventArgs e)
+        {
+			JSONEditor jsonEditor = new JSONEditor();
+			jsonEditor.ShowDialog();
+			json = jsonEditor.JSON;
+		}
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

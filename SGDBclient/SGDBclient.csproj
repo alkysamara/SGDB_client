@@ -125,6 +125,12 @@
     <Compile Include="FormAddOrder.Designer.cs">
       <DependentUpon>FormAddOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAddPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddPackage.Designer.cs">
+      <DependentUpon>FormAddPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddStorage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +161,12 @@
     <Compile Include="FormSelectComponent.Designer.cs">
       <DependentUpon>FormSelectComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectPackage.Designer.cs">
+      <DependentUpon>FormSelectPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSelectStorage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +193,9 @@
     <EmbeddedResource Include="FormAddOrder.resx">
       <DependentUpon>FormAddOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAddPackage.resx">
+      <DependentUpon>FormAddPackage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddStorage.resx">
       <DependentUpon>FormAddStorage.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectComponent.resx">
       <DependentUpon>FormSelectComponent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectPackage.resx">
+      <DependentUpon>FormSelectPackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectStorage.resx">
       <DependentUpon>FormSelectStorage.cs</DependentUpon>

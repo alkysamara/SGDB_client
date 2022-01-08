@@ -17,8 +17,8 @@ namespace SGDBclient {
 		private void updateTable() {
 			MySqlDataReader reader;
 			try {
-				MySqlCommand command = new MySqlCommand("SELECT * FROM Components " + 
-					"WHERE Components.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
+				MySqlCommand command = new MySqlCommand("SELECT * FROM full_component " +
+					"WHERE full_component.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
 				reader = command.ExecuteReader();
 			} catch (Exception e) {
 				MessageBox.Show(e.Message);
@@ -28,7 +28,7 @@ namespace SGDBclient {
 			dataGridView1.Columns.Clear();
 			for (int i = 0; i < reader.FieldCount; i++) {
 				dataGridView1.Columns.Add(reader.GetName(i), reader.GetName(i));
-				if (reader.GetName(i).StartsWith("id")) { //this is an id field, hide it
+				if (reader.GetName(i).StartsWith("id") || reader.GetName(i).Contains("_id")) { //this is an id field, hide it
 					dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
 					dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
 				}
@@ -73,7 +73,7 @@ namespace SGDBclient {
 
 		private void btnAddComponent_Click(object sender, EventArgs e) {
 			FormAddComponent form = new FormAddComponent(SQLconnection);
-			form.Show();
+			form.ShowDialog();
 			updateTable();
 		}
 	}

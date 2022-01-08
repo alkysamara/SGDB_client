@@ -124,7 +124,8 @@ Usages: add - no, select - no
 Items: add - in progress, select - no
 +Storages: add - ok, select - ok
 Movements: add - no, select - no
-Components: add - no, select - no
-Componenttypes: add-ok, select-ok</value>
+Components: add - no, select - ok
++Componenttypes: add-ok, select-ok
+Packages: add - no, select - no</value>
   </data>
 </root>

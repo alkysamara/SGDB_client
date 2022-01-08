@@ -24,10 +24,10 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.label1 = new System.Windows.Forms.Label();
-			this.textBoxComment = new System.Windows.Forms.TextBox();
+			this.textBoxLCSC = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.textBoxPaySource = new System.Windows.Forms.TextBox();
+			this.textBoxPartNumber = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.button2 = new System.Windows.Forms.Button();
 			this.buttonAdd = new System.Windows.Forms.Button();
@@ -56,16 +56,16 @@
 			this.label1.Text = "PartNumber";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// textBoxComment
+			// textBoxLCSC
 			// 
-			this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.textBoxLCSC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxComment.Location = new System.Drawing.Point(103, 53);
-			this.textBoxComment.MaxLength = 255;
-			this.textBoxComment.Name = "textBoxComment";
-			this.textBoxComment.Size = new System.Drawing.Size(125, 20);
-			this.textBoxComment.TabIndex = 1;
+			this.textBoxLCSC.Location = new System.Drawing.Point(103, 53);
+			this.textBoxLCSC.MaxLength = 255;
+			this.textBoxLCSC.Name = "textBoxLCSC";
+			this.textBoxLCSC.Size = new System.Drawing.Size(125, 20);
+			this.textBoxLCSC.TabIndex = 1;
 			// 
 			// label2
 			// 
@@ -89,16 +89,16 @@
 			this.label3.Text = "LCSC#";
 			this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// textBoxPaySource
+			// textBoxPartNumber
 			// 
-			this.textBoxPaySource.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.textBoxPartNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBoxPaySource.Location = new System.Drawing.Point(103, 3);
-			this.textBoxPaySource.MaxLength = 45;
-			this.textBoxPaySource.Name = "textBoxPaySource";
-			this.textBoxPaySource.Size = new System.Drawing.Size(125, 20);
-			this.textBoxPaySource.TabIndex = 5;
+			this.textBoxPartNumber.Location = new System.Drawing.Point(103, 3);
+			this.textBoxPartNumber.MaxLength = 45;
+			this.textBoxPartNumber.Name = "textBoxPartNumber";
+			this.textBoxPartNumber.Size = new System.Drawing.Size(125, 20);
+			this.textBoxPartNumber.TabIndex = 5;
 			// 
 			// panel1
 			// 
@@ -158,8 +158,8 @@
 			this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-			this.tableLayoutPanel1.Controls.Add(this.textBoxComment, 1, 2);
-			this.tableLayoutPanel1.Controls.Add(this.textBoxPaySource, 1, 0);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxLCSC, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxPartNumber, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.labelSelectedPackage, 1, 5);
 			this.tableLayoutPanel1.Controls.Add(this.buttonEditParameters, 2, 1);
 			this.tableLayoutPanel1.Controls.Add(this.buttonEditPackage, 2, 5);
@@ -278,10 +278,10 @@
 		#endregion
 
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.TextBox textBoxComment;
+		private System.Windows.Forms.TextBox textBoxLCSC;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBoxPaySource;
+		private System.Windows.Forms.TextBox textBoxPartNumber;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button button2;
 		private System.Windows.Forms.Button buttonAdd;

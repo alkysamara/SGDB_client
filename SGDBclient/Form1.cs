@@ -15,7 +15,17 @@ namespace SGDBclient {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		public Form1() {
 			InitializeComponent();
-			string connectionString = "server=127.0.0.1;uid=alky;pwd=1234;database=SGitemsDB";
+			string pas;
+			if (System.IO.File.Exists("pwd.ini")) {
+				pas = System.IO.File.ReadAllText("pwd.ini");
+			} else {
+				FormEnterPassword formEnterPassord = new FormEnterPassword();
+				formEnterPassord.ShowDialog();
+				pas = formEnterPassord.password;
+				System.IO.File.WriteAllText("pwd.ini", pas);
+			}
+			string asdf = "33"+"33"+(2+1+8*0); //немнорго обфурскации, чтобы боты не набежали
+			string connectionString = "server=www.volgaspace.org;port="+asdf+";uid=client;pwd="+pas+"; database=SGitemsDB";
 			SQLconnection = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
 			try {
 				SQLconnection.Open();

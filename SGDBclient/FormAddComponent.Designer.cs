@@ -33,14 +33,14 @@
 			this.buttonAdd = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.labelSelectedPackage = new System.Windows.Forms.Label();
 			this.labelSelectedComponentType = new System.Windows.Forms.Label();
-			this.buttonEditComponentType = new System.Windows.Forms.Button();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.labelSelectedPackage = new System.Windows.Forms.Label();
 			this.buttonEditParameters = new System.Windows.Forms.Button();
-			this.buttonEditLinks = new System.Windows.Forms.Button();
 			this.buttonEditPackage = new System.Windows.Forms.Button();
+			this.buttonEditLinks = new System.Windows.Forms.Button();
+			this.buttonEditComponentType = new System.Windows.Forms.Button();
 			this.panel1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -177,16 +177,16 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 159);
 			this.tableLayoutPanel1.TabIndex = 9;
 			// 
-			// label6
+			// labelSelectedComponentType
 			// 
-			this.label6.AutoSize = true;
-			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label6.Location = new System.Drawing.Point(3, 125);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(94, 34);
-			this.label6.TabIndex = 10;
-			this.label6.Text = "Package";
-			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.labelSelectedComponentType.AutoSize = true;
+			this.labelSelectedComponentType.Dock = System.Windows.Forms.DockStyle.Left;
+			this.labelSelectedComponentType.Location = new System.Drawing.Point(103, 100);
+			this.labelSelectedComponentType.Name = "labelSelectedComponentType";
+			this.labelSelectedComponentType.Size = new System.Drawing.Size(78, 25);
+			this.labelSelectedComponentType.TabIndex = 13;
+			this.labelSelectedComponentType.Text = "None Selected";
+			this.labelSelectedComponentType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// label5
 			// 
@@ -199,6 +199,17 @@
 			this.label5.Text = "Component Type";
 			this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label6.Location = new System.Drawing.Point(3, 125);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(94, 34);
+			this.label6.TabIndex = 10;
+			this.label6.Text = "Package";
+			this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// labelSelectedPackage
 			// 
 			this.labelSelectedPackage.AutoSize = true;
@@ -210,26 +221,6 @@
 			this.labelSelectedPackage.Text = "None Selected";
 			this.labelSelectedPackage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// labelSelectedComponentType
-			// 
-			this.labelSelectedComponentType.AutoSize = true;
-			this.labelSelectedComponentType.Dock = System.Windows.Forms.DockStyle.Left;
-			this.labelSelectedComponentType.Location = new System.Drawing.Point(103, 100);
-			this.labelSelectedComponentType.Name = "labelSelectedComponentType";
-			this.labelSelectedComponentType.Size = new System.Drawing.Size(78, 25);
-			this.labelSelectedComponentType.TabIndex = 13;
-			this.labelSelectedComponentType.Text = "None Selected";
-			this.labelSelectedComponentType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// buttonEditComponentType
-			// 
-			this.buttonEditComponentType.Location = new System.Drawing.Point(234, 103);
-			this.buttonEditComponentType.Name = "buttonEditComponentType";
-			this.buttonEditComponentType.Size = new System.Drawing.Size(44, 19);
-			this.buttonEditComponentType.TabIndex = 14;
-			this.buttonEditComponentType.Text = "Edit";
-			this.buttonEditComponentType.UseVisualStyleBackColor = true;
-			// 
 			// buttonEditParameters
 			// 
 			this.buttonEditParameters.Location = new System.Drawing.Point(234, 28);
@@ -238,15 +229,7 @@
 			this.buttonEditParameters.TabIndex = 15;
 			this.buttonEditParameters.Text = "Edit";
 			this.buttonEditParameters.UseVisualStyleBackColor = true;
-			// 
-			// buttonEditLinks
-			// 
-			this.buttonEditLinks.Location = new System.Drawing.Point(234, 78);
-			this.buttonEditLinks.Name = "buttonEditLinks";
-			this.buttonEditLinks.Size = new System.Drawing.Size(44, 19);
-			this.buttonEditLinks.TabIndex = 16;
-			this.buttonEditLinks.Text = "Edit";
-			this.buttonEditLinks.UseVisualStyleBackColor = true;
+			this.buttonEditParameters.Click += new System.EventHandler(this.buttonEditParameters_Click);
 			// 
 			// buttonEditPackage
 			// 
@@ -256,6 +239,27 @@
 			this.buttonEditPackage.TabIndex = 17;
 			this.buttonEditPackage.Text = "Edit";
 			this.buttonEditPackage.UseVisualStyleBackColor = true;
+			this.buttonEditPackage.Click += new System.EventHandler(this.buttonEditPackage_Click);
+			// 
+			// buttonEditLinks
+			// 
+			this.buttonEditLinks.Location = new System.Drawing.Point(234, 78);
+			this.buttonEditLinks.Name = "buttonEditLinks";
+			this.buttonEditLinks.Size = new System.Drawing.Size(44, 19);
+			this.buttonEditLinks.TabIndex = 16;
+			this.buttonEditLinks.Text = "Edit";
+			this.buttonEditLinks.UseVisualStyleBackColor = true;
+			this.buttonEditLinks.Click += new System.EventHandler(this.buttonEditLinks_Click);
+			// 
+			// buttonEditComponentType
+			// 
+			this.buttonEditComponentType.Location = new System.Drawing.Point(234, 103);
+			this.buttonEditComponentType.Name = "buttonEditComponentType";
+			this.buttonEditComponentType.Size = new System.Drawing.Size(44, 19);
+			this.buttonEditComponentType.TabIndex = 14;
+			this.buttonEditComponentType.Text = "Edit";
+			this.buttonEditComponentType.UseVisualStyleBackColor = true;
+			this.buttonEditComponentType.Click += new System.EventHandler(this.buttonEditComponentType_Click);
 			// 
 			// FormAddComponent
 			// 

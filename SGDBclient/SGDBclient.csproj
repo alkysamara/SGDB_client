@@ -137,6 +137,12 @@
     <Compile Include="FormAddStorage.Designer.cs">
       <DependentUpon>FormAddStorage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEnterPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEnterPassword.Designer.cs">
+      <DependentUpon>FormEnterPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSelectComponentType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddStorage.resx">
       <DependentUpon>FormAddStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEnterPassword.resx">
+      <DependentUpon>FormEnterPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectComponentType.resx">
       <DependentUpon>FormSelectComponentType.cs</DependentUpon>

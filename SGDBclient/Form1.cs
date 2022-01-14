@@ -22,13 +22,15 @@ namespace SGDBclient {
 				FormEnterPassword formEnterPassord = new FormEnterPassword();
 				formEnterPassord.ShowDialog();
 				pas = formEnterPassord.password;
-				System.IO.File.WriteAllText("pwd.ini", pas);
 			}
 			string asdf = "33"+"33"+(2+1+8*0); //немнорго обфурскации, чтобы боты не набежали
 			string connectionString = "server=www.volgaspace.org;port="+asdf+";uid=client;pwd="+pas+"; database=SGitemsDB";
 			SQLconnection = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
 			try {
 				SQLconnection.Open();
+				if (!System.IO.File.Exists("pwd.ini")) {
+					System.IO.File.WriteAllText("pwd.ini", pas);
+				}
 			}catch (Exception e) {
 				richTextBox1.Text = e.Message;
 				richTextBox1.ForeColor = Color.Red;

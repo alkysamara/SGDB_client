@@ -34,7 +34,7 @@ namespace SGDBclient {
 				return;
 			}
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.components (`PartNumber`, `Parameters`, `LCSCpart`, `Links`, `ComponentType_idComponentType`, `Package_idPackage`) VALUES(\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, `LCSCpart`, `Links`, `ComponentType_idComponentType`, `Packages_idPackage`) VALUES(\'" +
 					textBoxPartNumber.Text + "\'," +
 					jsonEditorParameters.JSON + ",\'" +
 					textBoxLCSC.Text + "\'," +

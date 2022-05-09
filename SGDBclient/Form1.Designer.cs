@@ -87,7 +87,7 @@
 			// selectPackage
 			// 
 			this.selectPackage.Location = new System.Drawing.Point(397, 104);
-			this.selectPackage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+			this.selectPackage.Margin = new System.Windows.Forms.Padding(2);
 			this.selectPackage.Name = "selectPackage";
 			this.selectPackage.Size = new System.Drawing.Size(135, 19);
 			this.selectPackage.TabIndex = 5;

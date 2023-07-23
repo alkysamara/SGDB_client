@@ -19,7 +19,7 @@ namespace SGDBclient {
 
 		private void btnAdd_Click(object sender, EventArgs e) {
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.owners (`LastName`, `FirstName`, `AdditionalInfo`, `Rank`) VALUES(\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Owners` (`LastName`, `FirstName`, `AdditionalInfo`, `Rank`) VALUES(\'" +
 					textBoxLastName.Text + "\',\'" +
 					textBoxFirstName.Text + "\',\'" +
 					textBoxAdditionalInfo.Text + "\',\'" +

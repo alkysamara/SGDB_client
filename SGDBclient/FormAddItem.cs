@@ -35,8 +35,24 @@ namespace SGDBclient {
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e) {
-			//
-		}
+            try
+            {
+                MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Items` (`Quantity`, `Price`, `Storage_idStorage`, `Order_idOrder`, `Component_idComponent`, `Owner_idPerson`) VALUES(\'" +
+                    textBoxQuantity.Text + "\',\'" +
+                    textBoxPrice.Text + "\',\'" +
+                    StorageListForm.selectedStorageID + "\',\'" +
+                    OrderListForm.selectedOrderID + "\',\'" +
+                    ComponentListForm.selectedComponentID + "\',\'" +
+					OwnerListForm.selectedOwnerID +"\')"
+                    , SQLconnection);
+                command.ExecuteNonQuery();
+                this.Close();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+        }
 
 		private void btnSelectOwner_Click(object sender, EventArgs e) {
 			if (OwnerListForm == null) {

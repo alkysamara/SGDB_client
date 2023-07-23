@@ -78,7 +78,7 @@ namespace SGDBclient {
 
 		private void btnAddStorage_Click(object sender, EventArgs e) {
 			FormAddOwner form = new FormAddOwner(SQLconnection);
-			form.Show();
+			form.ShowDialog();
 			updateTable();
 		}
 	}

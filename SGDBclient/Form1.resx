@@ -121,10 +121,10 @@
     <value>+Owners: add - ok, select - ok
 Usages: add - no, select - no
 +Orders: add - ok, seect - ok
-Items: add - in progress, select - no
+Items: add - ok, select - no
 +Storages: add - ok, select - ok
 Movements: add - no, select - no
-Components: add - ok, select - no
++Components: add - ok, select - ok
 +Componenttypes: add-ok, select-ok</value>
   </data>
 </root>

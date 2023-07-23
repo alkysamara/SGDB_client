@@ -28,87 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			this.btnAddNewItem = new System.Windows.Forms.Button();
-			this.btnConnect = new System.Windows.Forms.Button();
-			this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-			this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-			this.button1 = new System.Windows.Forms.Button();
-			this.selectPackage = new System.Windows.Forms.Button();
-			this.SuspendLayout();
-			// 
-			// btnAddNewItem
-			// 
-			this.btnAddNewItem.Location = new System.Drawing.Point(161, 89);
-			this.btnAddNewItem.Name = "btnAddNewItem";
-			this.btnAddNewItem.Size = new System.Drawing.Size(75, 23);
-			this.btnAddNewItem.TabIndex = 0;
-			this.btnAddNewItem.Text = "Add new item";
-			this.btnAddNewItem.UseVisualStyleBackColor = true;
-			this.btnAddNewItem.Click += new System.EventHandler(this.btnAddNewItem_Click);
-			// 
-			// btnConnect
-			// 
-			this.btnConnect.Location = new System.Drawing.Point(488, 194);
-			this.btnConnect.Name = "btnConnect";
-			this.btnConnect.Size = new System.Drawing.Size(75, 23);
-			this.btnConnect.TabIndex = 1;
-			this.btnConnect.Text = "Connect";
-			this.btnConnect.UseVisualStyleBackColor = true;
-			this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-			// 
-			// richTextBox1
-			// 
-			this.richTextBox1.Location = new System.Drawing.Point(12, 342);
-			this.richTextBox1.Name = "richTextBox1";
-			this.richTextBox1.Size = new System.Drawing.Size(776, 96);
-			this.richTextBox1.TabIndex = 2;
-			this.richTextBox1.Text = "";
-			// 
-			// richTextBox2
-			// 
-			this.richTextBox2.Enabled = false;
-			this.richTextBox2.Location = new System.Drawing.Point(13, 125);
-			this.richTextBox2.Name = "richTextBox2";
-			this.richTextBox2.Size = new System.Drawing.Size(344, 183);
-			this.richTextBox2.TabIndex = 3;
-			this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
-			// 
-			// button1
-			// 
-			this.button1.Location = new System.Drawing.Point(397, 75);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(135, 23);
-			this.button1.TabIndex = 4;
-			this.button1.Text = "Select component type";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
-			// selectPackage
-			// 
-			this.selectPackage.Location = new System.Drawing.Point(397, 104);
-			this.selectPackage.Margin = new System.Windows.Forms.Padding(2);
-			this.selectPackage.Name = "selectPackage";
-			this.selectPackage.Size = new System.Drawing.Size(135, 19);
-			this.selectPackage.TabIndex = 5;
-			this.selectPackage.Text = "Select package";
-			this.selectPackage.UseVisualStyleBackColor = true;
-			this.selectPackage.Click += new System.EventHandler(this.selectPackage_Click);
-			// 
-			// Form1
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.selectPackage);
-			this.Controls.Add(this.button1);
-			this.Controls.Add(this.richTextBox2);
-			this.Controls.Add(this.richTextBox1);
-			this.Controls.Add(this.btnConnect);
-			this.Controls.Add(this.btnAddNewItem);
-			this.Name = "Form1";
-			this.Text = "Form1";
-			this.ResumeLayout(false);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.btnAddNewItem = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.selectPackage = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnAddNewItem
+            // 
+            this.btnAddNewItem.Location = new System.Drawing.Point(161, 89);
+            this.btnAddNewItem.Name = "btnAddNewItem";
+            this.btnAddNewItem.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNewItem.TabIndex = 0;
+            this.btnAddNewItem.Text = "Add new item";
+            this.btnAddNewItem.UseVisualStyleBackColor = true;
+            this.btnAddNewItem.Click += new System.EventHandler(this.btnAddNewItem_Click);
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(488, 194);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 1;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 342);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(776, 96);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Enabled = false;
+            this.richTextBox2.Location = new System.Drawing.Point(13, 125);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(344, 183);
+            this.richTextBox2.TabIndex = 3;
+            this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(397, 75);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Select component type";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // selectPackage
+            // 
+            this.selectPackage.Location = new System.Drawing.Point(397, 104);
+            this.selectPackage.Margin = new System.Windows.Forms.Padding(2);
+            this.selectPackage.Name = "selectPackage";
+            this.selectPackage.Size = new System.Drawing.Size(135, 19);
+            this.selectPackage.TabIndex = 5;
+            this.selectPackage.Text = "Select package";
+            this.selectPackage.UseVisualStyleBackColor = true;
+            this.selectPackage.Click += new System.EventHandler(this.selectPackage_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.selectPackage);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.richTextBox2);
+            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.btnConnect);
+            this.Controls.Add(this.btnAddNewItem);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.ResumeLayout(false);
 
         }
 

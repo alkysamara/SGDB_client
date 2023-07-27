@@ -77,7 +77,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(715, 450);
+            this.dataGridView1.Size = new System.Drawing.Size(843, 450);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
@@ -85,7 +85,7 @@
             // buttonRefreshTable
             // 
             this.buttonRefreshTable.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonRefreshTable.Location = new System.Drawing.Point(621, 0);
+            this.buttonRefreshTable.Location = new System.Drawing.Point(749, 0);
             this.buttonRefreshTable.Name = "buttonRefreshTable";
             this.buttonRefreshTable.Size = new System.Drawing.Size(94, 34);
             this.buttonRefreshTable.TabIndex = 2;
@@ -96,7 +96,7 @@
             // buttonAddComponent
             // 
             this.buttonAddComponent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAddComponent.Location = new System.Drawing.Point(313, 0);
+            this.buttonAddComponent.Location = new System.Drawing.Point(377, 0);
             this.buttonAddComponent.Name = "buttonAddComponent";
             this.buttonAddComponent.Size = new System.Drawing.Size(75, 34);
             this.buttonAddComponent.TabIndex = 3;
@@ -112,7 +112,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 576);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(715, 34);
+            this.panel1.Size = new System.Drawing.Size(843, 34);
             this.panel1.TabIndex = 4;
             // 
             // panel2
@@ -134,7 +134,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(715, 126);
+            this.panel2.Size = new System.Drawing.Size(843, 126);
             this.panel2.TabIndex = 5;
             // 
             // btn_package_filter
@@ -227,7 +227,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSearchString.Location = new System.Drawing.Point(12, 12);
             this.textBoxSearchString.Name = "textBoxSearchString";
-            this.textBoxSearchString.Size = new System.Drawing.Size(691, 20);
+            this.textBoxSearchString.Size = new System.Drawing.Size(819, 20);
             this.textBoxSearchString.TabIndex = 0;
             // 
             // btn_component_filter
@@ -272,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 610);
+            this.ClientSize = new System.Drawing.Size(843, 610);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

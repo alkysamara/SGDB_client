@@ -28,11 +28,11 @@ namespace SGDBclient {
 				//parent can be either an ID of another component type or "NULL" if not used
 				MySqlCommand command;
 				if (ComponentTypeListForm == null) {
-					command = new MySqlCommand("INSERT INTO `sgitemsdb`.`componenttypes` (`TypeName`, `Parameters`) VALUES (\'" +
+					command = new MySqlCommand("INSERT INTO `SGitemsDB`.`ComponentTypes` (`TypeName`, `TypeParameters`) VALUES (\'" +
 					textBoxName.Text + "\',\'" +
 					textBoxParameters.Text.Replace("\"","\\\"") + "\')", SQLconnection);
 				} else {
-					command = new MySqlCommand("INSERT INTO `sgitemsdb`.`componenttypes` (`TypeName`, `Parameters`, `TypeParent`) VALUES (\'" +
+					command = new MySqlCommand("INSERT INTO `SGitemsDB`.`ComponentTypes` (`TypeName`, `TypeParameters`, `TypeParent`) VALUES (\'" +
 					textBoxName.Text + "\',\'" +
 					textBoxParameters.Text + "\',\'" +
 					ComponentTypeListForm.selectedComponentTypeID + "\')", SQLconnection);

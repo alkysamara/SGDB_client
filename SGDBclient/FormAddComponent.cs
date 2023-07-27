@@ -34,14 +34,15 @@ namespace SGDBclient {
 				return;
 			}
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, `LCSCpart`, `Links`, `ComponentType_idComponentType`, `Packages_idPackage`) VALUES(\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, `LCSCpart`, `Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
 					textBoxPartNumber.Text + "\'," +
 					jsonEditorParameters.JSON + ",\'" +
 					textBoxLCSC.Text + "\'," +
 					jsonEditorLinks.JSON + ",\'" +
 					formSelectComponentType.selectedComponentTypeID + "\',\'"+
 					formSelectPackage.selectedPackageID + "\'" +
-					")", SQLconnection);
+					textBoxDescription.Text + "\'" +
+                    ")", SQLconnection);
 				command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {

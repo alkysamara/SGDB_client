@@ -53,6 +53,10 @@ namespace SGDBclient {
             }
             try
             {
+				if (textBoxPrice.Text == "")
+				{
+					textBoxPrice.Text = "0";
+                }
                 MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Items` (`Quantity`, `Price`, `Storage_idStorage`, `Order_idOrder`, `Component_idComponent`, `Owner_idPerson`) VALUES(\'" +
                     textBoxQuantity.Text + "\',\'" +
                     textBoxPrice.Text + "\',\'" +

@@ -24,7 +24,7 @@ namespace SGDBclient {
 				textBoxTotalCost.Text = "0";
 			}
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.orders (`Date`, `Comment`, `TotalCost`, `PaySource`) VALUES(\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO SGitemsDB.Orders (`Date`, `Comment`, `TotalCost`, `PaySource`) VALUES(\'" +
 					dateTimePicker1.Text + "\',\'" +
 					textBoxComment.Text + "\',\'" +
 					textBoxTotalCost.Text + "\',\'" +

@@ -23,7 +23,7 @@ namespace SGDBclient {
 				return;
 			}
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.storages (`Place`, `PlaceDetail`, `AdditionalComments`) VALUES(\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO SGitemsDB.Storages (`Place`, `PlaceDetail`, `AdditionalComments`) VALUES(\'" +
 					textBoxPlaceName.Text + "\',\'" +
 					textBoxPlaceDetails.Text + "\',\'" +
 					textBoxComments.Text + "\')", SQLconnection);

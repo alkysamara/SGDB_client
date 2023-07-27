@@ -39,9 +39,9 @@
             // 
             // btnAddNewItem
             // 
-            this.btnAddNewItem.Location = new System.Drawing.Point(161, 89);
+            this.btnAddNewItem.Location = new System.Drawing.Point(13, 12);
             this.btnAddNewItem.Name = "btnAddNewItem";
-            this.btnAddNewItem.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNewItem.Size = new System.Drawing.Size(134, 23);
             this.btnAddNewItem.TabIndex = 0;
             this.btnAddNewItem.Text = "Add new item";
             this.btnAddNewItem.UseVisualStyleBackColor = true;
@@ -76,11 +76,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(397, 75);
+            this.button1.Location = new System.Drawing.Point(12, 41);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "Select component type";
+            this.button1.Text = "Select Item";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

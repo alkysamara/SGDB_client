@@ -113,6 +113,12 @@
     <Compile Include="FormAddComponent.Designer.cs">
       <DependentUpon>FormAddComponent.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChangeQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChangeQ.Designer.cs">
+      <DependentUpon>FormChangeQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddOwner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,12 @@
     </Compile>
     <Compile Include="FormEnterPassword.Designer.cs">
       <DependentUpon>FormEnterPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSelectItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectItem.Designer.cs">
+      <DependentUpon>FormSelectItem.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSelectComponentType.cs">
       <SubType>Form</SubType>
@@ -199,6 +211,9 @@
     <EmbeddedResource Include="FormAddComponent.resx">
       <DependentUpon>FormAddComponent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormChangeQ.resx">
+      <DependentUpon>FormChangeQ.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddOwner.resx">
       <DependentUpon>FormAddOwner.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEnterPassword.resx">
       <DependentUpon>FormEnterPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectItem.resx">
+      <DependentUpon>FormSelectItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectComponentType.resx">
       <DependentUpon>FormSelectComponentType.cs</DependentUpon>

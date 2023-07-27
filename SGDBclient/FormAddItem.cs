@@ -35,6 +35,22 @@ namespace SGDBclient {
 		}
 
 		private void btnAdd_Click(object sender, EventArgs e) {
+            if (OwnerListForm == null)
+            {
+                OwnerListForm = new FormSelectOwner(SQLconnection);
+            }
+            if (OrderListForm == null)
+            {
+                OrderListForm = new FormSelectOrder(SQLconnection);
+            }
+            if (ComponentListForm == null)
+            {
+                ComponentListForm = new FormSelectComponent(SQLconnection);
+            }
+            if (StorageListForm == null)
+            {
+                StorageListForm = new FormSelectStorage(SQLconnection);
+            }
             try
             {
                 MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Items` (`Quantity`, `Price`, `Storage_idStorage`, `Order_idOrder`, `Component_idComponent`, `Owner_idPerson`) VALUES(\'" +

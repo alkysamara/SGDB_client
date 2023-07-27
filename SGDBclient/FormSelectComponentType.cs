@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
 	public partial class FormSelectComponentType : Form {
-		public int selectedComponentTypeID = 0;
+		public int selectedComponentTypeID = 1;
 		public string selectedComponentTypeName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {

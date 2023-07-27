@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
 	public partial class FormSelectOwner : Form {
-		public int selectedOwnerID = 0;
+		public int selectedOwnerID = 1;
 		public string selectedOwnerName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {

@@ -11,7 +11,7 @@ using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
 	public partial class FormSelectStorage : Form {
-		public int selectedStorageID = 0;
+		public int selectedStorageID = 1;
 		public string selectedStorageName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {

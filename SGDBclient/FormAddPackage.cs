@@ -25,7 +25,7 @@ namespace SGDBclient {
 				return;
 			}
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO sgitemsdb.packages (`PackageName`, `Type`, `Pins`, `PackageParameters`) VALUES(\'" +
+				MySqlCommand command = new MySqlCommand("INSERT INTO SGitemsDB.Packages (`PackageName`, `Type`, `Pins`, `PackageParameters`) VALUES(\'" +
 					textBoxPackageName.Text + "\',\'" +
 					textBoxPackageType.Text + "\',\'" +
 					numericUpDownPinCount.Text + "\'," +

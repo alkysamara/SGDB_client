@@ -24,6 +24,31 @@ namespace SGDBclient {
 			formSelectPackage = new FormSelectPackage(SQLconnection);
 		}
 
+		public static bool addSingleComponent(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string PartNumber, string Parameters, string LCSCpart, string Links, 
+			string ComponentType_idComponentType, string Packages_idPackage, string Description)
+		{
+            try
+            {
+                MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, " +
+                    "`LCSCpart`, `Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
+                    PartNumber + "\'," +
+                    Parameters + ",\'" +
+                    LCSCpart + "\'," +
+                    Links + ",\'" +
+                    ComponentType_idComponentType + "\',\'" +
+                    Packages_idPackage + "\',\'" +
+                    Description + "\'" +
+                    ")", SQLconnection);
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+				return false;
+            }
+			return true;
+        }
+
 		private void btnAdd_Click(object sender, EventArgs e) {
 			if (formSelectComponentType.selectedComponentTypeID == 0) {
 				MessageBox.Show("You should specify Component type");
@@ -33,17 +58,10 @@ namespace SGDBclient {
 				MessageBox.Show("You should specify Package");
 				return;
 			}
+			
 			try {
-				MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, `LCSCpart`, `Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
-					textBoxPartNumber.Text + "\'," +
-					jsonEditorParameters.JSON + ",\'" +
-					textBoxLCSC.Text + "\'," +
-					jsonEditorLinks.JSON + ",\'" +
-					formSelectComponentType.selectedComponentTypeID + "\',\'"+
-					formSelectPackage.selectedPackageID + "\'" +
-					textBoxDescription.Text + "\'" +
-                    ")", SQLconnection);
-				command.ExecuteNonQuery();
+                addSingleComponent(this.SQLconnection, textBoxPartNumber.Text, jsonEditorParameters.JSON, textBoxLCSC.Text, jsonEditorLinks.JSON,
+					formSelectComponentType.selectedComponentTypeID.ToString(), formSelectPackage.selectedPackageID.ToString(), textBoxDescription.Text);
 				this.Close();
 			} catch (Exception ee) {
 				MessageBox.Show(ee.Message);

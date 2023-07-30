@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
+            this.btn_add_from_csv = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -83,16 +84,17 @@
             // buttonAddComponent
             // 
             this.buttonAddComponent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAddComponent.Location = new System.Drawing.Point(293, 0);
+            this.buttonAddComponent.Location = new System.Drawing.Point(222, 0);
             this.buttonAddComponent.Name = "buttonAddComponent";
-            this.buttonAddComponent.Size = new System.Drawing.Size(75, 34);
+            this.buttonAddComponent.Size = new System.Drawing.Size(100, 34);
             this.buttonAddComponent.TabIndex = 3;
-            this.buttonAddComponent.Text = "Add component";
+            this.buttonAddComponent.Text = "Add component manually";
             this.buttonAddComponent.UseVisualStyleBackColor = true;
             this.buttonAddComponent.Click += new System.EventHandler(this.btnAddComponent_Click);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_add_from_csv);
             this.panel1.Controls.Add(this.buttonSelect);
             this.panel1.Controls.Add(this.buttonRefreshTable);
             this.panel1.Controls.Add(this.buttonAddComponent);
@@ -119,6 +121,17 @@
             this.textBoxSearchString.Name = "textBoxSearchString";
             this.textBoxSearchString.Size = new System.Drawing.Size(651, 20);
             this.textBoxSearchString.TabIndex = 0;
+            // 
+            // btn_add_from_csv
+            // 
+            this.btn_add_from_csv.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_add_from_csv.Location = new System.Drawing.Point(328, 0);
+            this.btn_add_from_csv.Name = "btn_add_from_csv";
+            this.btn_add_from_csv.Size = new System.Drawing.Size(100, 34);
+            this.btn_add_from_csv.TabIndex = 4;
+            this.btn_add_from_csv.Text = "Add components from CSV file";
+            this.btn_add_from_csv.UseVisualStyleBackColor = true;
+            this.btn_add_from_csv.Click += new System.EventHandler(this.btn_add_from_csv_Click);
             // 
             // FormSelectComponent
             // 
@@ -147,5 +160,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.TextBox textBoxSearchString;
-	}
+        private System.Windows.Forms.Button btn_add_from_csv;
+    }
 }

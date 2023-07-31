@@ -20,7 +20,11 @@ namespace SGDBclient {
 		public FormAddItem(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;
-		}
+            OwnerListForm = new FormSelectOwner(SQLconnection);
+            OrderListForm = new FormSelectOrder(SQLconnection);
+            ComponentListForm = new FormSelectComponent(SQLconnection);
+            StorageListForm = new FormSelectStorage(SQLconnection);
+        }
 
 		private void btnSelectStorage_Click(object sender, EventArgs e) {
 			if (StorageListForm == null) {
@@ -34,44 +38,37 @@ namespace SGDBclient {
 			this.Close();
 		}
 
-		private void btnAdd_Click(object sender, EventArgs e) {
-            if (OwnerListForm == null)
-            {
-                OwnerListForm = new FormSelectOwner(SQLconnection);
-            }
-            if (OrderListForm == null)
-            {
-                OrderListForm = new FormSelectOrder(SQLconnection);
-            }
-            if (ComponentListForm == null)
-            {
-                ComponentListForm = new FormSelectComponent(SQLconnection);
-            }
-            if (StorageListForm == null)
-            {
-                StorageListForm = new FormSelectStorage(SQLconnection);
-            }
+		public static bool add_single_item(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string Quantity, string Price,
+			int idStorage, int idOrder, int idComponent, int idPerson)
+		{
             try
             {
-				if (textBoxPrice.Text == "")
-				{
-					textBoxPrice.Text = "0";
+                if (Price == "")
+                {
+                    Price = "0";
                 }
                 MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Items` (`Quantity`, `Price`, `Storage_idStorage`, `Order_idOrder`, `Component_idComponent`, `Owner_idPerson`) VALUES(\'" +
-                    textBoxQuantity.Text + "\',\'" +
-                    textBoxPrice.Text + "\',\'" +
-                    StorageListForm.selectedStorageID + "\',\'" +
-                    OrderListForm.selectedOrderID + "\',\'" +
-                    ComponentListForm.selectedComponentID + "\',\'" +
-					OwnerListForm.selectedOwnerID +"\')"
+                    Quantity + "\',\'" +
+                    Price + "\',\'" +
+                    idStorage + "\',\'" +
+                    idOrder + "\',\'" +
+                    idComponent + "\',\'" +
+                    idPerson + "\')"
                     , SQLconnection);
                 command.ExecuteNonQuery();
-                this.Close();
             }
             catch (Exception ee)
             {
                 MessageBox.Show(ee.Message);
+                return false;
             }
+            return true;
+        }
+
+		private void btnAdd_Click(object sender, EventArgs e) {
+            if (add_single_item(this.SQLconnection, textBoxQuantity.Text, textBoxPrice.Text, StorageListForm.selectedStorageID,
+                OrderListForm.selectedOrderID, ComponentListForm.selectedComponentID, OwnerListForm.selectedOwnerID))
+                this.Close();
         }
 
 		private void btnSelectOwner_Click(object sender, EventArgs e) {
@@ -97,5 +94,10 @@ namespace SGDBclient {
 			ComponentListForm.ShowDialog();
 			textBoxComponent.Text = ComponentListForm.selectedComponentName;
 		}
-	}
+
+        private void btn_add_from_csv_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

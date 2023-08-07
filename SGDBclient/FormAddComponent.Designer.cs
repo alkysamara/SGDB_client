@@ -29,10 +29,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxPartNumber = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.labelSelectedComponentType = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,7 +43,6 @@
             this.buttonEditPackage = new System.Windows.Forms.Button();
             this.buttonEditLinks = new System.Windows.Forms.Button();
             this.buttonEditComponentType = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -104,6 +105,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.buttonAdd);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -111,6 +113,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(284, 30);
             this.panel1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(87, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Add from CSV";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -181,6 +193,17 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 180);
             this.tableLayoutPanel1.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Location = new System.Drawing.Point(3, 150);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 30);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Description";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSelectedComponentType
             // 
@@ -266,17 +289,6 @@
             this.buttonEditComponentType.UseVisualStyleBackColor = true;
             this.buttonEditComponentType.Click += new System.EventHandler(this.buttonEditComponentType_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(3, 150);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 30);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Description";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxDescription
             // 
             this.textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -328,5 +340,6 @@
 		private System.Windows.Forms.Button buttonEditComponentType;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxDescription;
+        private System.Windows.Forms.Button button1;
     }
 }

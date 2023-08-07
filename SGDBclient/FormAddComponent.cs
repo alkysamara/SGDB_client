@@ -86,7 +86,135 @@ namespace SGDBclient {
 			labelSelectedPackage.Text = formSelectPackage.selectedPackageName;
 		}
 
-		private void btnClick_Click(object sender, EventArgs e) {
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("File format: PartNumber, Parameters, LCSCpart, Links, ComponentType, Package, Description");
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "CSV files(*.csv)|*.csv";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string all_error_messages = "";
+                string path = ofd.FileName;
+                string[] lines;
+
+                try
+                {
+                    lines = System.IO.File.ReadAllLines(path);
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                    return;
+                }
+                string[][] matrix = new string[lines.Length][];
+                //get a matrix
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    matrix[i] = lines[i].Split(';');
+                }
+                if (matrix[0].Length != 7)
+                {
+                    MessageBox.Show("Input file was in wrong format");
+                    return;
+                }
+                //check all lines for errors
+                for (int i = 1; i < lines.Length; i++)
+                {
+                    if (matrix[i][0] == "") all_error_messages += "Partnumber" + i + " is empty\n";
+                    //check if pn exist
+                    MySqlDataReader reader;
+                    try
+                    {
+                        MySqlCommand command = new MySqlCommand("SELECT idComponent FROM Components " +
+                            "WHERE Components.PartNumber LIKE \'" + matrix[i][0] + "\'", SQLconnection);
+                        reader = command.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            all_error_messages += "Component " + matrix[i][0] + " already exist in the database\n";
+                        }
+                        reader.Close();
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show(ee.Message);
+                        return;
+                    }
+
+                    if (matrix[i][1] == "") matrix[i][1] = "\"{}\"";
+                    if (matrix[i][3] == "") matrix[i][3] = "\"{}\"";
+                    if (matrix[i][4] == "") all_error_messages += "Component type" + i + " is empty\n";
+                    //check if ct exist
+                    try
+                    {
+                        MySqlCommand command = new MySqlCommand("SELECT idComponentType FROM ComponentTypes " +
+                            "WHERE ComponentTypes.TypeName LIKE \'" + matrix[i][4] + "\'", SQLconnection);
+                        reader = command.ExecuteReader();
+                        if (!reader.Read())
+                        {
+                            all_error_messages += "ComponentType " + matrix[i][4] + " does not exist in the database\n";
+                        }
+                        else
+                        {
+                            matrix[i][4] = reader[0].ToString();
+                        }
+                        reader.Close();
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show(ee.Message);
+                        return;
+                    }
+
+                    if (matrix[i][5] == "") all_error_messages += "Package" + i + " is empty\n";
+                    //check if package exist
+                    try
+                    {
+                        MySqlCommand command = new MySqlCommand("SELECT idPackage FROM Packages " +
+                            "WHERE Packages.PackageName LIKE \'" + matrix[i][5] + "\'", SQLconnection);
+                        reader = command.ExecuteReader();
+                        if (!reader.Read())
+                        {
+                            all_error_messages += "Package " + matrix[i][5] + " does not exist in the database\n";
+                        }
+                        else
+                        {
+                            matrix[i][5] = reader[0].ToString();
+                        }
+                        reader.Close();
+                    }
+                    catch (Exception ee)
+                    {
+                        MessageBox.Show(ee.Message);
+                        return;
+                    }
+
+                    if (matrix[i][6] == "") all_error_messages += "Description" + i + " is empty\n";
+                }
+                //apply changes if no errors
+                if (all_error_messages != "")
+                {
+                    MessageBox.Show(all_error_messages);
+                    return;
+                }
+                //apply changes
+                int addcnt = 0;
+                try
+                {
+                    for (int i = 1; i < lines.Length; i++)
+                        if (FormAddComponent.addSingleComponent(this.SQLconnection, matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3], matrix[i][4], matrix[i][5], matrix[i][6]))
+                            addcnt++;
+
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                    return;
+                }
+                MessageBox.Show("Added " + addcnt + " new components");
+            }
+        }
+
+        private void btnClick_Click(object sender, EventArgs e) {
 			this.Close();
 		}
 	}

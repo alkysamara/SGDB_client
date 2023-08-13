@@ -83,9 +83,9 @@ namespace SGDBclient {
 		}
 
 		private void dataGridView1_KeyDown(object sender, KeyEventArgs e) {
-			e.SuppressKeyPress = true;
 			if (e.KeyCode == Keys.Enter) {
-				buttonSelect_Click(sender, e);
+                e.SuppressKeyPress = true;
+                buttonSelect_Click(sender, e);
 			}
 		}
 

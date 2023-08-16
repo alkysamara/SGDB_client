@@ -58,6 +58,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "PartNumber";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxLCSC
             // 
@@ -67,7 +68,7 @@
             this.textBoxLCSC.Location = new System.Drawing.Point(103, 53);
             this.textBoxLCSC.MaxLength = 255;
             this.textBoxLCSC.Name = "textBoxLCSC";
-            this.textBoxLCSC.Size = new System.Drawing.Size(125, 20);
+            this.textBoxLCSC.Size = new System.Drawing.Size(128, 20);
             this.textBoxLCSC.TabIndex = 1;
             // 
             // label2
@@ -100,15 +101,16 @@
             this.textBoxPartNumber.Location = new System.Drawing.Point(103, 3);
             this.textBoxPartNumber.MaxLength = 45;
             this.textBoxPartNumber.Name = "textBoxPartNumber";
-            this.textBoxPartNumber.Size = new System.Drawing.Size(125, 20);
+            this.textBoxPartNumber.Size = new System.Drawing.Size(128, 20);
             this.textBoxPartNumber.TabIndex = 5;
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.buttonAdd);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 181);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(284, 30);
@@ -158,8 +160,7 @@
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
@@ -191,7 +192,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 180);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 180);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // label7
@@ -251,7 +252,7 @@
             // 
             // buttonEditParameters
             // 
-            this.buttonEditParameters.Location = new System.Drawing.Point(234, 28);
+            this.buttonEditParameters.Location = new System.Drawing.Point(237, 28);
             this.buttonEditParameters.Name = "buttonEditParameters";
             this.buttonEditParameters.Size = new System.Drawing.Size(44, 19);
             this.buttonEditParameters.TabIndex = 15;
@@ -261,7 +262,7 @@
             // 
             // buttonEditPackage
             // 
-            this.buttonEditPackage.Location = new System.Drawing.Point(234, 128);
+            this.buttonEditPackage.Location = new System.Drawing.Point(237, 128);
             this.buttonEditPackage.Name = "buttonEditPackage";
             this.buttonEditPackage.Size = new System.Drawing.Size(44, 19);
             this.buttonEditPackage.TabIndex = 17;
@@ -271,7 +272,7 @@
             // 
             // buttonEditLinks
             // 
-            this.buttonEditLinks.Location = new System.Drawing.Point(234, 78);
+            this.buttonEditLinks.Location = new System.Drawing.Point(237, 78);
             this.buttonEditLinks.Name = "buttonEditLinks";
             this.buttonEditLinks.Size = new System.Drawing.Size(44, 19);
             this.buttonEditLinks.TabIndex = 16;
@@ -281,7 +282,7 @@
             // 
             // buttonEditComponentType
             // 
-            this.buttonEditComponentType.Location = new System.Drawing.Point(234, 103);
+            this.buttonEditComponentType.Location = new System.Drawing.Point(237, 103);
             this.buttonEditComponentType.Name = "buttonEditComponentType";
             this.buttonEditComponentType.Size = new System.Drawing.Size(44, 19);
             this.buttonEditComponentType.TabIndex = 14;
@@ -297,7 +298,7 @@
             this.textBoxDescription.Location = new System.Drawing.Point(103, 153);
             this.textBoxDescription.MaxLength = 255;
             this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(125, 20);
+            this.textBoxDescription.Size = new System.Drawing.Size(128, 20);
             this.textBoxDescription.TabIndex = 19;
             // 
             // FormAddComponent

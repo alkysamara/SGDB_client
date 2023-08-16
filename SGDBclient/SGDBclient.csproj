@@ -89,6 +89,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAddProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAddProject.Designer.cs">
+      <DependentUpon>FormAddProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAddComponentType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAddProject.resx">
+      <DependentUpon>FormAddProject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAddComponentType.resx">
       <DependentUpon>FormAddComponentType.cs</DependentUpon>
     </EmbeddedResource>

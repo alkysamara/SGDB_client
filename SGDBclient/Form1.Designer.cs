@@ -35,6 +35,11 @@
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.selectPackage = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddNewItem
@@ -49,7 +54,7 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(488, 194);
+            this.btnConnect.Location = new System.Drawing.Point(198, 41);
             this.btnConnect.Name = "btnConnect";
             this.btnConnect.Size = new System.Drawing.Size(75, 23);
             this.btnConnect.TabIndex = 1;
@@ -59,18 +64,20 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 342);
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(776, 96);
+            this.richTextBox1.Size = new System.Drawing.Size(770, 99);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
             // richTextBox2
             // 
+            this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.richTextBox2.Enabled = false;
-            this.richTextBox2.Location = new System.Drawing.Point(13, 125);
+            this.richTextBox2.Location = new System.Drawing.Point(0, 0);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(344, 183);
+            this.richTextBox2.Size = new System.Drawing.Size(307, 242);
             this.richTextBox2.TabIndex = 3;
             this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
             // 
@@ -86,28 +93,52 @@
             // 
             // selectPackage
             // 
-            this.selectPackage.Location = new System.Drawing.Point(397, 104);
+            this.selectPackage.Location = new System.Drawing.Point(165, 12);
             this.selectPackage.Margin = new System.Windows.Forms.Padding(2);
             this.selectPackage.Name = "selectPackage";
-            this.selectPackage.Size = new System.Drawing.Size(135, 19);
+            this.selectPackage.Size = new System.Drawing.Size(142, 23);
             this.selectPackage.TabIndex = 5;
             this.selectPackage.Text = "Select package";
             this.selectPackage.UseVisualStyleBackColor = true;
             this.selectPackage.Click += new System.EventHandler(this.selectPackage_Click);
             // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Location = new System.Drawing.Point(13, 94);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.richTextBox2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
+            this.splitContainer1.Size = new System.Drawing.Size(770, 345);
+            this.splitContainer1.SplitterDistance = 242;
+            this.splitContainer1.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(814, 473);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.selectPackage);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox2);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnAddNewItem);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -120,6 +151,7 @@
 		private System.Windows.Forms.RichTextBox richTextBox2;
 		private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button selectPackage;
+        private System.Windows.Forms.SplitContainer splitContainer1;
     }
 }
 

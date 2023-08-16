@@ -13,6 +13,8 @@ namespace SGDBclient {
 	public partial class FormCHangeQ : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private int idItem;
+		
+		
 		public FormCHangeQ(MySql.Data.MySqlClient.MySqlConnection con, int idItem) {
 			InitializeComponent();
 			SQLconnection = con;
@@ -22,11 +24,13 @@ namespace SGDBclient {
 
 		private void btnChange_Click(object sender, EventArgs e) {
 			try {
-				MySqlCommand command = new MySqlCommand("UPDATE `SGitemsDB`.`Items` SET `Quantity` = \'"+
-					textBoxNewQ.Text +
-					"\' WHERE (`idItem` = \'"+
-                    idItem.ToString()+
-                    "\')", SQLconnection); 
+				MySqlCommand command = new MySqlCommand("CALL writeOff("+
+					textBoxNeedQ.Text+','+
+					DateTime.Today.ToString()+','+
+                    idItem.ToString()+'+'+
+					comboBoxProj.Text+','+
+					textBoxComment.Text+
+                    ")", SQLconnection); 
 				command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {
@@ -37,5 +41,37 @@ namespace SGDBclient {
 		private void btnCancel_Click(object sender, EventArgs e) {
 			this.Close();
 		}
-	}
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormCHangeQ_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxProj_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxCurQ_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddProj_Click(object sender, EventArgs e)
+        {
+            FormAddProject fromAddProj = new FormAddProject(SQLconnection);
+            fromAddProj.ShowDialog();
+
+        }
+    }
 }

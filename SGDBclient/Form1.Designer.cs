@@ -49,11 +49,11 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(488, 194);
+            this.btnConnect.Location = new System.Drawing.Point(363, 285);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.Size = new System.Drawing.Size(131, 23);
             this.btnConnect.TabIndex = 1;
-            this.btnConnect.Text = "Connect";
+            this.btnConnect.Text = "Run JSON editor";
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 

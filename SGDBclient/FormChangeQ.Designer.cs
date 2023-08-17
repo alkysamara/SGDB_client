@@ -50,7 +50,7 @@
             this.labelCurQ.Name = "labelCurQ";
             this.labelCurQ.Size = new System.Drawing.Size(94, 22);
             this.labelCurQ.TabIndex = 0;
-            this.labelCurQ.Text = "Curent Quantity";
+            this.labelCurQ.Text = "Needable quantity";
             this.labelCurQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxNeedQ
@@ -61,7 +61,6 @@
             this.textBoxNeedQ.Location = new System.Drawing.Point(103, 3);
             this.textBoxNeedQ.MaxLength = 45;
             this.textBoxNeedQ.Name = "textBoxNeedQ";
-            this.textBoxNeedQ.ReadOnly = true;
             this.textBoxNeedQ.Size = new System.Drawing.Size(178, 20);
             this.textBoxNeedQ.TabIndex = 1;
             // 
@@ -73,7 +72,7 @@
             this.labelNeedQ.Name = "labelNeedQ";
             this.labelNeedQ.Size = new System.Drawing.Size(94, 22);
             this.labelNeedQ.TabIndex = 2;
-            this.labelNeedQ.Text = "Needable quantity";
+            this.labelNeedQ.Text = "Current quantity";
             this.labelNeedQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelNeedQ.Click += new System.EventHandler(this.label2_Click);
             // 
@@ -210,6 +209,7 @@
             this.textBoxCurQ.Location = new System.Drawing.Point(103, 25);
             this.textBoxCurQ.MaxLength = 45;
             this.textBoxCurQ.Name = "textBoxCurQ";
+            this.textBoxCurQ.ReadOnly = true;
             this.textBoxCurQ.Size = new System.Drawing.Size(178, 20);
             this.textBoxCurQ.TabIndex = 10;
             this.textBoxCurQ.TextChanged += new System.EventHandler(this.textBoxCurQ_TextChanged);

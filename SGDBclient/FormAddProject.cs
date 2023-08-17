@@ -30,7 +30,7 @@ namespace SGDBclient
         {
             try
             {
-                MySqlCommand command = new MySqlCommand("INSERT INTO SGitemsDB.Projects (Project)"+
+                MySqlCommand command = new MySqlCommand("INSERT INTO SGitemsDB.Projects (ProjectName)"+
                     "VALUES("+
                     textBoxAddProj.Text+
                     ")"

@@ -15,10 +15,13 @@ namespace SGDBclient {
 		private int idItem;
 		
 		
-		public FormCHangeQ(MySql.Data.MySqlClient.MySqlConnection con, int idItem) {
+		public FormCHangeQ(MySql.Data.MySqlClient.MySqlConnection con, int idItem, int Qty) {
 			InitializeComponent();
 			SQLconnection = con;
 			this.idItem = idItem;
+			textBoxData.Text = DateTime.Today.ToShortDateString();
+			textBoxCurQ.Text = Qty.ToString();
+			
 
         }
 

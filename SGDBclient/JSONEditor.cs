@@ -26,7 +26,7 @@ namespace SGDBclient {
 
 		private void button1_Click(object sender, EventArgs e) {
 			if (tb_JSON.Text == "") tb_JSON.Text = "\'{}\'";
-			JSON = tb_JSON.Text;
+			JSON = "\'"+tb_JSON.Text+"\'";
 			this.Close();
 		}
 

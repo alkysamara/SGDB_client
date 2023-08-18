@@ -35,7 +35,7 @@ namespace SGDBclient
                     textBoxAddProj.Text+
                     "\")"
 
-                    );
+                    ,SQLconnection);
                 command.ExecuteNonQuery();
                 this.Close();
             }

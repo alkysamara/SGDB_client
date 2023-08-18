@@ -13,6 +13,7 @@ namespace SGDBclient {
 	public partial class FormCHangeQ : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private int idItem;
+		private int quantity;
 		
 		
 		public FormCHangeQ(MySql.Data.MySqlClient.MySqlConnection con, int idItem, int Qty) {
@@ -21,6 +22,7 @@ namespace SGDBclient {
 			this.idItem = idItem;
 			textBoxData.Text = DateTime.Today.ToString("yyyy-MM-dd");
 			textBoxCurQ.Text = Qty.ToString();
+			quantity = Qty;
             getProjs();
 
 
@@ -64,8 +66,12 @@ namespace SGDBclient {
                     idItem.ToString()+",\""+
 					comboBoxProj.Text+"\",\""+
 					textBoxComment.Text+
-                    "\")", SQLconnection); 
-				command.ExecuteNonQuery();
+                    "\")", SQLconnection);
+                    if (quantity - (Int32.Parse(textBoxNeedQ.Text)) < 0)
+                    {
+                    throw new Exception("Value of current quantity must be greater than needable!");
+                    }
+                command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {
 				MessageBox.Show(ee.Message);

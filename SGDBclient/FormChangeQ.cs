@@ -19,21 +19,52 @@ namespace SGDBclient {
 			InitializeComponent();
 			SQLconnection = con;
 			this.idItem = idItem;
-			textBoxData.Text = DateTime.Today.ToShortDateString();
+			textBoxData.Text = DateTime.Today.ToString("yyyy-MM-dd");
 			textBoxCurQ.Text = Qty.ToString();
-			
+            getProjs();
+
 
         }
+		private void getProjs()
+		{
+			MySqlDataReader reader;
+			try
+			{
+				string sql_proj = "SELECT idProjects,ProjectName FROM SGitemsDB.Projects";
+				MySqlCommand command = new MySqlCommand(sql_proj, SQLconnection);
+				reader = command.ExecuteReader();
+				if (reader.HasRows)
+				{
+					while (reader.Read())
+					{
+						object idProjs = reader["idProjects"];
+						object ProjName = reader["ProjectName"];
+                        comboBoxProj.Items.AddRange(new string[] { ProjName.ToString() });
+                    }
+					
+
+				}
+
+                reader.Close();
+
+            }
+			catch (Exception e) 
+			{
+				MessageBox.Show(e.Message);
+              
+            }
+		}
 
 		private void btnChange_Click(object sender, EventArgs e) {
 			try {
+				
 				MySqlCommand command = new MySqlCommand("CALL writeOff("+
-					textBoxNeedQ.Text+','+
-					DateTime.Today.ToString()+','+
-                    idItem.ToString()+'+'+
-					comboBoxProj.Text+','+
+					textBoxNeedQ.Text+",\"" +
+					DateTime.Today.ToString("yyyy-MM-dd") + "\"," +
+                    idItem.ToString()+",\""+
+					comboBoxProj.Text+"\",\""+
 					textBoxComment.Text+
-                    ")", SQLconnection); 
+                    "\")", SQLconnection); 
 				command.ExecuteNonQuery();
 				this.Close();
 			} catch (Exception ee) {

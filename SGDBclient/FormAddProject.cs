@@ -31,11 +31,13 @@ namespace SGDBclient
             try
             {
                 MySqlCommand command = new MySqlCommand("INSERT INTO SGitemsDB.Projects (ProjectName)"+
-                    "VALUES("+
+                    "VALUES(\""+
                     textBoxAddProj.Text+
-                    ")"
+                    "\")"
 
                     );
+                command.ExecuteNonQuery();
+                this.Close();
             }
             catch( Exception ee ) 
             {

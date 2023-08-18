@@ -43,7 +43,8 @@ namespace SGDBclient {
 		}
 
 		private void btnConnect_Click(object sender, EventArgs e) {
-
+			JSONEditor jse = new JSONEditor();
+			jse.ShowDialog();
 		}
 
 		private void button1_Click(object sender, EventArgs e) {

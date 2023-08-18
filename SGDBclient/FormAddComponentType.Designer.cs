@@ -79,13 +79,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 181);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(294, 30);
+            this.panel1.Size = new System.Drawing.Size(284, 30);
             this.panel1.TabIndex = 6;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(216, 4);
+            this.button2.Location = new System.Drawing.Point(206, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -127,7 +127,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(291, 179);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(281, 179);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // label4
@@ -149,7 +149,7 @@
             this.textBoxName.Location = new System.Drawing.Point(103, 3);
             this.textBoxName.MaxLength = 255;
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(185, 20);
+            this.textBoxName.Size = new System.Drawing.Size(175, 20);
             this.textBoxName.TabIndex = 1;
             // 
             // textBoxParameters
@@ -166,7 +166,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Location = new System.Drawing.Point(103, 147);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(185, 29);
+            this.button1.Size = new System.Drawing.Size(175, 29);
             this.button1.TabIndex = 10;
             this.button1.Text = "Select";
             this.button1.UseVisualStyleBackColor = true;
@@ -178,7 +178,7 @@
             this.labelSelectedParent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelSelectedParent.Location = new System.Drawing.Point(103, 119);
             this.labelSelectedParent.Name = "labelSelectedParent";
-            this.labelSelectedParent.Size = new System.Drawing.Size(185, 25);
+            this.labelSelectedParent.Size = new System.Drawing.Size(175, 25);
             this.labelSelectedParent.TabIndex = 11;
             this.labelSelectedParent.Text = "None Selected";
             this.labelSelectedParent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -187,7 +187,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(294, 211);
+            this.ClientSize = new System.Drawing.Size(284, 211);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.MaximumSize = new System.Drawing.Size(1000, 250);

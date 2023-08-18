@@ -5,6 +5,8 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
@@ -23,8 +25,31 @@ namespace SGDBclient {
 			formSelectComponentType = new FormSelectComponentType(SQLconnection);
 			formSelectPackage = new FormSelectPackage(SQLconnection);
 		}
+        public string[] get_params_from_componentType(int id)
+        {
+            string[] results;
+            string json;
+            try
+            {
+                MySqlDataReader reader;
+                MySqlCommand command = new MySqlCommand("SELECT TypeParameters FROM ComponentTypes WHERE ComponentTypes.idComponentType = " + id, SQLconnection);
+                command.ExecuteNonQuery();
+                reader = command.ExecuteReader();
+                reader.Read();
+                json = reader[0].ToString();
+                reader.Close();
+                Dictionary<string, string>  results_dict = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
+                results = results_dict.Keys.ToArray<string>();
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+                return new string[] { "" };
+            }
+            return results;
+        }
 
-		public static bool addSingleComponent(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string PartNumber, string Parameters, string LCSCpart, string Links, 
+        public static bool addSingleComponent(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string PartNumber, string Parameters, string LCSCpart, string Links, 
 			string ComponentType_idComponentType, string Packages_idPackage, string Description)
 		{
             try
@@ -73,13 +98,15 @@ namespace SGDBclient {
 		}
 
 		private void buttonEditLinks_Click(object sender, EventArgs e) {
-			jsonEditorLinks.ShowDialog();
+            jsonEditorLinks.setList(new string[] { "Datasheet" });
+            jsonEditorLinks.ShowDialog();
 		}
 
 		private void buttonEditComponentType_Click(object sender, EventArgs e) {
 			formSelectComponentType.ShowDialog();
 			labelSelectedComponentType.Text = formSelectComponentType.selectedComponentTypeName;
-		}
+            jsonEditorParameters.setList(get_params_from_componentType(formSelectComponentType.selectedComponentTypeID));
+        }
 
 		private void buttonEditPackage_Click(object sender, EventArgs e) {
 			formSelectPackage.ShowDialog();

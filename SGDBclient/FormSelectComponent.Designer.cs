@@ -35,6 +35,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
+            this.btnEditParams = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,7 +85,7 @@
             // buttonAddComponent
             // 
             this.buttonAddComponent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAddComponent.Location = new System.Drawing.Point(279, 0);
+            this.buttonAddComponent.Location = new System.Drawing.Point(174, 0);
             this.buttonAddComponent.Name = "buttonAddComponent";
             this.buttonAddComponent.Size = new System.Drawing.Size(100, 34);
             this.buttonAddComponent.TabIndex = 3;
@@ -94,6 +95,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnEditParams);
             this.panel1.Controls.Add(this.buttonSelect);
             this.panel1.Controls.Add(this.buttonRefreshTable);
             this.panel1.Controls.Add(this.buttonAddComponent);
@@ -120,6 +122,16 @@
             this.textBoxSearchString.Name = "textBoxSearchString";
             this.textBoxSearchString.Size = new System.Drawing.Size(651, 20);
             this.textBoxSearchString.TabIndex = 0;
+            // 
+            // btnEditParams
+            // 
+            this.btnEditParams.Location = new System.Drawing.Point(380, 0);
+            this.btnEditParams.Name = "btnEditParams";
+            this.btnEditParams.Size = new System.Drawing.Size(138, 34);
+            this.btnEditParams.TabIndex = 4;
+            this.btnEditParams.Text = "Edit parameters";
+            this.btnEditParams.UseVisualStyleBackColor = true;
+            this.btnEditParams.Click += new System.EventHandler(this.btnEditParams_Click);
             // 
             // FormSelectComponent
             // 
@@ -148,5 +160,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Panel panel2;
 		private System.Windows.Forms.TextBox textBoxSearchString;
+        private System.Windows.Forms.Button btnEditParams;
     }
 }

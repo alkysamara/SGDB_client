@@ -76,5 +76,12 @@ namespace SGDBclient {
 			form.ShowDialog();
 			updateTable();
 		}
+
+        private void btnEditParams_Click(object sender, EventArgs e)
+        {
+			FormEditParams form = new FormEditParams(SQLconnection);
+			form.ShowDialog();
+			updateTable();
+        }
     }
 }

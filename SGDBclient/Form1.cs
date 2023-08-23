@@ -58,5 +58,10 @@ namespace SGDBclient {
 			FormSelectPackage formSelectPackage = new FormSelectPackage(SQLconnection);
 			formSelectPackage.ShowDialog();
 		}
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

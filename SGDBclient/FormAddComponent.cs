@@ -241,6 +241,11 @@ namespace SGDBclient {
             }
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnClick_Click(object sender, EventArgs e) {
 			this.Close();
 		}

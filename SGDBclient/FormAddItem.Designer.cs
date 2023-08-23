@@ -131,6 +131,7 @@ namespace SGDBclient
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdd.Location = new System.Drawing.Point(25, 202);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
@@ -149,6 +150,8 @@ namespace SGDBclient
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label4);
@@ -162,6 +165,9 @@ namespace SGDBclient
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.textBoxOwner);
             this.panel2.Controls.Add(this.textBoxComponent);
@@ -211,6 +217,8 @@ namespace SGDBclient
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.btnSelectOwner);
             this.panel3.Controls.Add(this.btnSelectComponent);
             this.panel3.Controls.Add(this.btnSelectOrder);
@@ -252,6 +260,7 @@ namespace SGDBclient
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(265, 202);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -262,6 +271,7 @@ namespace SGDBclient
             // 
             // btn_add_from_csv
             // 
+            this.btn_add_from_csv.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_add_from_csv.Location = new System.Drawing.Point(128, 202);
             this.btn_add_from_csv.Name = "btn_add_from_csv";
             this.btn_add_from_csv.Size = new System.Drawing.Size(97, 23);

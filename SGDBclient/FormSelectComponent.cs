@@ -79,7 +79,8 @@ namespace SGDBclient {
 
         private void btnEditParams_Click(object sender, EventArgs e)
         {
-			FormEditParams form = new FormEditParams(SQLconnection);
+			int id = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value; 
+			FormEditParams form = new FormEditParams(SQLconnection,id);
 			form.ShowDialog();
 			updateTable();
         }

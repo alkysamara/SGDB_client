@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,19 +14,43 @@ namespace SGDBclient
     public partial class FormEditParams : Form
     {
         private MySql.Data.MySqlClient.MySqlConnection Sqlconnection;
-        public FormEditParams(MySql.Data.MySqlClient.MySqlConnection con)
+        private int idComponent;
+        private string PartNumb;
+        private string Descrip;
+        public FormEditParams(MySql.Data.MySqlClient.MySqlConnection con, int id)
         {
             InitializeComponent();
             Sqlconnection = con;
+            idComponent = id;
+
+            MySqlDataReader reader;
+            MySqlCommand command = new MySqlCommand("Select PartNumber, Description FROM SGitemsDB.Components WHERE idComponent = " +id,Sqlconnection);
+            command.ExecuteNonQuery();
+            reader = command.ExecuteReader();
+            reader.Read();
+            PartNumb = reader[0].ToString();
+            Descrip = reader[1].ToString(); 
+            reader.Close();
+            textBoxPartNumb.Text = PartNumb;
+            textBoxDescrip.Text = Descrip;
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                MySqlCommand command = new MySqlCommand("Update SGitemsDB.Components " +
+                   " SET " + " PartNumber = \" " + textBoxPartNumb.Text + "\"," +
+                   " Description = \" " + textBoxDescrip.Text + "\""+
+                   " WHERE idComponent = " +idComponent.ToString()+";",Sqlconnection);
+                command.ExecuteNonQuery();
+                this.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-
-
-
-
-            this.Close();
+           
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -33,6 +58,9 @@ namespace SGDBclient
 
         }
 
+        private void FormEditParams_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }

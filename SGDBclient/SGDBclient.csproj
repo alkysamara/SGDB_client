@@ -104,11 +104,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormEditparams.cs">
+    <Compile Include="FormEditParams.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEditparams.Designer.cs">
-      <DependentUpon>FormEditparams.cs</DependentUpon>
+    <Compile Include="FormEditParams.Designer.cs">
+      <DependentUpon>FormEditParams.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAddProject.cs">
       <SubType>Form</SubType>
@@ -226,8 +226,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormEditparams.resx">
-      <DependentUpon>FormEditparams.cs</DependentUpon>
+    <EmbeddedResource Include="FormEditParams.resx">
+      <DependentUpon>FormEditParams.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAddProject.resx">
       <DependentUpon>FormAddProject.cs</DependentUpon>

@@ -58,7 +58,12 @@ namespace SGDBclient {
 					dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
 					dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
 				}
-			}
+                if (reader.GetName(i).Contains("Parameters") )
+                { //this is a wery long field
+                    dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
+                    dataGridView1.Columns[i].Width = 100; //small width
+                }
+            }
 			while (reader.Read()) {
 				dataGridView1.Rows.Add();
 				for (int j = 0; j < reader.FieldCount; j++)
@@ -149,6 +154,122 @@ namespace SGDBclient {
             FormCHangeQ formChangeQ = new FormCHangeQ(SQLconnection, id);
 			formChangeQ.ShowDialog();
 			updateTable();
+        }
+
+
+        public static int getComponentIdByName(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string componentName)
+        {
+            MySqlDataReader reader;
+                MySqlCommand command = new MySqlCommand("SELECT idComponent FROM Components " +
+                    "WHERE Components.PartNumber LIKE \'" + componentName + "\'", SQLconnection);
+            reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                int result = (int)reader[0];
+                reader.Close();
+                return result;
+            }
+            else
+            {
+                reader.Close();
+                throw new Exception("No component " + componentName + " found in database");
+            }
+            
+        }
+        public static int getAllItemsQuantities(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string componentName)
+        {
+            int id = 0;
+            try
+            {
+                id = getComponentIdByName(SQLconnection, componentName);
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+            try { 
+                MySqlDataReader reader;
+                MySqlCommand command = new MySqlCommand("SELECT Quantity FROM Items " +
+                    "WHERE Items.Component_idComponent = \'" + id + "\'", SQLconnection);
+                reader = command.ExecuteReader();
+                int totalQ = 0;
+                while (reader.Read()) { totalQ += (int)reader[0]; }
+                reader.Close();
+                return totalQ;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        private void btn_check_availability_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "CSV files(*.csv)|*.csv";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string all_error_messages = "";
+                string path = ofd.FileName;
+                string[] lines;
+                try
+                {
+                    lines = System.IO.File.ReadAllLines(path);
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show(ee.Message);
+                    return;
+                }
+                string[][] matrix = new string[lines.Length][];
+                //get a matrix
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    matrix[i] = lines[i].Split(';');
+                }
+
+                //find Partnumber column
+                int pnColumnIndex = -1;
+                for (int i = 0; i < matrix[0].Length; i++)
+                {
+                    if ("partnumber pn p/n заказ order".Contains(matrix[0][i].ToLower()))
+                    {
+                        pnColumnIndex = i;
+                        break;
+                    }
+                }
+                if (pnColumnIndex == -1)
+                    all_error_messages += "Partnumber column not found in file\n";
+                else { //process the partnumber list
+                    string[][] results = new string[lines.Length-1][];
+                    for (int i = 1; i < lines.Length; i++)
+                    {
+                        if (matrix[i][pnColumnIndex] == "") all_error_messages += "Partnumber" + i + " is empty\n";
+                        else
+                        {
+                            results[i - 1] = new string[2];
+                            results[i - 1][0] = matrix[i][pnColumnIndex];
+                            try
+                            {
+                                results[i - 1][1] = getAllItemsQuantities(this.SQLconnection, matrix[i][pnColumnIndex]).ToString();
+                            }catch (Exception ex)
+                            {
+                                all_error_messages += ex.Message;
+                            }
+                        }
+                    }
+                    //return results if no errors
+                    if (all_error_messages != "")
+                    {
+                        MessageBox.Show(all_error_messages);
+                        return;
+                    }
+                    //show results
+                    FormTableResult table = new FormTableResult(new string[] { "Order", "TotalQ" }, results);
+                    table.ShowDialog();
+                }
+            }
         }
     }
 }

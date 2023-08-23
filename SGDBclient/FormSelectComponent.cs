@@ -32,7 +32,12 @@ namespace SGDBclient {
 					dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
 					dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
 				}
-			}
+                if (reader.GetName(i).Contains("Parameters") || reader.GetName(i).Contains("Links") || reader.GetName(i).Contains("Description"))
+                { //this is a wery long field
+                    dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
+                    dataGridView1.Columns[i].Width = 150; //small width
+                }
+            }
 			while (reader.Read()) {
 				dataGridView1.Rows.Add();
 				for (int j = 0; j < reader.FieldCount; j++)

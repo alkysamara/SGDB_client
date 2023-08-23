@@ -34,8 +34,12 @@
             this.buttonAddComponent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_change_q = new System.Windows.Forms.Button();
+            this.btn_component_filter = new System.Windows.Forms.Button();
             this.btn_package_filter = new System.Windows.Forms.Button();
+            this.chb_Component_filter = new System.Windows.Forms.CheckBox();
             this.chb_package_filter = new System.Windows.Forms.CheckBox();
+            this.textBoxComponent = new System.Windows.Forms.TextBox();
             this.textBoxPackage = new System.Windows.Forms.TextBox();
             this.btn_component_type_filter = new System.Windows.Forms.Button();
             this.chb_ctype_filter = new System.Windows.Forms.CheckBox();
@@ -44,10 +48,7 @@
             this.btn_storage_filter = new System.Windows.Forms.Button();
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
-            this.btn_component_filter = new System.Windows.Forms.Button();
-            this.chb_Component_filter = new System.Windows.Forms.CheckBox();
-            this.textBoxComponent = new System.Windows.Forms.TextBox();
-            this.btn_change_q = new System.Windows.Forms.Button();
+            this.btn_check_availability = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -117,6 +118,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_check_availability);
             this.panel2.Controls.Add(this.btn_change_q);
             this.panel2.Controls.Add(this.btn_component_filter);
             this.panel2.Controls.Add(this.btn_package_filter);
@@ -137,6 +139,26 @@
             this.panel2.Size = new System.Drawing.Size(843, 126);
             this.panel2.TabIndex = 5;
             // 
+            // btn_change_q
+            // 
+            this.btn_change_q.Location = new System.Drawing.Point(453, 88);
+            this.btn_change_q.Name = "btn_change_q";
+            this.btn_change_q.Size = new System.Drawing.Size(141, 23);
+            this.btn_change_q.TabIndex = 31;
+            this.btn_change_q.Text = "Change Quantity";
+            this.btn_change_q.UseVisualStyleBackColor = true;
+            this.btn_change_q.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btn_component_filter
+            // 
+            this.btn_component_filter.Location = new System.Drawing.Point(453, 37);
+            this.btn_component_filter.Name = "btn_component_filter";
+            this.btn_component_filter.Size = new System.Drawing.Size(141, 23);
+            this.btn_component_filter.TabIndex = 30;
+            this.btn_component_filter.Text = "Select component";
+            this.btn_component_filter.UseVisualStyleBackColor = true;
+            this.btn_component_filter.Click += new System.EventHandler(this.btn_component_filter_Click);
+            // 
             // btn_package_filter
             // 
             this.btn_package_filter.Location = new System.Drawing.Point(157, 88);
@@ -147,6 +169,15 @@
             this.btn_package_filter.UseVisualStyleBackColor = true;
             this.btn_package_filter.Click += new System.EventHandler(this.btn_package_filter_Click);
             // 
+            // chb_Component_filter
+            // 
+            this.chb_Component_filter.AutoSize = true;
+            this.chb_Component_filter.Location = new System.Drawing.Point(308, 42);
+            this.chb_Component_filter.Name = "chb_Component_filter";
+            this.chb_Component_filter.Size = new System.Drawing.Size(15, 14);
+            this.chb_Component_filter.TabIndex = 29;
+            this.chb_Component_filter.UseVisualStyleBackColor = true;
+            // 
             // chb_package_filter
             // 
             this.chb_package_filter.AutoSize = true;
@@ -155,6 +186,15 @@
             this.chb_package_filter.Size = new System.Drawing.Size(15, 14);
             this.chb_package_filter.TabIndex = 26;
             this.chb_package_filter.UseVisualStyleBackColor = true;
+            // 
+            // textBoxComponent
+            // 
+            this.textBoxComponent.Enabled = false;
+            this.textBoxComponent.Location = new System.Drawing.Point(325, 39);
+            this.textBoxComponent.Name = "textBoxComponent";
+            this.textBoxComponent.Size = new System.Drawing.Size(122, 20);
+            this.textBoxComponent.TabIndex = 28;
+            this.textBoxComponent.Text = "<click select>";
             // 
             // textBoxPackage
             // 
@@ -230,43 +270,15 @@
             this.textBoxSearchString.Size = new System.Drawing.Size(819, 20);
             this.textBoxSearchString.TabIndex = 0;
             // 
-            // btn_component_filter
+            // btn_check_availability
             // 
-            this.btn_component_filter.Location = new System.Drawing.Point(453, 37);
-            this.btn_component_filter.Name = "btn_component_filter";
-            this.btn_component_filter.Size = new System.Drawing.Size(141, 23);
-            this.btn_component_filter.TabIndex = 30;
-            this.btn_component_filter.Text = "Select component";
-            this.btn_component_filter.UseVisualStyleBackColor = true;
-            this.btn_component_filter.Click += new System.EventHandler(this.btn_component_filter_Click);
-            // 
-            // chb_Component_filter
-            // 
-            this.chb_Component_filter.AutoSize = true;
-            this.chb_Component_filter.Location = new System.Drawing.Point(308, 42);
-            this.chb_Component_filter.Name = "chb_Component_filter";
-            this.chb_Component_filter.Size = new System.Drawing.Size(15, 14);
-            this.chb_Component_filter.TabIndex = 29;
-            this.chb_Component_filter.UseVisualStyleBackColor = true;
-            // 
-            // textBoxComponent
-            // 
-            this.textBoxComponent.Enabled = false;
-            this.textBoxComponent.Location = new System.Drawing.Point(325, 39);
-            this.textBoxComponent.Name = "textBoxComponent";
-            this.textBoxComponent.Size = new System.Drawing.Size(122, 20);
-            this.textBoxComponent.TabIndex = 28;
-            this.textBoxComponent.Text = "<click select>";
-            // 
-            // btn_change_q
-            // 
-            this.btn_change_q.Location = new System.Drawing.Point(453, 88);
-            this.btn_change_q.Name = "btn_change_q";
-            this.btn_change_q.Size = new System.Drawing.Size(141, 23);
-            this.btn_change_q.TabIndex = 31;
-            this.btn_change_q.Text = "Change Quantity";
-            this.btn_change_q.UseVisualStyleBackColor = true;
-            this.btn_change_q.Click += new System.EventHandler(this.button1_Click_1);
+            this.btn_check_availability.Location = new System.Drawing.Point(690, 35);
+            this.btn_check_availability.Name = "btn_check_availability";
+            this.btn_check_availability.Size = new System.Drawing.Size(141, 23);
+            this.btn_check_availability.TabIndex = 32;
+            this.btn_check_availability.Text = "Check BOM availability";
+            this.btn_check_availability.UseVisualStyleBackColor = true;
+            this.btn_check_availability.Click += new System.EventHandler(this.btn_check_availability_Click);
             // 
             // FormSelectItem
             // 
@@ -277,7 +289,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FormSelectItem";
-            this.Text = "Select component";
+            this.Text = "Select item";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -308,5 +320,6 @@
         private System.Windows.Forms.CheckBox chb_Component_filter;
         private System.Windows.Forms.TextBox textBoxComponent;
         private System.Windows.Forms.Button btn_change_q;
+        private System.Windows.Forms.Button btn_check_availability;
     }
 }

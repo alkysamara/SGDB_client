@@ -109,7 +109,7 @@ namespace SGDBclient {
 
                 try
                 {
-                    lines = System.IO.File.ReadAllLines(path);
+                    lines = System.IO.File.ReadAllLines(path, Encoding.GetEncoding(1251));//windows encoding to allow cyrilic letters
                 }
                 catch (Exception ee)
                 {

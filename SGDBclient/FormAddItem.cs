@@ -251,7 +251,7 @@ namespace SGDBclient {
                     MessageBox.Show(ee.Message);
                     return;
                 }
-                MessageBox.Show("Added " + addcnt + " new components");
+                MessageBox.Show("Added " + addcnt + " new items");
             }
         }
     }

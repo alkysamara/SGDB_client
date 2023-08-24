@@ -23,53 +23,61 @@ namespace SGDBclient {
 		private FormSelectPackage PackageListForm;
 
         private void updateTable() {
-			MySqlDataReader reader;
-			try {
-				string sql_querry = "SELECT * FROM full_item " +
-					"WHERE full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\'";
-				if (chb_Component_filter.Checked)
-				{
-					sql_querry += "AND (idComponent = " + ComponentListForm.selectedComponentID + ")";
-                }
-				if (chb_ctype_filter.Checked)
-				{
-                    sql_querry += "AND (idComponentType = " + CTypetListForm.selectedComponentTypeID + ")";
-                }
-				if (chb_package_filter.Checked)
-				{
-                    sql_querry += "AND (idPackage = " + PackageListForm.selectedPackageID + ")";
-                }
-				if (chb_storage_filter.Checked)
-				{
-                    sql_querry += "AND (idStorage = " + StorageListForm.selectedStorageID + ")";
-                }
-
-                MySqlCommand command = new MySqlCommand(sql_querry, SQLconnection);
-				reader = command.ExecuteReader();
-			} catch (Exception e) {
-				MessageBox.Show(e.Message);
-				return;
-			}
-			dataGridView1.Rows.Clear();
-			dataGridView1.Columns.Clear();
-			for (int i = 0; i < reader.FieldCount; i++) {
-				dataGridView1.Columns.Add(reader.GetName(i), reader.GetName(i));
-				if (reader.GetName(i).StartsWith("id") || reader.GetName(i).Contains("_id")) { //this is an id field, hide it
-					dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
-					dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
-				}
-                if (reader.GetName(i).Contains("Parameters") )
-                { //this is a wery long field
-                    dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
-                    dataGridView1.Columns[i].Width = 100; //small width
-                }
+            if ((textBoxSearchString.Text == "")&&!chb_Component_filter.Checked&&!chb_ctype_filter.Checked&&!chb_package_filter.Checked&&!chb_storage_filter.Checked)
+            {
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
             }
-			while (reader.Read()) {
-				dataGridView1.Rows.Add();
-				for (int j = 0; j < reader.FieldCount; j++)
-					dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[j].Value = reader[j];
-			}
-			reader.Close();
+            else {
+                MySqlDataReader reader;
+                try {
+                    string sql_querry = "SELECT * FROM full_item " +
+                        "WHERE full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\' or " +
+                        "full_item.Description LIKE \'%" + textBoxSearchString.Text + "%\'";
+                    if (chb_Component_filter.Checked && (ComponentListForm != null))
+                    {
+                        sql_querry += "AND (idComponent = " + ComponentListForm.selectedComponentID + ")";
+                    }
+                    if (chb_ctype_filter.Checked && (CTypetListForm != null))
+                    {
+                        sql_querry += "AND (idComponentType = " + CTypetListForm.selectedComponentTypeID + ")";
+                    }
+                    if (chb_package_filter.Checked && (PackageListForm != null))
+                    {
+                        sql_querry += "AND (idPackage = " + PackageListForm.selectedPackageID + ")";
+                    }
+                    if (chb_storage_filter.Checked && (StorageListForm != null))
+                    {
+                        sql_querry += "AND (idStorage = " + StorageListForm.selectedStorageID + ")";
+                    }
+
+                    MySqlCommand command = new MySqlCommand(sql_querry, SQLconnection);
+                    reader = command.ExecuteReader();
+                } catch (Exception e) {
+                    MessageBox.Show(e.Message);
+                    return;
+                }
+                dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Clear();
+                for (int i = 0; i < reader.FieldCount; i++) {
+                    dataGridView1.Columns.Add(reader.GetName(i), reader.GetName(i));
+                    if (reader.GetName(i).StartsWith("id") || reader.GetName(i).Contains("_id")) { //this is an id field, hide it
+                        dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
+                        dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
+                    }
+                    if (reader.GetName(i).Contains("Parameters"))
+                    { //this is a wery long field
+                        dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
+                        dataGridView1.Columns[i].Width = 100; //small width
+                    }
+                }
+                while (reader.Read()) {
+                    dataGridView1.Rows.Add();
+                    for (int j = 0; j < reader.FieldCount; j++)
+                        dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[j].Value = reader[j];
+                }
+                reader.Close();
+            }
 		}
 		public FormSelectItem(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
@@ -270,6 +278,15 @@ namespace SGDBclient {
                     FormTableResult table = new FormTableResult(new string[] { "Order", "TotalQ" }, results);
                     table.ShowDialog();
                 }
+            }
+        }
+
+        private void textBoxSearchString_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                updateTable();
             }
         }
     }

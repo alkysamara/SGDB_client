@@ -44,9 +44,8 @@
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Left;
             this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 42);
+            this.button1.Size = new System.Drawing.Size(75, 34);
             this.button1.TabIndex = 0;
             this.button1.Text = "Select";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,12 +61,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 57);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 46);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(793, 369);
+            this.dataGridView1.Size = new System.Drawing.Size(595, 300);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
@@ -75,10 +73,9 @@
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button2.Location = new System.Drawing.Point(668, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Location = new System.Drawing.Point(501, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(125, 42);
+            this.button2.Size = new System.Drawing.Size(94, 34);
             this.button2.TabIndex = 2;
             this.button2.Text = "Refresh table";
             this.button2.UseVisualStyleBackColor = true;
@@ -87,10 +84,9 @@
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Location = new System.Drawing.Point(333, 0);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button3.Location = new System.Drawing.Point(250, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 42);
+            this.button3.Size = new System.Drawing.Size(75, 34);
             this.button3.TabIndex = 3;
             this.button3.Text = "Add package";
             this.button3.UseVisualStyleBackColor = true;
@@ -102,10 +98,9 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 426);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(0, 346);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(793, 42);
+            this.panel1.Size = new System.Drawing.Size(595, 34);
             this.panel1.TabIndex = 4;
             // 
             // panel2
@@ -113,30 +108,28 @@
             this.panel2.Controls.Add(this.textBoxSearchString);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(793, 57);
+            this.panel2.Size = new System.Drawing.Size(595, 46);
             this.panel2.TabIndex = 5;
             // 
             // textBoxSearchString
             // 
             this.textBoxSearchString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearchString.Location = new System.Drawing.Point(17, 16);
-            this.textBoxSearchString.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxSearchString.Location = new System.Drawing.Point(13, 13);
             this.textBoxSearchString.Name = "textBoxSearchString";
-            this.textBoxSearchString.Size = new System.Drawing.Size(759, 22);
+            this.textBoxSearchString.Size = new System.Drawing.Size(570, 20);
             this.textBoxSearchString.TabIndex = 0;
+            this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
             // FormSelectPackage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 468);
+            this.ClientSize = new System.Drawing.Size(595, 380);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormSelectPackage";
             this.Text = "Select package";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

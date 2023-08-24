@@ -33,9 +33,9 @@
             this.buttonRefreshTable = new System.Windows.Forms.Button();
             this.buttonAddComponent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnEditParams = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
-            this.btnEditParams = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,6 +105,16 @@
             this.panel1.Size = new System.Drawing.Size(675, 34);
             this.panel1.TabIndex = 4;
             // 
+            // btnEditParams
+            // 
+            this.btnEditParams.Location = new System.Drawing.Point(380, 0);
+            this.btnEditParams.Name = "btnEditParams";
+            this.btnEditParams.Size = new System.Drawing.Size(138, 34);
+            this.btnEditParams.TabIndex = 4;
+            this.btnEditParams.Text = "Edit parameters";
+            this.btnEditParams.UseVisualStyleBackColor = true;
+            this.btnEditParams.Click += new System.EventHandler(this.btnEditParams_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.textBoxSearchString);
@@ -122,16 +132,7 @@
             this.textBoxSearchString.Name = "textBoxSearchString";
             this.textBoxSearchString.Size = new System.Drawing.Size(651, 20);
             this.textBoxSearchString.TabIndex = 0;
-            // 
-            // btnEditParams
-            // 
-            this.btnEditParams.Location = new System.Drawing.Point(380, 0);
-            this.btnEditParams.Name = "btnEditParams";
-            this.btnEditParams.Size = new System.Drawing.Size(138, 34);
-            this.btnEditParams.TabIndex = 4;
-            this.btnEditParams.Text = "Edit parameters";
-            this.btnEditParams.UseVisualStyleBackColor = true;
-            this.btnEditParams.Click += new System.EventHandler(this.btnEditParams_Click);
+            this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
             // FormSelectComponent
             // 

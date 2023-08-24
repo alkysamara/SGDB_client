@@ -34,6 +34,7 @@
             this.buttonAddComponent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_check_availability = new System.Windows.Forms.Button();
             this.btn_change_q = new System.Windows.Forms.Button();
             this.btn_component_filter = new System.Windows.Forms.Button();
             this.btn_package_filter = new System.Windows.Forms.Button();
@@ -48,7 +49,6 @@
             this.btn_storage_filter = new System.Windows.Forms.Button();
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
-            this.btn_check_availability = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -138,6 +138,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(843, 126);
             this.panel2.TabIndex = 5;
+            // 
+            // btn_check_availability
+            // 
+            this.btn_check_availability.Location = new System.Drawing.Point(690, 35);
+            this.btn_check_availability.Name = "btn_check_availability";
+            this.btn_check_availability.Size = new System.Drawing.Size(141, 23);
+            this.btn_check_availability.TabIndex = 32;
+            this.btn_check_availability.Text = "Check BOM availability";
+            this.btn_check_availability.UseVisualStyleBackColor = true;
+            this.btn_check_availability.Click += new System.EventHandler(this.btn_check_availability_Click);
             // 
             // btn_change_q
             // 
@@ -269,16 +279,7 @@
             this.textBoxSearchString.Name = "textBoxSearchString";
             this.textBoxSearchString.Size = new System.Drawing.Size(819, 20);
             this.textBoxSearchString.TabIndex = 0;
-            // 
-            // btn_check_availability
-            // 
-            this.btn_check_availability.Location = new System.Drawing.Point(690, 35);
-            this.btn_check_availability.Name = "btn_check_availability";
-            this.btn_check_availability.Size = new System.Drawing.Size(141, 23);
-            this.btn_check_availability.TabIndex = 32;
-            this.btn_check_availability.Text = "Check BOM availability";
-            this.btn_check_availability.UseVisualStyleBackColor = true;
-            this.btn_check_availability.Click += new System.EventHandler(this.btn_check_availability_Click);
+            this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
             // FormSelectItem
             // 

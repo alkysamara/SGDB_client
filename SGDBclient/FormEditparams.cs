@@ -39,8 +39,8 @@ namespace SGDBclient
             try
             {
                 MySqlCommand command = new MySqlCommand("Update SGitemsDB.Components " +
-                   " SET " + " PartNumber = \" " + textBoxPartNumb.Text + "\"," +
-                   " Description = \" " + textBoxDescrip.Text + "\""+
+                   " SET " + " PartNumber = \"" + textBoxPartNumb.Text + "\"," +
+                   " Description = \"" + textBoxDescrip.Text + "\""+
                    " WHERE idComponent = " +idComponent.ToString()+";",Sqlconnection);
                 command.ExecuteNonQuery();
                 this.Close();

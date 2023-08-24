@@ -98,5 +98,14 @@ namespace SGDBclient {
 			form.ShowDialog();
 			updateTable();
 		}
-	}
+
+        private void textBoxSearchString_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                updateTable();
+            }
+        }
+    }
 }

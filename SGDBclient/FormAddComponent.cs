@@ -93,23 +93,30 @@ namespace SGDBclient {
 			}
 		}
 
-		private void buttonEditParameters_Click(object sender, EventArgs e) {
-			jsonEditorParameters.ShowDialog();
+		private void buttonEditParameters_Click(object sender, EventArgs e)
+        {
+            jsonEditorParameters.StartPosition = FormStartPosition.CenterParent;
+            jsonEditorParameters.ShowDialog();
 		}
 
 		private void buttonEditLinks_Click(object sender, EventArgs e) {
             jsonEditorLinks.setList(new string[] { "Datasheet" });
+            jsonEditorLinks.StartPosition = FormStartPosition.CenterParent;
             jsonEditorLinks.ShowDialog();
 		}
 
-		private void buttonEditComponentType_Click(object sender, EventArgs e) {
-			formSelectComponentType.ShowDialog();
+		private void buttonEditComponentType_Click(object sender, EventArgs e)
+        {
+            formSelectComponentType.StartPosition = FormStartPosition.CenterParent;
+            formSelectComponentType.ShowDialog();
 			labelSelectedComponentType.Text = formSelectComponentType.selectedComponentTypeName;
             jsonEditorParameters.setList(get_params_from_componentType(formSelectComponentType.selectedComponentTypeID));
         }
 
-		private void buttonEditPackage_Click(object sender, EventArgs e) {
-			formSelectPackage.ShowDialog();
+		private void buttonEditPackage_Click(object sender, EventArgs e)
+        {
+            formSelectPackage.StartPosition = FormStartPosition.CenterParent;
+            formSelectPackage.ShowDialog();
 			labelSelectedPackage.Text = formSelectPackage.selectedPackageName;
 		}
 

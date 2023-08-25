@@ -111,6 +111,7 @@
             this.Controls.Add(this.tb_JSON);
             this.Controls.Add(this.button1);
             this.Name = "JSONEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "JSONEditor";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -104,6 +104,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnCancel);
             this.Name = "FormEditParams";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edit parameters";
             this.Load += new System.EventHandler(this.FormEditParams_Load);
             this.ResumeLayout(false);

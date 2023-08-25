@@ -193,6 +193,7 @@
             this.MaximumSize = new System.Drawing.Size(1000, 250);
             this.MinimumSize = new System.Drawing.Size(300, 250);
             this.Name = "FormAddComponentType";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add component type";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

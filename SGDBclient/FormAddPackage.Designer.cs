@@ -41,10 +41,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 17);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Package Name";
             // 
@@ -52,20 +51,18 @@
             // 
             this.textBoxPackageName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPackageName.Location = new System.Drawing.Point(163, 7);
-            this.textBoxPackageName.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPackageName.Location = new System.Drawing.Point(122, 6);
             this.textBoxPackageName.MaxLength = 45;
             this.textBoxPackageName.Name = "textBoxPackageName";
-            this.textBoxPackageName.Size = new System.Drawing.Size(199, 22);
+            this.textBoxPackageName.Size = new System.Drawing.Size(150, 20);
             this.textBoxPackageName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 47);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Package Type";
             // 
@@ -73,20 +70,18 @@
             // 
             this.textBoxPackageType.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPackageType.Location = new System.Drawing.Point(163, 43);
-            this.textBoxPackageType.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxPackageType.Location = new System.Drawing.Point(122, 35);
             this.textBoxPackageType.MaxLength = 45;
             this.textBoxPackageType.Name = "textBoxPackageType";
-            this.textBoxPackageType.Size = new System.Drawing.Size(199, 22);
+            this.textBoxPackageType.Size = new System.Drawing.Size(150, 20);
             this.textBoxPackageType.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(16, 122);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(12, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 17);
+            this.label3.Size = new System.Drawing.Size(88, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Other parametres";
             // 
@@ -95,20 +90,18 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 160);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 130);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 37);
+            this.panel1.Size = new System.Drawing.Size(284, 30);
             this.panel1.TabIndex = 6;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(275, 5);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(206, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
+            this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
@@ -116,10 +109,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(8, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(6, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
@@ -128,10 +120,9 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(16, 81);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(12, 66);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 17);
+            this.label4.Size = new System.Drawing.Size(58, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Pins Count";
             // 
@@ -139,16 +130,18 @@
             // 
             this.numericUpDownPinCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDownPinCount.Location = new System.Drawing.Point(163, 81);
+            this.numericUpDownPinCount.Location = new System.Drawing.Point(122, 66);
+            this.numericUpDownPinCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.numericUpDownPinCount.Name = "numericUpDownPinCount";
-            this.numericUpDownPinCount.Size = new System.Drawing.Size(199, 22);
+            this.numericUpDownPinCount.Size = new System.Drawing.Size(149, 20);
             this.numericUpDownPinCount.TabIndex = 8;
             // 
             // buttonJSONEditor
             // 
-            this.buttonJSONEditor.Location = new System.Drawing.Point(163, 122);
+            this.buttonJSONEditor.Location = new System.Drawing.Point(122, 99);
+            this.buttonJSONEditor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonJSONEditor.Name = "buttonJSONEditor";
-            this.buttonJSONEditor.Size = new System.Drawing.Size(199, 23);
+            this.buttonJSONEditor.Size = new System.Drawing.Size(149, 19);
             this.buttonJSONEditor.TabIndex = 9;
             this.buttonJSONEditor.Text = "Edit JSON";
             this.buttonJSONEditor.UseVisualStyleBackColor = true;
@@ -156,9 +149,9 @@
             // 
             // FormAddPackage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 197);
+            this.ClientSize = new System.Drawing.Size(284, 160);
             this.Controls.Add(this.buttonJSONEditor);
             this.Controls.Add(this.numericUpDownPinCount);
             this.Controls.Add(this.label4);
@@ -168,9 +161,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPackageName);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(261, 47);
+            this.MinimumSize = new System.Drawing.Size(200, 45);
             this.Name = "FormAddPackage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormAddPackage";
             this.Load += new System.EventHandler(this.FormAddPackage_Load);
             this.panel1.ResumeLayout(false);

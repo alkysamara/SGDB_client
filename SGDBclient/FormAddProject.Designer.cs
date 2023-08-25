@@ -84,6 +84,7 @@
             this.Controls.Add(this.btnAddProj);
             this.MaximumSize = new System.Drawing.Size(500, 200);
             this.Name = "FormAddProject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Project";
             this.ResumeLayout(false);
             this.PerformLayout();

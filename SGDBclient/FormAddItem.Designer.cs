@@ -61,7 +61,7 @@ namespace SGDBclient
             this.btnSelectStorage.Location = new System.Drawing.Point(3, 61);
             this.btnSelectStorage.Name = "btnSelectStorage";
             this.btnSelectStorage.Size = new System.Drawing.Size(101, 23);
-            this.btnSelectStorage.TabIndex = 0;
+            this.btnSelectStorage.TabIndex = 3;
             this.btnSelectStorage.Text = "Select storage";
             this.btnSelectStorage.UseVisualStyleBackColor = true;
             this.btnSelectStorage.Click += new System.EventHandler(this.btnSelectStorage_Click);
@@ -135,7 +135,7 @@ namespace SGDBclient
             this.btnAdd.Location = new System.Drawing.Point(25, 202);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -146,7 +146,7 @@ namespace SGDBclient
             this.textBoxQuantity.Location = new System.Drawing.Point(5, 4);
             this.textBoxQuantity.Name = "textBoxQuantity";
             this.textBoxQuantity.Size = new System.Drawing.Size(124, 20);
-            this.textBoxQuantity.TabIndex = 9;
+            this.textBoxQuantity.TabIndex = 1;
             // 
             // panel1
             // 
@@ -213,7 +213,7 @@ namespace SGDBclient
             this.textBoxPrice.Location = new System.Drawing.Point(5, 34);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(124, 20);
-            this.textBoxPrice.TabIndex = 10;
+            this.textBoxPrice.TabIndex = 2;
             // 
             // panel3
             // 
@@ -233,7 +233,7 @@ namespace SGDBclient
             this.btnSelectOwner.Location = new System.Drawing.Point(3, 151);
             this.btnSelectOwner.Name = "btnSelectOwner";
             this.btnSelectOwner.Size = new System.Drawing.Size(101, 23);
-            this.btnSelectOwner.TabIndex = 3;
+            this.btnSelectOwner.TabIndex = 5;
             this.btnSelectOwner.Text = "Select owner";
             this.btnSelectOwner.UseVisualStyleBackColor = true;
             this.btnSelectOwner.Click += new System.EventHandler(this.btnSelectOwner_Click);
@@ -243,7 +243,7 @@ namespace SGDBclient
             this.btnSelectComponent.Location = new System.Drawing.Point(3, 121);
             this.btnSelectComponent.Name = "btnSelectComponent";
             this.btnSelectComponent.Size = new System.Drawing.Size(101, 23);
-            this.btnSelectComponent.TabIndex = 2;
+            this.btnSelectComponent.TabIndex = 5;
             this.btnSelectComponent.Text = "Select component";
             this.btnSelectComponent.UseVisualStyleBackColor = true;
             this.btnSelectComponent.Click += new System.EventHandler(this.btnSelectComponent_Click);
@@ -253,7 +253,7 @@ namespace SGDBclient
             this.btnSelectOrder.Location = new System.Drawing.Point(3, 91);
             this.btnSelectOrder.Name = "btnSelectOrder";
             this.btnSelectOrder.Size = new System.Drawing.Size(101, 23);
-            this.btnSelectOrder.TabIndex = 1;
+            this.btnSelectOrder.TabIndex = 4;
             this.btnSelectOrder.Text = "Select order";
             this.btnSelectOrder.UseVisualStyleBackColor = true;
             this.btnSelectOrder.Click += new System.EventHandler(this.btnSelectOrder_Click);
@@ -264,7 +264,7 @@ namespace SGDBclient
             this.btnCancel.Location = new System.Drawing.Point(265, 202);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -275,7 +275,7 @@ namespace SGDBclient
             this.btn_add_from_csv.Location = new System.Drawing.Point(128, 202);
             this.btn_add_from_csv.Name = "btn_add_from_csv";
             this.btn_add_from_csv.Size = new System.Drawing.Size(97, 23);
-            this.btn_add_from_csv.TabIndex = 14;
+            this.btn_add_from_csv.TabIndex = 7;
             this.btn_add_from_csv.Text = "Add from CSV";
             this.btn_add_from_csv.UseVisualStyleBackColor = true;
             this.btn_add_from_csv.Click += new System.EventHandler(this.btn_add_from_csv_Click);
@@ -292,6 +292,7 @@ namespace SGDBclient
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAdd);
             this.Name = "FormAddItem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddItem";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

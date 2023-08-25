@@ -46,10 +46,9 @@
             // 
             this.labelCurQ.AutoSize = true;
             this.labelCurQ.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCurQ.Location = new System.Drawing.Point(4, 0);
-            this.labelCurQ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCurQ.Location = new System.Drawing.Point(3, 0);
             this.labelCurQ.Name = "labelCurQ";
-            this.labelCurQ.Size = new System.Drawing.Size(125, 27);
+            this.labelCurQ.Size = new System.Drawing.Size(94, 22);
             this.labelCurQ.TabIndex = 0;
             this.labelCurQ.Text = "Needable quantity";
             this.labelCurQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -59,21 +58,19 @@
             this.textBoxNeedQ.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNeedQ.Location = new System.Drawing.Point(137, 4);
-            this.textBoxNeedQ.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxNeedQ.Location = new System.Drawing.Point(103, 3);
             this.textBoxNeedQ.MaxLength = 45;
             this.textBoxNeedQ.Name = "textBoxNeedQ";
-            this.textBoxNeedQ.Size = new System.Drawing.Size(238, 22);
+            this.textBoxNeedQ.Size = new System.Drawing.Size(178, 20);
             this.textBoxNeedQ.TabIndex = 1;
             // 
             // labelNeedQ
             // 
             this.labelNeedQ.AutoSize = true;
             this.labelNeedQ.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelNeedQ.Location = new System.Drawing.Point(4, 27);
-            this.labelNeedQ.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelNeedQ.Location = new System.Drawing.Point(3, 22);
             this.labelNeedQ.Name = "labelNeedQ";
-            this.labelNeedQ.Size = new System.Drawing.Size(125, 27);
+            this.labelNeedQ.Size = new System.Drawing.Size(94, 22);
             this.labelNeedQ.TabIndex = 2;
             this.labelNeedQ.Text = "Current quantity";
             this.labelNeedQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,10 +80,9 @@
             // 
             this.labelProj.AutoSize = true;
             this.labelProj.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelProj.Location = new System.Drawing.Point(4, 54);
-            this.labelProj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelProj.Location = new System.Drawing.Point(3, 44);
             this.labelProj.Name = "labelProj";
-            this.labelProj.Size = new System.Drawing.Size(125, 25);
+            this.labelProj.Size = new System.Drawing.Size(94, 20);
             this.labelProj.TabIndex = 4;
             this.labelProj.Text = "Project";
             this.labelProj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -96,11 +92,10 @@
             this.textBoxComment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxComment.Location = new System.Drawing.Point(137, 83);
-            this.textBoxComment.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxComment.Location = new System.Drawing.Point(103, 67);
             this.textBoxComment.MaxLength = 45;
             this.textBoxComment.Name = "textBoxComment";
-            this.textBoxComment.Size = new System.Drawing.Size(238, 22);
+            this.textBoxComment.Size = new System.Drawing.Size(178, 20);
             this.textBoxComment.TabIndex = 5;
             // 
             // panel1
@@ -109,18 +104,16 @@
             this.panel1.Controls.Add(this.buttonCancel);
             this.panel1.Controls.Add(this.buttonWriteOff);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 127);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(0, 103);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 37);
+            this.panel1.Size = new System.Drawing.Size(284, 30);
             this.panel1.TabIndex = 6;
             // 
             // btnAddProj
             // 
-            this.btnAddProj.Location = new System.Drawing.Point(137, 5);
-            this.btnAddProj.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddProj.Location = new System.Drawing.Point(103, 4);
             this.btnAddProj.Name = "btnAddProj";
-            this.btnAddProj.Size = new System.Drawing.Size(100, 28);
+            this.btnAddProj.Size = new System.Drawing.Size(75, 23);
             this.btnAddProj.TabIndex = 2;
             this.btnAddProj.Text = "Add project";
             this.btnAddProj.UseVisualStyleBackColor = true;
@@ -129,10 +122,9 @@
             // buttonCancel
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(275, 5);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonCancel.Location = new System.Drawing.Point(206, 4);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(100, 28);
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -140,10 +132,9 @@
             // 
             // buttonWriteOff
             // 
-            this.buttonWriteOff.Location = new System.Drawing.Point(8, 5);
-            this.buttonWriteOff.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonWriteOff.Location = new System.Drawing.Point(6, 4);
             this.buttonWriteOff.Name = "buttonWriteOff";
-            this.buttonWriteOff.Size = new System.Drawing.Size(100, 28);
+            this.buttonWriteOff.Size = new System.Drawing.Size(75, 23);
             this.buttonWriteOff.TabIndex = 0;
             this.buttonWriteOff.Text = "Write off";
             this.buttonWriteOff.UseVisualStyleBackColor = true;
@@ -153,10 +144,9 @@
             // 
             this.labelCom.AutoSize = true;
             this.labelCom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCom.Location = new System.Drawing.Point(4, 79);
-            this.labelCom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelCom.Location = new System.Drawing.Point(3, 64);
             this.labelCom.Name = "labelCom";
-            this.labelCom.Size = new System.Drawing.Size(125, 25);
+            this.labelCom.Size = new System.Drawing.Size(94, 20);
             this.labelCom.TabIndex = 8;
             this.labelCom.Text = "Comment";
             this.labelCom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,7 +157,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.labelCom, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBoxComment, 1, 3);
@@ -180,25 +170,23 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxNeedQ, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.comboBoxProj, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(379, 129);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(284, 105);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // labelDat
             // 
             this.labelDat.AutoSize = true;
             this.labelDat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelDat.Location = new System.Drawing.Point(4, 104);
-            this.labelDat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelDat.Location = new System.Drawing.Point(3, 84);
             this.labelDat.Name = "labelDat";
-            this.labelDat.Size = new System.Drawing.Size(125, 25);
+            this.labelDat.Size = new System.Drawing.Size(94, 21);
             this.labelDat.TabIndex = 11;
             this.labelDat.Text = "Data";
             this.labelDat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -207,11 +195,10 @@
             // textBoxData
             // 
             this.textBoxData.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxData.Location = new System.Drawing.Point(137, 108);
-            this.textBoxData.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxData.Location = new System.Drawing.Point(103, 87);
             this.textBoxData.Name = "textBoxData";
             this.textBoxData.ReadOnly = true;
-            this.textBoxData.Size = new System.Drawing.Size(238, 22);
+            this.textBoxData.Size = new System.Drawing.Size(178, 20);
             this.textBoxData.TabIndex = 12;
             // 
             // textBoxCurQ
@@ -219,12 +206,11 @@
             this.textBoxCurQ.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxCurQ.Location = new System.Drawing.Point(137, 31);
-            this.textBoxCurQ.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxCurQ.Location = new System.Drawing.Point(103, 25);
             this.textBoxCurQ.MaxLength = 45;
             this.textBoxCurQ.Name = "textBoxCurQ";
             this.textBoxCurQ.ReadOnly = true;
-            this.textBoxCurQ.Size = new System.Drawing.Size(238, 22);
+            this.textBoxCurQ.Size = new System.Drawing.Size(178, 20);
             this.textBoxCurQ.TabIndex = 10;
             this.textBoxCurQ.TextChanged += new System.EventHandler(this.textBoxCurQ_TextChanged);
             // 
@@ -232,24 +218,23 @@
             // 
             this.comboBoxProj.Dock = System.Windows.Forms.DockStyle.Fill;
             this.comboBoxProj.FormattingEnabled = true;
-            this.comboBoxProj.Location = new System.Drawing.Point(137, 58);
-            this.comboBoxProj.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxProj.Location = new System.Drawing.Point(103, 47);
             this.comboBoxProj.Name = "comboBoxProj";
-            this.comboBoxProj.Size = new System.Drawing.Size(238, 24);
+            this.comboBoxProj.Size = new System.Drawing.Size(178, 21);
             this.comboBoxProj.TabIndex = 13;
             this.comboBoxProj.SelectedIndexChanged += new System.EventHandler(this.comboBoxProj_SelectedIndexChanged);
             // 
             // FormCHangeQ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 164);
+            this.ClientSize = new System.Drawing.Size(284, 133);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1327, 211);
-            this.MinimumSize = new System.Drawing.Size(394, 186);
+            this.MaximumSize = new System.Drawing.Size(999, 179);
+            this.MinimumSize = new System.Drawing.Size(300, 158);
             this.Name = "FormCHangeQ";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add order";
             this.Load += new System.EventHandler(this.FormCHangeQ_Load);
             this.panel1.ResumeLayout(false);

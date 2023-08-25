@@ -32,8 +32,8 @@ namespace SGDBclient {
                 MySqlDataReader reader;
                 try {
                     string sql_querry = "SELECT * FROM full_item " +
-                        "WHERE full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\' or " +
-                        "full_item.Description LIKE \'%" + textBoxSearchString.Text + "%\'";
+                        "WHERE (full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\' or " +
+                        "full_item.Description LIKE \'%" + textBoxSearchString.Text + "%\')";
                     if (chb_Component_filter.Checked && (ComponentListForm != null))
                     {
                         sql_querry += "AND (idComponent = " + ComponentListForm.selectedComponentID + ")";
@@ -112,7 +112,8 @@ namespace SGDBclient {
 
 		private void btnAddComponent_Click(object sender, EventArgs e) {
 			FormAddComponent form = new FormAddComponent(SQLconnection);
-			form.ShowDialog();
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog();
 			updateTable();
 		}
 
@@ -122,6 +123,7 @@ namespace SGDBclient {
             {
                 StorageListForm = new FormSelectStorage(SQLconnection);
             }
+            StorageListForm.StartPosition = FormStartPosition.CenterParent;
             StorageListForm.ShowDialog();
             textBoxStorage.Text = StorageListForm.selectedStorageName;
         }
@@ -132,6 +134,7 @@ namespace SGDBclient {
             {
                 CTypetListForm = new FormSelectComponentType(SQLconnection);
             }
+            CTypetListForm.StartPosition = FormStartPosition.CenterParent;
             CTypetListForm.ShowDialog();
             textBoxCType.Text = CTypetListForm.selectedComponentTypeName;
         }
@@ -142,6 +145,7 @@ namespace SGDBclient {
             {
                 PackageListForm = new FormSelectPackage(SQLconnection);
             }
+            PackageListForm.StartPosition = FormStartPosition.CenterParent;
             PackageListForm.ShowDialog();
             textBoxPackage.Text = PackageListForm.selectedPackageName;
         }
@@ -152,6 +156,7 @@ namespace SGDBclient {
             {
                 ComponentListForm = new FormSelectComponent(SQLconnection);
             }
+            ComponentListForm.StartPosition = FormStartPosition.CenterParent;
             ComponentListForm.ShowDialog();
             textBoxComponent.Text = ComponentListForm.selectedComponentName;
         }
@@ -161,7 +166,8 @@ namespace SGDBclient {
 			int id = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
             int qty = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[2].Value;
             FormCHangeQ formChangeQ = new FormCHangeQ(SQLconnection, id,qty);
-			formChangeQ.ShowDialog();
+            formChangeQ.StartPosition = FormStartPosition.CenterParent;
+            formChangeQ.ShowDialog();
 			updateTable();
         }
 
@@ -276,6 +282,7 @@ namespace SGDBclient {
                     }
                     //show results
                     FormTableResult table = new FormTableResult(new string[] { "Order", "TotalQ" }, results);
+                    table.StartPosition = FormStartPosition.CenterParent;
                     table.ShowDialog();
                 }
             }

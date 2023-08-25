@@ -192,6 +192,7 @@
             this.MaximumSize = new System.Drawing.Size(1000, 160);
             this.MinimumSize = new System.Drawing.Size(300, 160);
             this.Name = "FormAddOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add order";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

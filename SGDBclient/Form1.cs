@@ -39,16 +39,19 @@ namespace SGDBclient {
 
 		private void btnAddNewItem_Click(object sender, EventArgs e) {
 			FormAddItem addItemForm = new FormAddItem(SQLconnection);
-			addItemForm.Show();
+            addItemForm.StartPosition = FormStartPosition.CenterParent;
+			addItemForm.ShowDialog(this);
 		}
 
 		private void btnConnect_Click(object sender, EventArgs e) {
 			JSONEditor jse = new JSONEditor();
-			jse.ShowDialog();
+			jse.StartPosition = FormStartPosition.CenterParent;
+            jse.ShowDialog();
 		}
 
 		private void button1_Click(object sender, EventArgs e) {
 			FormSelectItem formSelectItem = new FormSelectItem(SQLconnection);
+            formSelectItem.StartPosition = FormStartPosition.CenterParent;
             formSelectItem.ShowDialog();
 			richTextBox1.Text += "Selected component type: "+ formSelectItem.selectedItemName+"\n";
 		}
@@ -56,12 +59,8 @@ namespace SGDBclient {
         private void selectPackage_Click(object sender, EventArgs e)
         {
 			FormSelectPackage formSelectPackage = new FormSelectPackage(SQLconnection);
-			formSelectPackage.ShowDialog();
+            formSelectPackage.StartPosition = FormStartPosition.CenterParent;
+            formSelectPackage.ShowDialog();
 		}
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

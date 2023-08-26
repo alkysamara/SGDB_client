@@ -54,6 +54,8 @@ namespace SGDBclient {
 		{
             try
             {
+                if (Links == "{}") Links = "\"{}\"";
+                if (Parameters == "{}") Parameters = "\"{}\"";
                 MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, " +
                     "`LCSCpart`, `Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
                     PartNumber + "\'," +

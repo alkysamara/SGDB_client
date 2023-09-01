@@ -44,10 +44,9 @@
             // 
             // btnAddNewItem
             // 
-            this.btnAddNewItem.Location = new System.Drawing.Point(17, 15);
-            this.btnAddNewItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddNewItem.Location = new System.Drawing.Point(13, 12);
             this.btnAddNewItem.Name = "btnAddNewItem";
-            this.btnAddNewItem.Size = new System.Drawing.Size(179, 28);
+            this.btnAddNewItem.Size = new System.Drawing.Size(134, 23);
             this.btnAddNewItem.TabIndex = 0;
             this.btnAddNewItem.Text = "Add new item";
             this.btnAddNewItem.UseVisualStyleBackColor = true;
@@ -55,10 +54,9 @@
             // 
             // btnConnect
             // 
-            this.btnConnect.Location = new System.Drawing.Point(484, 351);
-            this.btnConnect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConnect.Location = new System.Drawing.Point(363, 285);
             this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(175, 28);
+            this.btnConnect.Size = new System.Drawing.Size(131, 23);
             this.btnConnect.TabIndex = 1;
             this.btnConnect.Text = "Run JSON editor";
             this.btnConnect.UseVisualStyleBackColor = true;
@@ -68,9 +66,8 @@
             // 
             this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1027, 122);
+            this.richTextBox1.Size = new System.Drawing.Size(770, 100);
             this.richTextBox1.TabIndex = 2;
             this.richTextBox1.Text = "";
             // 
@@ -79,18 +76,16 @@
             this.richTextBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.richTextBox2.Enabled = false;
             this.richTextBox2.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(332, 298);
+            this.richTextBox2.Size = new System.Drawing.Size(250, 241);
             this.richTextBox2.TabIndex = 3;
             this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 50);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Location = new System.Drawing.Point(12, 41);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 28);
+            this.button1.Size = new System.Drawing.Size(135, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Select Item";
             this.button1.UseVisualStyleBackColor = true;
@@ -98,10 +93,10 @@
             // 
             // selectPackage
             // 
-            this.selectPackage.Location = new System.Drawing.Point(220, 15);
-            this.selectPackage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.selectPackage.Location = new System.Drawing.Point(165, 12);
+            this.selectPackage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.selectPackage.Name = "selectPackage";
-            this.selectPackage.Size = new System.Drawing.Size(189, 28);
+            this.selectPackage.Size = new System.Drawing.Size(142, 23);
             this.selectPackage.TabIndex = 5;
             this.selectPackage.Text = "Select package";
             this.selectPackage.UseVisualStyleBackColor = true;
@@ -112,8 +107,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(17, 116);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Location = new System.Drawing.Point(13, 94);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -124,24 +118,23 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1027, 425);
-            this.splitContainer1.SplitterDistance = 298;
-            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.Size = new System.Drawing.Size(770, 345);
+            this.splitContainer1.SplitterDistance = 241;
             this.splitContainer1.TabIndex = 6;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1085, 582);
+            this.ClientSize = new System.Drawing.Size(814, 473);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.selectPackage);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnAddNewItem);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "SGDB client";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddProject));
             this.btnAddProj = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.textBoxAddProj = new System.Windows.Forms.TextBox();
@@ -82,6 +83,7 @@
             this.Controls.Add(this.textBoxAddProj);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddProj);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(500, 200);
             this.Name = "FormAddProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

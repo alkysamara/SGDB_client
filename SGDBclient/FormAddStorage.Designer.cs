@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddStorage));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -135,6 +136,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPlaceName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(200, 39);
             this.Name = "FormAddStorage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

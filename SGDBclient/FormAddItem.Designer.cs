@@ -29,6 +29,7 @@ namespace SGDBclient
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddItem));
             this.btnSelectStorage = new System.Windows.Forms.Button();
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -291,6 +292,7 @@ namespace SGDBclient
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAdd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddItem";

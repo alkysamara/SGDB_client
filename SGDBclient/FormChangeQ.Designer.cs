@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCHangeQ));
             this.labelCurQ = new System.Windows.Forms.Label();
             this.textBoxNeedQ = new System.Windows.Forms.TextBox();
             this.labelNeedQ = new System.Windows.Forms.Label();
@@ -231,6 +232,7 @@
             this.ClientSize = new System.Drawing.Size(284, 133);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(999, 179);
             this.MinimumSize = new System.Drawing.Size(300, 158);
             this.Name = "FormCHangeQ";

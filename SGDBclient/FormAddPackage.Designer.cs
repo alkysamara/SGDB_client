@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddPackage));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxPackageName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -131,7 +132,7 @@
             this.numericUpDownPinCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDownPinCount.Location = new System.Drawing.Point(122, 66);
-            this.numericUpDownPinCount.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDownPinCount.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDownPinCount.Name = "numericUpDownPinCount";
             this.numericUpDownPinCount.Size = new System.Drawing.Size(149, 20);
             this.numericUpDownPinCount.TabIndex = 8;
@@ -139,7 +140,7 @@
             // buttonJSONEditor
             // 
             this.buttonJSONEditor.Location = new System.Drawing.Point(122, 99);
-            this.buttonJSONEditor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonJSONEditor.Margin = new System.Windows.Forms.Padding(2);
             this.buttonJSONEditor.Name = "buttonJSONEditor";
             this.buttonJSONEditor.Size = new System.Drawing.Size(149, 19);
             this.buttonJSONEditor.TabIndex = 9;
@@ -161,6 +162,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxPackageName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(200, 45);
             this.Name = "FormAddPackage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

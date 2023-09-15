@@ -39,5 +39,11 @@ namespace SGDBclient {
             JSON = JsonSerializer.Serialize(param_values);
 			tb_JSON.Text = JSON;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+			param_values.Clear();
+			tb_JSON.Text = "";
+        }
     }
 }

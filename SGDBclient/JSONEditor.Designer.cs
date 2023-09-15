@@ -31,6 +31,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cb_param_name = new System.Windows.Forms.ComboBox();
             this.btn_add = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -99,11 +100,23 @@
             this.btn_add.UseVisualStyleBackColor = true;
             this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button2.Location = new System.Drawing.Point(326, 77);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // JSONEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 105);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.cb_param_name);
             this.Controls.Add(this.label2);
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cb_param_name;
         private System.Windows.Forms.Button btn_add;
+        private System.Windows.Forms.Button button2;
     }
 }

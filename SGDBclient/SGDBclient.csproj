@@ -227,6 +227,12 @@
     <Compile Include="FormTableResult.Designer.cs">
       <DependentUpon>FormTableResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormWriteoffBOM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWriteoffBOM.Designer.cs">
+      <DependentUpon>FormWriteoffBOM.cs</DependentUpon>
+    </Compile>
     <Compile Include="JSONEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTableResult.resx">
       <DependentUpon>FormTableResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWriteoffBOM.resx">
+      <DependentUpon>FormWriteoffBOM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JSONEditor.resx">
       <DependentUpon>JSONEditor.cs</DependentUpon>

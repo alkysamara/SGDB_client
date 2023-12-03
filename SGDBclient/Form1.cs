@@ -62,5 +62,12 @@ namespace SGDBclient {
             formSelectPackage.StartPosition = FormStartPosition.CenterParent;
             formSelectPackage.ShowDialog();
 		}
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+			FormWriteoffBOM fwobom = new FormWriteoffBOM();
+			fwobom.StartPosition = FormStartPosition.CenterParent;
+			fwobom.ShowDialog();
+        }
     }
 }

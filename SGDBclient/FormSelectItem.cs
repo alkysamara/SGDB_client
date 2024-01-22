@@ -85,7 +85,15 @@ namespace SGDBclient {
 			updateTable();
 		}
 
-		private void buttonSelect_Click(object sender, EventArgs e) {
+        public FormSelectItem(MySql.Data.MySqlClient.MySqlConnection con, string search)
+        {
+            InitializeComponent();
+            SQLconnection = con;
+            textBoxSearchString.Text = search;
+            updateTable();
+        }
+
+        private void buttonSelect_Click(object sender, EventArgs e) {
 			try {
                 selectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
                 selectedItemName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;

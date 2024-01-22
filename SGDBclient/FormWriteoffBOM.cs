@@ -1,20 +1,25 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace SGDBclient
 {
     public partial class FormWriteoffBOM : Form
     {
-        public FormWriteoffBOM()
+        private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
+        public FormWriteoffBOM(MySql.Data.MySqlClient.MySqlConnection connection)
         {
+            this.SQLconnection = connection;
             InitializeComponent();
         }
 
@@ -57,17 +62,100 @@ namespace SGDBclient
                     return;
                 }
                 //nothing bad in CSV, build a table
-                dataGridView1.Rows.Add(pn.Length-1);
+                if (pn.Length > 1)
+                    dataGridView1.Rows.Add(pn.Length-1);
                 for (int i = 0; i < pn.Length; i++)
                 {
                     dataGridView1.Rows[i].Cells[0].Value = pn[i];
                     dataGridView1.Rows[i].Cells[1].Value = qs[i];
+                }
+                for (int i = 0; i < pn.Length; i++)
+                {
+                    dataGridView1.Rows[i].Cells[4].Value = "Select";
                 }
 
             }
             else
             {
                 this.Close();
+                return;
+            }
+        }
+
+        private int get_q_by_itemid(int id)
+        {
+            MySqlDataReader reader;
+            MySqlCommand command = new MySqlCommand("SELECT Quantity FROM Items " +
+                "WHERE idItem = \'" + id + "\'", SQLconnection);
+            reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+                int result = (int)reader[0];
+                reader.Close();
+                return result;
+            }
+            else
+            {
+                reader.Close();
+                throw new Exception("No component with id = " + id + " found in database");
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                FormSelectItem fsi = new FormSelectItem(this.SQLconnection,(string)senderGrid.Rows[e.RowIndex].Cells[0].Value);
+                fsi.ShowDialog();
+                senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = fsi.selectedItemID;
+                senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = fsi.selectedItemName;
+                senderGrid.Rows[e.RowIndex].Cells["selectBtn"].Value = "Change";
+                fsi.Close();
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnWriteOff_Click(object sender, EventArgs e)
+        {
+            string all_errors = "";
+            //check, that everything is selected
+            for (int i = 0; i< dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].Cells["idItem"].Value == null)
+                {
+                    all_errors += "Item " + dataGridView1.Rows[i].Cells[0].Value + " is not set\n";
+                }
+            }
+            if (all_errors.Length > 0)
+            {
+                MessageBox.Show(all_errors);
+                return;
+            }
+            //check quantities
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                int q;
+                if (dataGridView1.Rows[i].Cells["q"].Value.GetType() == typeof(int))
+                    q = (int)dataGridView1.Rows[i].Cells["q"].Value;
+                else
+                    q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
+                if (get_q_by_itemid((int)dataGridView1.Rows[i].Cells["idItem"].Value) < q)
+                {
+                    all_errors += "Item " + dataGridView1.Rows[i].Cells[0].Value + " is not enough for this BOM\n";
+                }
+            }
+            //writeoff components
+            if (all_errors.Length > 0)
+            {
+                MessageBox.Show(all_errors);
                 return;
             }
         }

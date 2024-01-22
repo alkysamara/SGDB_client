@@ -65,7 +65,7 @@ namespace SGDBclient {
 
         private void button2_Click(object sender, EventArgs e)
         {
-			FormWriteoffBOM fwobom = new FormWriteoffBOM();
+			FormWriteoffBOM fwobom = new FormWriteoffBOM(SQLconnection);
 			fwobom.StartPosition = FormStartPosition.CenterParent;
 			fwobom.ShowDialog();
         }

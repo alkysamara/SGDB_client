@@ -65,8 +65,8 @@ namespace SGDBclient
                     return;
                 }
                 //nothing bad in CSV, build a table
-                if (pn.Length > 1)
-                    dataGridView1.Rows.Add(pn.Length-1);
+                if (pn.Length > 0)
+                    dataGridView1.Rows.Add(pn.Length);
                 for (int i = 0; i < pn.Length; i++)
                 {
                     dataGridView1.Rows[i].Cells[0].Value = pn[i];
@@ -156,12 +156,45 @@ namespace SGDBclient
                 }
             }
             //check if project was selected
-            ...
+            if (formSelectedProject == null) 
+            {
+                all_errors += "Project was not set\n";
+                MessageBox.Show(all_errors);
+                return;
+            }
             //writeoff components
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                int q;
+                if (dataGridView1.Rows[i].Cells["q"].Value.GetType() == typeof(int))
+                    q = (int)dataGridView1.Rows[i].Cells["q"].Value;
+                else
+                    q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
+                try
+                {
+                    MySqlCommand command = new MySqlCommand("CALL writeOff(" +
+                        q + ",\"" +
+                        DateTime.Today.ToString("yyyy-MM-dd") + "\"," +
+                        dataGridView1.Rows[i].Cells["idItem"].Value.ToString() + ",\"" +
+                        formSelectedProject.selectedProjectName + "\",\"" +
+                        "Used writeoff BOM" +
+                        "\")", SQLconnection);
+                    command.ExecuteNonQuery();
+                }
+                catch (Exception ee)
+                {
+                    all_errors += "Trying writeoff " + dataGridView1.Rows[i].Cells[0].Value.ToString() + " failed with exception: " + ee.Message + "\n";
+                }
+            }
             if (all_errors.Length > 0)
             {
                 MessageBox.Show(all_errors);
                 return;
+            }
+            else
+            {
+                MessageBox.Show("Successfully written off all components");
+                this.Close();
             }
         }
 

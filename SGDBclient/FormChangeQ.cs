@@ -43,17 +43,12 @@ namespace SGDBclient {
 						object ProjName = reader["ProjectName"];
                         comboBoxProj.Items.AddRange(new string[] { ProjName.ToString() });
                     }
-					
-
 				}
-
                 reader.Close();
-
             }
 			catch (Exception e) 
 			{
 				MessageBox.Show(e.Message);
-              
             }
 		}
 

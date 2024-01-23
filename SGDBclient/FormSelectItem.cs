@@ -172,7 +172,7 @@ namespace SGDBclient {
         private void button1_Click_1(object sender, EventArgs e)
         {
 			int id = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
-            int qty = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[2].Value;
+            int qty = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Quantity"].Value;
             FormCHangeQ formChangeQ = new FormCHangeQ(SQLconnection, id,qty);
             formChangeQ.StartPosition = FormStartPosition.CenterParent;
             formChangeQ.ShowDialog();

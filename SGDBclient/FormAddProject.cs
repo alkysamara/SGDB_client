@@ -21,21 +21,13 @@ namespace SGDBclient
             SQLconnection = con;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddProj_Click(object sender, EventArgs e)
         {
             try
             {
                 MySqlCommand command = new MySqlCommand("INSERT INTO SGitemsDB.Projects (ProjectName)"+
                     "VALUES(\""+
-                    textBoxAddProj.Text+
-                    "\")"
-
-                    ,SQLconnection);
+                    textBoxAddProj.Text+"\")",SQLconnection);
                 command.ExecuteNonQuery();
                 this.Close();
             }

@@ -10,15 +10,15 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
-	public partial class FormSelectOwner : Form {
-		public int selectedOwnerID = 1;
-		public string selectedOwnerName = "";
+	public partial class FormSelectProject : Form {
+		public int selectedProjectID = 1;
+		public string selectedProjectName = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private void updateTable() {
 			MySqlDataReader reader;
 			try {
-				MySqlCommand command = new MySqlCommand("SELECT * FROM Owners " +
-				"WHERE Owners.LastName LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
+				MySqlCommand command = new MySqlCommand("SELECT * FROM Projects " +
+				"WHERE Projects.ProjectName LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
 				reader = command.ExecuteReader();
 			} catch (Exception e) {
 				MessageBox.Show(e.Message);
@@ -40,7 +40,7 @@ namespace SGDBclient {
 			}
 			reader.Close();
 		}
-		public FormSelectOwner(MySql.Data.MySqlClient.MySqlConnection con) {
+		public FormSelectProject(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;
 			updateTable();
@@ -48,21 +48,16 @@ namespace SGDBclient {
 
 		private void button1_Click(object sender, EventArgs e) {
 			try {
-				//selectedStorageID = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-				selectedOwnerID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
-				selectedOwnerName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
+                selectedProjectID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
+                selectedProjectName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
 			} catch (Exception) {
-				selectedOwnerID = 1;
+                selectedProjectID = 1;
 			}
 			this.Close();
 		}
 
 		private void button2_Click(object sender, EventArgs e) {
 			updateTable();
-		}
-
-		private void button1_KeyDown(object sender, KeyEventArgs e) {
-
 		}
 
 		private void dataGridView1_KeyDown(object sender, KeyEventArgs e) {
@@ -76,8 +71,8 @@ namespace SGDBclient {
 			button1_Click(sender, e);
 		}
 
-		private void btnAddStorage_Click(object sender, EventArgs e) {
-			FormAddOwner form = new FormAddOwner(SQLconnection);
+		private void btnAddProject_Click(object sender, EventArgs e) {
+			FormAddProject form = new FormAddProject(SQLconnection);
 			form.ShowDialog();
 			updateTable();
 		}

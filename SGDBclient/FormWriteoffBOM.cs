@@ -17,6 +17,9 @@ namespace SGDBclient
     public partial class FormWriteoffBOM : Form
     {
         private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
+        FormSelectProject formSelectedProject;
+
+
         public FormWriteoffBOM(MySql.Data.MySqlClient.MySqlConnection connection)
         {
             this.SQLconnection = connection;
@@ -152,12 +155,20 @@ namespace SGDBclient
                     all_errors += "Item " + dataGridView1.Rows[i].Cells[0].Value + " is not enough for this BOM\n";
                 }
             }
+            //check if project was selected
+            ...
             //writeoff components
             if (all_errors.Length > 0)
             {
                 MessageBox.Show(all_errors);
                 return;
             }
+        }
+
+        private void btn_project_Click(object sender, EventArgs e)
+        {
+            formSelectedProject = new FormSelectProject(this.SQLconnection);
+            formSelectedProject.ShowDialog();
         }
     }
 }

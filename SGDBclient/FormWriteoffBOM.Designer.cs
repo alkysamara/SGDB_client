@@ -36,6 +36,7 @@
             this.selectBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnWriteOff = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btn_project = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             // btnWriteOff
             // 
             this.btnWriteOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWriteOff.Location = new System.Drawing.Point(555, 12);
+            this.btnWriteOff.Location = new System.Drawing.Point(555, 41);
             this.btnWriteOff.Name = "btnWriteOff";
             this.btnWriteOff.Size = new System.Drawing.Size(75, 23);
             this.btnWriteOff.TabIndex = 1;
@@ -100,7 +101,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(555, 54);
+            this.btnCancel.Location = new System.Drawing.Point(555, 70);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -108,11 +109,22 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btn_project
+            // 
+            this.btn_project.Location = new System.Drawing.Point(555, 12);
+            this.btn_project.Name = "btn_project";
+            this.btn_project.Size = new System.Drawing.Size(75, 23);
+            this.btn_project.TabIndex = 3;
+            this.btn_project.Text = "Set project";
+            this.btn_project.UseVisualStyleBackColor = true;
+            this.btn_project.Click += new System.EventHandler(this.btn_project_Click);
+            // 
             // FormWriteoffBOM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 457);
+            this.Controls.Add(this.btn_project);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnWriteOff);
             this.Controls.Add(this.dataGridView1);
@@ -134,5 +146,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn selectedItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
         private System.Windows.Forms.DataGridViewButtonColumn selectBtn;
+        private System.Windows.Forms.Button btn_project;
     }
 }

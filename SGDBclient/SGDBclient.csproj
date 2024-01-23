@@ -191,6 +191,12 @@
     <Compile Include="FormSelectComponentType.Designer.cs">
       <DependentUpon>FormSelectComponentType.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSelectProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectProject.Designer.cs">
+      <DependentUpon>FormSelectProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSelectOwner.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectComponentType.resx">
       <DependentUpon>FormSelectComponentType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectProject.resx">
+      <DependentUpon>FormSelectProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectOwner.resx">
       <DependentUpon>FormSelectOwner.cs</DependentUpon>

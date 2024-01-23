@@ -72,7 +72,6 @@
             this.labelAddProj.Size = new System.Drawing.Size(69, 13);
             this.labelAddProj.TabIndex = 3;
             this.labelAddProj.Text = "Project name";
-            this.labelAddProj.Click += new System.EventHandler(this.label1_Click);
             // 
             // FormAddProject
             // 

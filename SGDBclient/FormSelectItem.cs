@@ -304,5 +304,30 @@ namespace SGDBclient {
                 updateTable();
             }
         }
+
+        private void button1_Click_2(object sender, EventArgs e) //move component
+        {
+            FormSelectStorage fss = new FormSelectStorage(SQLconnection);
+            fss.ShowDialog();
+            if (fss.selectedStorageID > 1)
+            {
+                try
+                {
+                    int id = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
+
+                    MySqlCommand command = new MySqlCommand("UPDATE Items SET Storage_idStorage = " + fss.selectedStorageID + 
+                        " WHERE idItem = " + id, SQLconnection);
+                    int q = command.ExecuteNonQuery();
+                    MessageBox.Show("Squccessfully updated rows: " + q);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a problem moving component: " + ex.Message);
+                    return;
+                }
+
+            }
+        }
     }
 }

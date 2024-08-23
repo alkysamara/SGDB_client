@@ -50,6 +50,7 @@
             this.btn_storage_filter = new System.Windows.Forms.Button();
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
+            this.btn_move_component = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -119,6 +120,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_move_component);
             this.panel2.Controls.Add(this.btn_check_availability);
             this.panel2.Controls.Add(this.btn_change_q);
             this.panel2.Controls.Add(this.btn_component_filter);
@@ -282,6 +284,16 @@
             this.textBoxSearchString.TabIndex = 0;
             this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
+            // btn_move_component
+            // 
+            this.btn_move_component.Location = new System.Drawing.Point(453, 62);
+            this.btn_move_component.Name = "btn_move_component";
+            this.btn_move_component.Size = new System.Drawing.Size(141, 23);
+            this.btn_move_component.TabIndex = 33;
+            this.btn_move_component.Text = "Move Component";
+            this.btn_move_component.UseVisualStyleBackColor = true;
+            this.btn_move_component.Click += new System.EventHandler(this.button1_Click_2);
+            // 
             // FormSelectItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,5 +337,6 @@
         private System.Windows.Forms.TextBox textBoxComponent;
         private System.Windows.Forms.Button btn_change_q;
         private System.Windows.Forms.Button btn_check_availability;
+        private System.Windows.Forms.Button btn_move_component;
     }
 }

@@ -51,6 +51,7 @@
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
             this.btn_move_component = new System.Windows.Forms.Button();
+            this.chb_id = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -120,6 +121,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.chb_id);
             this.panel2.Controls.Add(this.btn_move_component);
             this.panel2.Controls.Add(this.btn_check_availability);
             this.panel2.Controls.Add(this.btn_change_q);
@@ -212,9 +214,9 @@
             // textBoxPackage
             // 
             this.textBoxPackage.Enabled = false;
-            this.textBoxPackage.Location = new System.Drawing.Point(29, 90);
+            this.textBoxPackage.Location = new System.Drawing.Point(47, 90);
             this.textBoxPackage.Name = "textBoxPackage";
-            this.textBoxPackage.Size = new System.Drawing.Size(122, 20);
+            this.textBoxPackage.Size = new System.Drawing.Size(104, 20);
             this.textBoxPackage.TabIndex = 25;
             this.textBoxPackage.Text = "<click select>";
             // 
@@ -240,9 +242,9 @@
             // textBoxCType
             // 
             this.textBoxCType.Enabled = false;
-            this.textBoxCType.Location = new System.Drawing.Point(29, 64);
+            this.textBoxCType.Location = new System.Drawing.Point(47, 64);
             this.textBoxCType.Name = "textBoxCType";
-            this.textBoxCType.Size = new System.Drawing.Size(122, 20);
+            this.textBoxCType.Size = new System.Drawing.Size(104, 20);
             this.textBoxCType.TabIndex = 22;
             this.textBoxCType.Text = "<click select>";
             // 
@@ -268,9 +270,9 @@
             // textBoxStorage
             // 
             this.textBoxStorage.Enabled = false;
-            this.textBoxStorage.Location = new System.Drawing.Point(29, 38);
+            this.textBoxStorage.Location = new System.Drawing.Point(47, 38);
             this.textBoxStorage.Name = "textBoxStorage";
-            this.textBoxStorage.Size = new System.Drawing.Size(122, 20);
+            this.textBoxStorage.Size = new System.Drawing.Size(104, 20);
             this.textBoxStorage.TabIndex = 7;
             this.textBoxStorage.Text = "<click select>";
             // 
@@ -278,9 +280,9 @@
             // 
             this.textBoxSearchString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearchString.Location = new System.Drawing.Point(12, 12);
+            this.textBoxSearchString.Location = new System.Drawing.Point(47, 12);
             this.textBoxSearchString.Name = "textBoxSearchString";
-            this.textBoxSearchString.Size = new System.Drawing.Size(819, 20);
+            this.textBoxSearchString.Size = new System.Drawing.Size(784, 20);
             this.textBoxSearchString.TabIndex = 0;
             this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
@@ -293,6 +295,16 @@
             this.btn_move_component.Text = "Move Component";
             this.btn_move_component.UseVisualStyleBackColor = true;
             this.btn_move_component.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // chb_id
+            // 
+            this.chb_id.AutoSize = true;
+            this.chb_id.Location = new System.Drawing.Point(12, 14);
+            this.chb_id.Name = "chb_id";
+            this.chb_id.Size = new System.Drawing.Size(34, 17);
+            this.chb_id.TabIndex = 34;
+            this.chb_id.Text = "id";
+            this.chb_id.UseVisualStyleBackColor = true;
             // 
             // FormSelectItem
             // 
@@ -338,5 +350,6 @@
         private System.Windows.Forms.Button btn_change_q;
         private System.Windows.Forms.Button btn_check_availability;
         private System.Windows.Forms.Button btn_move_component;
+        private System.Windows.Forms.CheckBox chb_id;
     }
 }

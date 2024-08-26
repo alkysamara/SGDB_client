@@ -31,9 +31,18 @@ namespace SGDBclient {
             else {
                 MySqlDataReader reader;
                 try {
-                    string sql_querry = "SELECT * FROM full_item " +
+                    string sql_querry;
+                    if (chb_id.Checked)//use id as search param
+                    {
+                        sql_querry = "SELECT * FROM full_item " +
+                        "WHERE full_item.idItem = " + textBoxSearchString.Text;
+                    }
+                    else //use partnumber or description to search
+                    {
+                        sql_querry = "SELECT * FROM full_item " +
                         "WHERE (full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\' or " +
                         "full_item.Description LIKE \'%" + textBoxSearchString.Text + "%\')";
+                    }
                     if (chb_Component_filter.Checked && (ComponentListForm != null))
                     {
                         sql_querry += "AND (idComponent = " + ComponentListForm.selectedComponentID + ")";

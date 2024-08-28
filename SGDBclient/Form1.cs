@@ -23,8 +23,8 @@ namespace SGDBclient {
 				formEnterPassord.ShowDialog();
 				pas = formEnterPassord.password;
 			}
-			string asdf = "33"+"33"+(2+1+8*0); //немнорго обфурскации, чтобы боты не набежали
-			string connectionString = "server=www.volgaspace.org;port="+asdf+";uid=client;pwd="+pas+"; database=SGitemsDB";
+			string asdf = "34"+"53"+(2+1+8*0-3); //немнорго обфурскации, чтобы боты не набежали
+			string connectionString = "server=sg.ssau.ru;port="+asdf+";uid=client;pwd="+pas+"; database=SGitemsDB";
 			SQLconnection = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
 			try {
 				SQLconnection.Open();

@@ -76,7 +76,6 @@ namespace SGDBclient
                 {
                     dataGridView1.Rows[i].Cells[4].Value = "Select";
                 }
-
             }
             else
             {
@@ -143,6 +142,12 @@ namespace SGDBclient
                 return;
             }
             //check quantities
+            int board_count = 1;
+            if ((!int.TryParse(tb_pcb_count.Text, out board_count)) || (board_count<1))
+            {
+                MessageBox.Show("Board count incorrect!");
+                return;
+            }
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 int q;
@@ -150,7 +155,7 @@ namespace SGDBclient
                     q = (int)dataGridView1.Rows[i].Cells["q"].Value;
                 else
                     q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
-                if (get_q_by_itemid((int)dataGridView1.Rows[i].Cells["idItem"].Value) < q)
+                if (get_q_by_itemid((int)dataGridView1.Rows[i].Cells["idItem"].Value) < q*board_count)
                 {
                     all_errors += "Item " + dataGridView1.Rows[i].Cells[0].Value + " is not enough for this BOM\n";
                 }

@@ -183,7 +183,7 @@ namespace SGDBclient
                         dataGridView1.Rows[i].Cells["idItem"].Value.ToString() + ",\"" +
                         formSelectedProject.selectedProjectName + "\",\"" +
                         "Used writeoff BOM" +
-                        "\")", SQLconnection);
+                        "\",\""+ System.Environment.MachineName+ "\")", SQLconnection);
                     command.ExecuteNonQuery();
                 }
                 catch (Exception ee)

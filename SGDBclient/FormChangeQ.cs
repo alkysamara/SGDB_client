@@ -61,7 +61,7 @@ namespace SGDBclient {
                     idItem.ToString()+",\""+
 					comboBoxProj.Text+"\",\""+
 					textBoxComment.Text+
-                    "\")", SQLconnection);
+                    "\",\"" + System.Environment.MachineName + "\")", SQLconnection);
                     if (quantity - (Int32.Parse(textBoxNeedQ.Text)) < 0)
                     {
                     throw new Exception("Value of current quantity must be greater than needable!");

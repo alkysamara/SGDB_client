@@ -76,6 +76,10 @@ namespace SGDBclient
                 {
                     dataGridView1.Rows[i].Cells[4].Value = "Select";
                 }
+                for (int i = 0; i < pn.Length; i++)
+                {
+                    dataGridView1.Rows[i].Cells[5].Value = "Scan";
+                }
             }
             else
             {
@@ -108,8 +112,7 @@ namespace SGDBclient
         {
             var senderGrid = (DataGridView)sender;
 
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-                e.RowIndex >= 0)
+            if ((senderGrid.Columns[e.ColumnIndex].Name == "selectBtn") && (e.RowIndex >= 0))
             {
                 FormSelectItem fsi = new FormSelectItem(this.SQLconnection,(string)senderGrid.Rows[e.RowIndex].Cells[0].Value);
                 fsi.ShowDialog();
@@ -117,6 +120,61 @@ namespace SGDBclient
                 senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = fsi.selectedItemName;
                 senderGrid.Rows[e.RowIndex].Cells["selectBtn"].Value = "Change";
                 fsi.Close();
+            }
+            if ((senderGrid.Columns[e.ColumnIndex].Name == "scanBtn") && (e.RowIndex >= 0))
+            {
+                FormScan fs = new FormScan();
+                fs.StartPosition = FormStartPosition.CenterParent;
+                fs.ShowDialog();
+                if (fs.idText != "")
+                {
+                    try
+                    {
+                        int id;
+                        if (!int.TryParse(fs.idText, out id))
+                        {
+                            MessageBox.Show("Code in wrong format!");
+                            return;
+                        }
+                        MySqlDataReader reader;
+                        string sql_querry = "SELECT PartNumber FROM full_item " +
+                            "WHERE full_item.idItem = " + fs.idText;
+                        MySqlCommand command = new MySqlCommand(sql_querry, SQLconnection);
+                        reader = command.ExecuteReader();
+                        reader.Read();
+                        if (!reader.HasRows)
+                        {
+                            MessageBox.Show("Wrong Code or item does not exist");
+                            return;
+                        }
+                        senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = reader[0].ToString();
+                        reader.Close();
+                        senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = id;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+
+            //check selected item and use colors: green - ok, yellow and orange - need visual check
+            string strInitial = senderGrid.Rows[e.RowIndex].Cells["pn"].Value.ToString();
+            string strSelect = senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value.ToString();
+            if (strInitial.Equals(strSelect))
+            {
+                senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Style.BackColor = Color.Green;
+            }
+            else
+            {
+                if (strSelect.Contains(strInitial) || strInitial.Contains(strSelect))
+                {
+                    senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Style.BackColor = Color.Yellow;
+                }
+                else
+                {
+                    senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Style.BackColor = Color.Orange;
+                }
             }
         }
 

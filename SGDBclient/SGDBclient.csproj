@@ -179,6 +179,12 @@
     <Compile Include="FormEnterPassword.Designer.cs">
       <DependentUpon>FormEnterPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScan.Designer.cs">
+      <DependentUpon>FormScan.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSelectItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -282,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEnterPassword.resx">
       <DependentUpon>FormEnterPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormScan.resx">
+      <DependentUpon>FormScan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectItem.resx">
       <DependentUpon>FormSelectItem.cs</DependentUpon>

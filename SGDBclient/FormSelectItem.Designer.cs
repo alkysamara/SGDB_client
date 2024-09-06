@@ -35,6 +35,8 @@
             this.buttonAddComponent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chb_id = new System.Windows.Forms.CheckBox();
+            this.btn_move_component = new System.Windows.Forms.Button();
             this.btn_check_availability = new System.Windows.Forms.Button();
             this.btn_change_q = new System.Windows.Forms.Button();
             this.btn_component_filter = new System.Windows.Forms.Button();
@@ -50,8 +52,7 @@
             this.btn_storage_filter = new System.Windows.Forms.Button();
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
-            this.btn_move_component = new System.Windows.Forms.Button();
-            this.chb_id = new System.Windows.Forms.CheckBox();
+            this.btn_scan = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,7 +82,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 126);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(843, 450);
+            this.dataGridView1.Size = new System.Drawing.Size(834, 450);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
@@ -89,7 +90,7 @@
             // buttonRefreshTable
             // 
             this.buttonRefreshTable.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonRefreshTable.Location = new System.Drawing.Point(749, 0);
+            this.buttonRefreshTable.Location = new System.Drawing.Point(740, 0);
             this.buttonRefreshTable.Name = "buttonRefreshTable";
             this.buttonRefreshTable.Size = new System.Drawing.Size(94, 34);
             this.buttonRefreshTable.TabIndex = 2;
@@ -100,7 +101,7 @@
             // buttonAddComponent
             // 
             this.buttonAddComponent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAddComponent.Location = new System.Drawing.Point(377, 0);
+            this.buttonAddComponent.Location = new System.Drawing.Point(373, 0);
             this.buttonAddComponent.Name = "buttonAddComponent";
             this.buttonAddComponent.Size = new System.Drawing.Size(75, 34);
             this.buttonAddComponent.TabIndex = 3;
@@ -116,11 +117,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 576);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(843, 34);
+            this.panel1.Size = new System.Drawing.Size(834, 34);
             this.panel1.TabIndex = 4;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_scan);
             this.panel2.Controls.Add(this.chb_id);
             this.panel2.Controls.Add(this.btn_move_component);
             this.panel2.Controls.Add(this.btn_check_availability);
@@ -141,8 +143,28 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(843, 126);
+            this.panel2.Size = new System.Drawing.Size(834, 126);
             this.panel2.TabIndex = 5;
+            // 
+            // chb_id
+            // 
+            this.chb_id.AutoSize = true;
+            this.chb_id.Location = new System.Drawing.Point(12, 14);
+            this.chb_id.Name = "chb_id";
+            this.chb_id.Size = new System.Drawing.Size(34, 17);
+            this.chb_id.TabIndex = 34;
+            this.chb_id.Text = "id";
+            this.chb_id.UseVisualStyleBackColor = true;
+            // 
+            // btn_move_component
+            // 
+            this.btn_move_component.Location = new System.Drawing.Point(453, 62);
+            this.btn_move_component.Name = "btn_move_component";
+            this.btn_move_component.Size = new System.Drawing.Size(141, 23);
+            this.btn_move_component.TabIndex = 33;
+            this.btn_move_component.Text = "Move Component";
+            this.btn_move_component.UseVisualStyleBackColor = true;
+            this.btn_move_component.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // btn_check_availability
             // 
@@ -282,35 +304,26 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxSearchString.Location = new System.Drawing.Point(47, 12);
             this.textBoxSearchString.Name = "textBoxSearchString";
-            this.textBoxSearchString.Size = new System.Drawing.Size(784, 20);
+            this.textBoxSearchString.Size = new System.Drawing.Size(701, 20);
             this.textBoxSearchString.TabIndex = 0;
             this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
-            // btn_move_component
+            // btn_scan
             // 
-            this.btn_move_component.Location = new System.Drawing.Point(453, 62);
-            this.btn_move_component.Name = "btn_move_component";
-            this.btn_move_component.Size = new System.Drawing.Size(141, 23);
-            this.btn_move_component.TabIndex = 33;
-            this.btn_move_component.Text = "Move Component";
-            this.btn_move_component.UseVisualStyleBackColor = true;
-            this.btn_move_component.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // chb_id
-            // 
-            this.chb_id.AutoSize = true;
-            this.chb_id.Location = new System.Drawing.Point(12, 14);
-            this.chb_id.Name = "chb_id";
-            this.chb_id.Size = new System.Drawing.Size(34, 17);
-            this.chb_id.TabIndex = 34;
-            this.chb_id.Text = "id";
-            this.chb_id.UseVisualStyleBackColor = true;
+            this.btn_scan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_scan.Location = new System.Drawing.Point(754, 11);
+            this.btn_scan.Name = "btn_scan";
+            this.btn_scan.Size = new System.Drawing.Size(77, 21);
+            this.btn_scan.TabIndex = 35;
+            this.btn_scan.Text = "Scan";
+            this.btn_scan.UseVisualStyleBackColor = true;
+            this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
             // 
             // FormSelectItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 610);
+            this.ClientSize = new System.Drawing.Size(834, 610);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -318,6 +331,7 @@
             this.Name = "FormSelectItem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select item";
+            this.Shown += new System.EventHandler(this.FormSelectItem_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -351,5 +365,6 @@
         private System.Windows.Forms.Button btn_check_availability;
         private System.Windows.Forms.Button btn_move_component;
         private System.Windows.Forms.CheckBox chb_id;
+        private System.Windows.Forms.Button btn_scan;
     }
 }

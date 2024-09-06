@@ -129,6 +129,7 @@
             this.Name = "FormSelectComponentType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select component type";
+            this.Shown += new System.EventHandler(this.FormSelectComponentType_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

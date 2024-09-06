@@ -90,5 +90,10 @@ namespace SGDBclient {
                 updateTable();
             }
         }
+
+        private void FormSelectStorage_Shown(object sender, EventArgs e)
+        {
+            textBoxSearchString.Focus();
+        }
     }
 }

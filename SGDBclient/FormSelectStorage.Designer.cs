@@ -135,6 +135,7 @@
             this.Name = "FormSelectStorage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select storage";
+            this.Shown += new System.EventHandler(this.FormSelectStorage_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

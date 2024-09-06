@@ -90,5 +90,10 @@ namespace SGDBclient {
                 updateTable();
             }
         }
+
+        private void FormSelectOwner_Shown(object sender, EventArgs e)
+        {
+            textBoxSearchString.Focus();
+        }
     }
 }

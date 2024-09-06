@@ -48,7 +48,7 @@
             this.buttonSelect.Location = new System.Drawing.Point(0, 0);
             this.buttonSelect.Name = "buttonSelect";
             this.buttonSelect.Size = new System.Drawing.Size(75, 34);
-            this.buttonSelect.TabIndex = 0;
+            this.buttonSelect.TabIndex = 1;
             this.buttonSelect.Text = "Select";
             this.buttonSelect.UseVisualStyleBackColor = true;
             this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
@@ -78,7 +78,7 @@
             this.buttonRefreshTable.Location = new System.Drawing.Point(581, 0);
             this.buttonRefreshTable.Name = "buttonRefreshTable";
             this.buttonRefreshTable.Size = new System.Drawing.Size(94, 34);
-            this.buttonRefreshTable.TabIndex = 2;
+            this.buttonRefreshTable.TabIndex = 4;
             this.buttonRefreshTable.Text = "Refresh table";
             this.buttonRefreshTable.UseVisualStyleBackColor = true;
             this.buttonRefreshTable.Click += new System.EventHandler(this.buttonRefresh_Click);
@@ -89,7 +89,7 @@
             this.buttonAddComponent.Location = new System.Drawing.Point(174, 0);
             this.buttonAddComponent.Name = "buttonAddComponent";
             this.buttonAddComponent.Size = new System.Drawing.Size(100, 34);
-            this.buttonAddComponent.TabIndex = 3;
+            this.buttonAddComponent.TabIndex = 2;
             this.buttonAddComponent.Text = "Add component";
             this.buttonAddComponent.UseVisualStyleBackColor = true;
             this.buttonAddComponent.Click += new System.EventHandler(this.btnAddComponent_Click);
@@ -111,7 +111,7 @@
             this.btnEditParams.Location = new System.Drawing.Point(380, 0);
             this.btnEditParams.Name = "btnEditParams";
             this.btnEditParams.Size = new System.Drawing.Size(138, 34);
-            this.btnEditParams.TabIndex = 4;
+            this.btnEditParams.TabIndex = 3;
             this.btnEditParams.Text = "Edit parameters";
             this.btnEditParams.UseVisualStyleBackColor = true;
             this.btnEditParams.Click += new System.EventHandler(this.btnEditParams_Click);
@@ -147,6 +147,7 @@
             this.Name = "FormSelectComponent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select component";
+            this.Shown += new System.EventHandler(this.FormSelectComponent_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

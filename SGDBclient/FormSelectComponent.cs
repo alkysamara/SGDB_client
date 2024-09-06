@@ -114,5 +114,10 @@ namespace SGDBclient {
                 updateTable();
 			}
         }
+
+        private void FormSelectComponent_Shown(object sender, EventArgs e)
+        {
+            textBoxSearchString.Focus();
+        }
     }
 }

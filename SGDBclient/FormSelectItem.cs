@@ -92,7 +92,7 @@ namespace SGDBclient {
 			InitializeComponent();
 			SQLconnection = con;
 			updateTable();
-		}
+        }
 
         public FormSelectItem(MySql.Data.MySqlClient.MySqlConnection con, string search)
         {
@@ -337,6 +337,17 @@ namespace SGDBclient {
                 }
 
             }
+        }
+
+        private void btn_scan_Click(object sender, EventArgs e)
+        {
+            chb_id.Checked = true;
+            textBoxSearchString.Focus();
+        }
+
+        private void FormSelectItem_Shown(object sender, EventArgs e)
+        {
+            textBoxSearchString.Focus();
         }
     }
 }

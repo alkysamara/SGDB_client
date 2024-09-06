@@ -135,6 +135,7 @@
             this.Name = "FormSelectOrder";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select order";
+            this.Shown += new System.EventHandler(this.FormSelectOrder_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

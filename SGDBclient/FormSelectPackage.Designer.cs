@@ -135,6 +135,7 @@
             this.Name = "FormSelectPackage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select package";
+            this.Shown += new System.EventHandler(this.FormSelectPackage_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

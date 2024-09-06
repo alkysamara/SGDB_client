@@ -89,5 +89,10 @@ namespace SGDBclient {
                 updateTable();
             }
         }
+
+        private void FormSelectOrder_Shown(object sender, EventArgs e)
+        {
+            textBoxSearchString.Focus();
+        }
     }
 }

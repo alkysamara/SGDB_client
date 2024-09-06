@@ -134,6 +134,7 @@
             this.Name = "FormSelectProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select project";
+            this.Shown += new System.EventHandler(this.FormSelectProject_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

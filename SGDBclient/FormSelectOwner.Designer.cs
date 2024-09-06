@@ -135,6 +135,7 @@
             this.Name = "FormSelectOwner";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select owner";
+            this.Shown += new System.EventHandler(this.FormSelectOwner_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);

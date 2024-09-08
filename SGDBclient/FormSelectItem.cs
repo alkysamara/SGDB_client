@@ -342,6 +342,7 @@ namespace SGDBclient {
         private void btn_scan_Click(object sender, EventArgs e)
         {
             chb_id.Checked = true;
+            textBoxSearchString.Text = "";
             textBoxSearchString.Focus();
         }
 

@@ -13,6 +13,7 @@ namespace SGDBclient {
 	public partial class FormSelectItem : Form {
 		public int selectedItemID = 1;
 		public string selectedItemName = "";
+        public string selectedItemDescription = "";
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 
         private FormSelectStorage StorageListForm;
@@ -104,9 +105,10 @@ namespace SGDBclient {
 
         private void buttonSelect_Click(object sender, EventArgs e) {
 			try {
-                selectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[0].Value;
-                selectedItemName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells[1].Value;
-			} catch (Exception) {
+                selectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
+                selectedItemName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["PartNumber"].Value;
+			    selectedItemDescription = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Description"].Value;
+            } catch (Exception) {
                 selectedItemID = 0;
 			}
 			this.Close();

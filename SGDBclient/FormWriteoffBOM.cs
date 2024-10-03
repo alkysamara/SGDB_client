@@ -74,11 +74,11 @@ namespace SGDBclient
                 }
                 for (int i = 0; i < pn.Length; i++)
                 {
-                    dataGridView1.Rows[i].Cells[4].Value = "Select";
+                    dataGridView1.Rows[i].Cells["selectBtn"].Value = "Select";
                 }
                 for (int i = 0; i < pn.Length; i++)
                 {
-                    dataGridView1.Rows[i].Cells[5].Value = "Scan";
+                    dataGridView1.Rows[i].Cells["scanBtn"].Value = "Scan";
                 }
             }
             else
@@ -112,16 +112,17 @@ namespace SGDBclient
         {
             var senderGrid = (DataGridView)sender;
 
-            if ((senderGrid.Columns[e.ColumnIndex].Name == "selectBtn") && (e.RowIndex >= 0))
+            if ((senderGrid.Columns[e.ColumnIndex].Name == "selectBtn") && (e.RowIndex >= 0)) //pressed select button
             {
                 FormSelectItem fsi = new FormSelectItem(this.SQLconnection,(string)senderGrid.Rows[e.RowIndex].Cells[0].Value);
                 fsi.ShowDialog();
                 senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = fsi.selectedItemID;
                 senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = fsi.selectedItemName;
+                senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Value = fsi.selectedItemDescription;
                 senderGrid.Rows[e.RowIndex].Cells["selectBtn"].Value = "Change";
                 fsi.Close();
             }
-            if ((senderGrid.Columns[e.ColumnIndex].Name == "scanBtn") && (e.RowIndex >= 0))
+            if ((senderGrid.Columns[e.ColumnIndex].Name == "scanBtn") && (e.RowIndex >= 0)) //pressed scan button
             {
                 FormScan fs = new FormScan();
                 fs.StartPosition = FormStartPosition.CenterParent;
@@ -137,7 +138,7 @@ namespace SGDBclient
                             return;
                         }
                         MySqlDataReader reader;
-                        string sql_querry = "SELECT PartNumber FROM full_item " +
+                        string sql_querry = "SELECT PartNumber, Description FROM full_item " +
                             "WHERE full_item.idItem = " + fs.idText;
                         MySqlCommand command = new MySqlCommand(sql_querry, SQLconnection);
                         reader = command.ExecuteReader();
@@ -148,6 +149,7 @@ namespace SGDBclient
                             return;
                         }
                         senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = reader[0].ToString();
+                        senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Value = reader[1].ToString();
                         reader.Close();
                         senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = id;
                     }
@@ -161,19 +163,27 @@ namespace SGDBclient
             //check selected item and use colors: green - ok, yellow and orange - need visual check
             string strInitial = senderGrid.Rows[e.RowIndex].Cells["pn"].Value.ToString();
             string strSelect = senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value.ToString();
+            string strDescription = senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Value.ToString();
             if (strInitial.Equals(strSelect))
             {
                 senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Style.BackColor = Color.Green;
+            }else if (strInitial.Equals(strDescription))
+            {
+                senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Style.BackColor = Color.Green;
             }
             else
             {
                 if (strSelect.Contains(strInitial) || strInitial.Contains(strSelect))
                 {
                     senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Style.BackColor = Color.Yellow;
-                }
-                else
+                }else
+                if (strDescription.Contains(strInitial) || strInitial.Contains(strDescription))
+                {
+                    senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Style.BackColor = Color.Yellow;
+                }else
                 {
                     senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Style.BackColor = Color.Orange;
+                    senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Style.BackColor = Color.Orange;
                 }
             }
         }

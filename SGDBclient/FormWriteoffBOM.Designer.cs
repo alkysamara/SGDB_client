@@ -38,6 +38,7 @@
             this.q = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SelectedItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.scanBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -56,18 +57,19 @@
             this.q,
             this.selectedItem,
             this.idItem,
+            this.SelectedItemDescription,
             this.selectBtn,
             this.scanBtn});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(544, 425);
+            this.dataGridView1.Size = new System.Drawing.Size(645, 425);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnWriteOff
             // 
             this.btnWriteOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWriteOff.Location = new System.Drawing.Point(562, 41);
+            this.btnWriteOff.Location = new System.Drawing.Point(663, 41);
             this.btnWriteOff.Name = "btnWriteOff";
             this.btnWriteOff.Size = new System.Drawing.Size(75, 23);
             this.btnWriteOff.TabIndex = 1;
@@ -78,7 +80,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(562, 70);
+            this.btnCancel.Location = new System.Drawing.Point(663, 70);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -89,7 +91,7 @@
             // btn_project
             // 
             this.btn_project.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_project.Location = new System.Drawing.Point(562, 12);
+            this.btn_project.Location = new System.Drawing.Point(663, 12);
             this.btn_project.Name = "btn_project";
             this.btn_project.Size = new System.Drawing.Size(75, 23);
             this.btn_project.TabIndex = 3;
@@ -101,7 +103,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(563, 100);
+            this.label1.Location = new System.Drawing.Point(664, 100);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 4;
@@ -110,7 +112,7 @@
             // tb_pcb_count
             // 
             this.tb_pcb_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_pcb_count.Location = new System.Drawing.Point(605, 97);
+            this.tb_pcb_count.Location = new System.Drawing.Point(706, 97);
             this.tb_pcb_count.Name = "tb_pcb_count";
             this.tb_pcb_count.Size = new System.Drawing.Size(32, 20);
             this.tb_pcb_count.TabIndex = 5;
@@ -120,6 +122,7 @@
             // 
             this.pn.HeaderText = "PartNumber";
             this.pn.Name = "pn";
+            this.pn.ReadOnly = true;
             // 
             // q
             // 
@@ -130,6 +133,7 @@
             // 
             this.selectedItem.HeaderText = "Selected Item";
             this.selectedItem.Name = "selectedItem";
+            this.selectedItem.ReadOnly = true;
             // 
             // idItem
             // 
@@ -137,6 +141,12 @@
             this.idItem.Name = "idItem";
             this.idItem.ReadOnly = true;
             this.idItem.Visible = false;
+            // 
+            // SelectedItemDescription
+            // 
+            this.SelectedItemDescription.HeaderText = "Selected Item Description";
+            this.SelectedItemDescription.Name = "SelectedItemDescription";
+            this.SelectedItemDescription.ReadOnly = true;
             // 
             // selectBtn
             // 
@@ -156,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 449);
+            this.ClientSize = new System.Drawing.Size(750, 449);
             this.Controls.Add(this.tb_pcb_count);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_project);
@@ -184,6 +194,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn q;
         private System.Windows.Forms.DataGridViewTextBoxColumn selectedItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn idItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SelectedItemDescription;
         private System.Windows.Forms.DataGridViewButtonColumn selectBtn;
         private System.Windows.Forms.DataGridViewButtonColumn scanBtn;
     }

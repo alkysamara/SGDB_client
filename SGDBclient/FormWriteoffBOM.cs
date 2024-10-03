@@ -80,6 +80,10 @@ namespace SGDBclient
                 {
                     dataGridView1.Rows[i].Cells["scanBtn"].Value = "Scan";
                 }
+                for (int i = 0; i < pn.Length; i++)
+                {
+                    dataGridView1.Rows[i].Cells["chbCountOnce"].Value = false;
+                }
             }
             else
             {
@@ -111,6 +115,8 @@ namespace SGDBclient
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
+
+            if ((senderGrid.Columns[e.ColumnIndex].Name == "chbCountOnce")) return;
 
             if ((senderGrid.Columns[e.ColumnIndex].Name == "selectBtn") && (e.RowIndex >= 0)) //pressed select button
             {
@@ -223,7 +229,9 @@ namespace SGDBclient
                     q = (int)dataGridView1.Rows[i].Cells["q"].Value;
                 else
                     q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
-                if (get_q_by_itemid((int)dataGridView1.Rows[i].Cells["idItem"].Value) < q*board_count)
+                if (!((bool)dataGridView1.Rows[i].Cells["chbCountOnce"].Value))
+                    q *= board_count;
+                if (get_q_by_itemid((int)dataGridView1.Rows[i].Cells["idItem"].Value) < q)
                 {
                     all_errors += "Item " + dataGridView1.Rows[i].Cells[0].Value + " is not enough for this BOM\n";
                 }
@@ -243,6 +251,8 @@ namespace SGDBclient
                     q = (int)dataGridView1.Rows[i].Cells["q"].Value;
                 else
                     q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
+                if (!((bool)dataGridView1.Rows[i].Cells["chbCountOnce"].Value))
+                    q *= board_count;
                 try
                 {
                     MySqlCommand command = new MySqlCommand("CALL writeOff(" +
@@ -275,6 +285,14 @@ namespace SGDBclient
         {
             formSelectedProject = new FormSelectProject(this.SQLconnection);
             formSelectedProject.ShowDialog();
+        }
+
+        private void btn_addRow_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Add();
+            dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["selectBtn"].Value = "Select";
+            dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["scanBtn"].Value = "Scan";
+            dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["chbCountOnce"].Value = true;
         }
     }
 }

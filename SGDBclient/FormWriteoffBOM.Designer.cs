@@ -34,6 +34,7 @@
             this.btn_project = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_pcb_count = new System.Windows.Forms.TextBox();
+            this.btn_addRow = new System.Windows.Forms.Button();
             this.pn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.q = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +42,7 @@
             this.SelectedItemDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.scanBtn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.chbCountOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,17 +61,18 @@
             this.idItem,
             this.SelectedItemDescription,
             this.selectBtn,
-            this.scanBtn});
+            this.scanBtn,
+            this.chbCountOnce});
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(645, 425);
+            this.dataGridView1.Size = new System.Drawing.Size(686, 425);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnWriteOff
             // 
             this.btnWriteOff.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWriteOff.Location = new System.Drawing.Point(663, 41);
+            this.btnWriteOff.Location = new System.Drawing.Point(704, 70);
             this.btnWriteOff.Name = "btnWriteOff";
             this.btnWriteOff.Size = new System.Drawing.Size(75, 23);
             this.btnWriteOff.TabIndex = 1;
@@ -80,7 +83,7 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(663, 70);
+            this.btnCancel.Location = new System.Drawing.Point(704, 99);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -91,7 +94,7 @@
             // btn_project
             // 
             this.btn_project.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_project.Location = new System.Drawing.Point(663, 12);
+            this.btn_project.Location = new System.Drawing.Point(704, 12);
             this.btn_project.Name = "btn_project";
             this.btn_project.Size = new System.Drawing.Size(75, 23);
             this.btn_project.TabIndex = 3;
@@ -103,7 +106,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(664, 100);
+            this.label1.Location = new System.Drawing.Point(705, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 4;
@@ -112,17 +115,27 @@
             // tb_pcb_count
             // 
             this.tb_pcb_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_pcb_count.Location = new System.Drawing.Point(706, 97);
+            this.tb_pcb_count.Location = new System.Drawing.Point(747, 126);
             this.tb_pcb_count.Name = "tb_pcb_count";
             this.tb_pcb_count.Size = new System.Drawing.Size(32, 20);
             this.tb_pcb_count.TabIndex = 5;
             this.tb_pcb_count.Text = "1";
             // 
+            // btn_addRow
+            // 
+            this.btn_addRow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_addRow.Location = new System.Drawing.Point(704, 41);
+            this.btn_addRow.Name = "btn_addRow";
+            this.btn_addRow.Size = new System.Drawing.Size(75, 23);
+            this.btn_addRow.TabIndex = 6;
+            this.btn_addRow.Text = "Add Row";
+            this.btn_addRow.UseVisualStyleBackColor = true;
+            this.btn_addRow.Click += new System.EventHandler(this.btn_addRow_Click);
+            // 
             // pn
             // 
             this.pn.HeaderText = "PartNumber";
             this.pn.Name = "pn";
-            this.pn.ReadOnly = true;
             // 
             // q
             // 
@@ -162,11 +175,18 @@
             this.scanBtn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.scanBtn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // chbCountOnce
+            // 
+            this.chbCountOnce.HeaderText = "Count Once";
+            this.chbCountOnce.Name = "chbCountOnce";
+            this.chbCountOnce.Width = 40;
+            // 
             // FormWriteoffBOM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 449);
+            this.ClientSize = new System.Drawing.Size(791, 449);
+            this.Controls.Add(this.btn_addRow);
             this.Controls.Add(this.tb_pcb_count);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_project);
@@ -190,6 +210,7 @@
         private System.Windows.Forms.Button btn_project;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_pcb_count;
+        private System.Windows.Forms.Button btn_addRow;
         private System.Windows.Forms.DataGridViewTextBoxColumn pn;
         private System.Windows.Forms.DataGridViewTextBoxColumn q;
         private System.Windows.Forms.DataGridViewTextBoxColumn selectedItem;
@@ -197,5 +218,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SelectedItemDescription;
         private System.Windows.Forms.DataGridViewButtonColumn selectBtn;
         private System.Windows.Forms.DataGridViewButtonColumn scanBtn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn chbCountOnce;
     }
 }

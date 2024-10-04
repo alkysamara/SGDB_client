@@ -88,6 +88,10 @@ namespace SGDBclient {
                 }
                 reader.Close();
             }
+            if (dataGridView1.RowCount > 0)
+            {
+                dataGridView1.CurrentCell = dataGridView1[0, 0];
+            }
 		}
 		public FormSelectItem(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
@@ -351,6 +355,12 @@ namespace SGDBclient {
         private void FormSelectItem_Shown(object sender, EventArgs e)
         {
             textBoxSearchString.Focus();
+        }
+
+        private void btn_history_Click(object sender, EventArgs e)
+        {
+            FormShowHistory fsh = new FormShowHistory(SQLconnection, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value.ToString());
+            fsh.ShowDialog();
         }
     }
 }

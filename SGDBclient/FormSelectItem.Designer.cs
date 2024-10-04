@@ -35,6 +35,7 @@
             this.buttonAddComponent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_scan = new System.Windows.Forms.Button();
             this.chb_id = new System.Windows.Forms.CheckBox();
             this.btn_move_component = new System.Windows.Forms.Button();
             this.btn_check_availability = new System.Windows.Forms.Button();
@@ -52,7 +53,7 @@
             this.btn_storage_filter = new System.Windows.Forms.Button();
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
-            this.btn_scan = new System.Windows.Forms.Button();
+            this.btn_history = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -122,6 +123,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_history);
             this.panel2.Controls.Add(this.btn_scan);
             this.panel2.Controls.Add(this.chb_id);
             this.panel2.Controls.Add(this.btn_move_component);
@@ -146,6 +148,17 @@
             this.panel2.Size = new System.Drawing.Size(834, 126);
             this.panel2.TabIndex = 5;
             // 
+            // btn_scan
+            // 
+            this.btn_scan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_scan.Location = new System.Drawing.Point(754, 11);
+            this.btn_scan.Name = "btn_scan";
+            this.btn_scan.Size = new System.Drawing.Size(77, 21);
+            this.btn_scan.TabIndex = 35;
+            this.btn_scan.Text = "Scan";
+            this.btn_scan.UseVisualStyleBackColor = true;
+            this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
+            // 
             // chb_id
             // 
             this.chb_id.AutoSize = true;
@@ -160,7 +173,7 @@
             // 
             this.btn_move_component.Location = new System.Drawing.Point(453, 62);
             this.btn_move_component.Name = "btn_move_component";
-            this.btn_move_component.Size = new System.Drawing.Size(141, 23);
+            this.btn_move_component.Size = new System.Drawing.Size(110, 23);
             this.btn_move_component.TabIndex = 33;
             this.btn_move_component.Text = "Move Component";
             this.btn_move_component.UseVisualStyleBackColor = true;
@@ -180,7 +193,7 @@
             // 
             this.btn_change_q.Location = new System.Drawing.Point(453, 88);
             this.btn_change_q.Name = "btn_change_q";
-            this.btn_change_q.Size = new System.Drawing.Size(141, 23);
+            this.btn_change_q.Size = new System.Drawing.Size(110, 23);
             this.btn_change_q.TabIndex = 31;
             this.btn_change_q.Text = "Change Quantity";
             this.btn_change_q.UseVisualStyleBackColor = true;
@@ -190,7 +203,7 @@
             // 
             this.btn_component_filter.Location = new System.Drawing.Point(453, 37);
             this.btn_component_filter.Name = "btn_component_filter";
-            this.btn_component_filter.Size = new System.Drawing.Size(141, 23);
+            this.btn_component_filter.Size = new System.Drawing.Size(110, 23);
             this.btn_component_filter.TabIndex = 30;
             this.btn_component_filter.Text = "Select component";
             this.btn_component_filter.UseVisualStyleBackColor = true;
@@ -308,16 +321,15 @@
             this.textBoxSearchString.TabIndex = 0;
             this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
-            // btn_scan
+            // btn_history
             // 
-            this.btn_scan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_scan.Location = new System.Drawing.Point(754, 11);
-            this.btn_scan.Name = "btn_scan";
-            this.btn_scan.Size = new System.Drawing.Size(77, 21);
-            this.btn_scan.TabIndex = 35;
-            this.btn_scan.Text = "Scan";
-            this.btn_scan.UseVisualStyleBackColor = true;
-            this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
+            this.btn_history.Location = new System.Drawing.Point(569, 37);
+            this.btn_history.Name = "btn_history";
+            this.btn_history.Size = new System.Drawing.Size(87, 23);
+            this.btn_history.TabIndex = 36;
+            this.btn_history.Text = "History";
+            this.btn_history.UseVisualStyleBackColor = true;
+            this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
             // 
             // FormSelectItem
             // 
@@ -366,5 +378,6 @@
         private System.Windows.Forms.Button btn_move_component;
         private System.Windows.Forms.CheckBox chb_id;
         private System.Windows.Forms.Button btn_scan;
+        private System.Windows.Forms.Button btn_history;
     }
 }

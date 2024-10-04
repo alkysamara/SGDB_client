@@ -233,6 +233,12 @@
     <Compile Include="FormSelectStorage.Designer.cs">
       <DependentUpon>FormSelectStorage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormShowHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowHistory.Designer.cs">
+      <DependentUpon>FormShowHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTableResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormSelectStorage.resx">
       <DependentUpon>FormSelectStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowHistory.resx">
+      <DependentUpon>FormShowHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTableResult.resx">
       <DependentUpon>FormTableResult.cs</DependentUpon>

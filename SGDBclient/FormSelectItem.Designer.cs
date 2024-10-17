@@ -35,6 +35,7 @@
             this.buttonAddComponent = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_history = new System.Windows.Forms.Button();
             this.btn_scan = new System.Windows.Forms.Button();
             this.chb_id = new System.Windows.Forms.CheckBox();
             this.btn_move_component = new System.Windows.Forms.Button();
@@ -53,7 +54,7 @@
             this.btn_storage_filter = new System.Windows.Forms.Button();
             this.textBoxStorage = new System.Windows.Forms.TextBox();
             this.textBoxSearchString = new System.Windows.Forms.TextBox();
-            this.btn_history = new System.Windows.Forms.Button();
+            this.btn_add_item = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -102,7 +103,7 @@
             // buttonAddComponent
             // 
             this.buttonAddComponent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAddComponent.Location = new System.Drawing.Point(373, 0);
+            this.buttonAddComponent.Location = new System.Drawing.Point(425, 0);
             this.buttonAddComponent.Name = "buttonAddComponent";
             this.buttonAddComponent.Size = new System.Drawing.Size(75, 34);
             this.buttonAddComponent.TabIndex = 3;
@@ -112,6 +113,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_add_item);
             this.panel1.Controls.Add(this.buttonSelect);
             this.panel1.Controls.Add(this.buttonRefreshTable);
             this.panel1.Controls.Add(this.buttonAddComponent);
@@ -147,6 +149,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(834, 126);
             this.panel2.TabIndex = 5;
+            // 
+            // btn_history
+            // 
+            this.btn_history.Location = new System.Drawing.Point(569, 37);
+            this.btn_history.Name = "btn_history";
+            this.btn_history.Size = new System.Drawing.Size(87, 23);
+            this.btn_history.TabIndex = 36;
+            this.btn_history.Text = "History";
+            this.btn_history.UseVisualStyleBackColor = true;
+            this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
             // 
             // btn_scan
             // 
@@ -321,15 +333,16 @@
             this.textBoxSearchString.TabIndex = 0;
             this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
-            // btn_history
+            // btn_add_item
             // 
-            this.btn_history.Location = new System.Drawing.Point(569, 37);
-            this.btn_history.Name = "btn_history";
-            this.btn_history.Size = new System.Drawing.Size(87, 23);
-            this.btn_history.TabIndex = 36;
-            this.btn_history.Text = "History";
-            this.btn_history.UseVisualStyleBackColor = true;
-            this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
+            this.btn_add_item.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_add_item.Location = new System.Drawing.Point(344, 0);
+            this.btn_add_item.Name = "btn_add_item";
+            this.btn_add_item.Size = new System.Drawing.Size(75, 34);
+            this.btn_add_item.TabIndex = 4;
+            this.btn_add_item.Text = "Add Item";
+            this.btn_add_item.UseVisualStyleBackColor = true;
+            this.btn_add_item.Click += new System.EventHandler(this.btn_add_item_Click);
             // 
             // FormSelectItem
             // 
@@ -379,5 +392,6 @@
         private System.Windows.Forms.CheckBox chb_id;
         private System.Windows.Forms.Button btn_scan;
         private System.Windows.Forms.Button btn_history;
+        private System.Windows.Forms.Button btn_add_item;
     }
 }

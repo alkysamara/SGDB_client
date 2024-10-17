@@ -14,6 +14,8 @@ namespace SGDBclient {
 		public int selectedItemID = 1;
 		public string selectedItemName = "";
         public string selectedItemDescription = "";
+
+        private bool useEnterAndDoubleClick = true;
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 
         private FormSelectStorage StorageListForm;
@@ -107,6 +109,11 @@ namespace SGDBclient {
             updateTable();
         }
 
+        public void supressEnterAndDoubleClick()
+        {
+            useEnterAndDoubleClick = false;
+        }
+
         private void buttonSelect_Click(object sender, EventArgs e) {
 			try {
                 selectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
@@ -125,12 +132,14 @@ namespace SGDBclient {
 		private void dataGridView1_KeyDown(object sender, KeyEventArgs e) {
 			if (e.KeyCode == Keys.Enter) {
                 e.SuppressKeyPress = true;
-                buttonSelect_Click(sender, e);
+                if (useEnterAndDoubleClick)
+                    buttonSelect_Click(sender, e);
 			}
 		}
 
 		private void dataGridView1_DoubleClick(object sender, EventArgs e) {
-			buttonSelect_Click(sender, e);
+            if (useEnterAndDoubleClick)
+                buttonSelect_Click(sender, e);
 		}
 
 		private void btnAddComponent_Click(object sender, EventArgs e) {
@@ -244,6 +253,8 @@ namespace SGDBclient {
 
         private void btn_check_availability_Click(object sender, EventArgs e)
         {
+            //todo: use FormCheckAvailability here instead
+
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "CSV files(*.csv)|*.csv";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -361,6 +372,14 @@ namespace SGDBclient {
         {
             FormShowHistory fsh = new FormShowHistory(SQLconnection, dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value.ToString());
             fsh.ShowDialog();
+        }
+
+        private void btn_add_item_Click(object sender, EventArgs e)
+        {
+            FormAddItem form = new FormAddItem(SQLconnection);
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog();
+            updateTable();
         }
     }
 }

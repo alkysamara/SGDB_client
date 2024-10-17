@@ -1,6 +1,6 @@
 ﻿namespace SGDBclient
 {
-    partial class FormWriteoffBOM
+    partial class FormCheckAvailability
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormWriteoffBOM));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnWriteOff = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btn_project = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tb_pcb_count = new System.Windows.Forms.TextBox();
+            this.btn_addRow = new System.Windows.Forms.Button();
             this.pn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.q = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.selectedItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,12 +43,6 @@
             this.selectBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.scanBtn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.chbCountOnce = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.btnWriteOff = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btn_project = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tb_pcb_count = new System.Windows.Forms.TextBox();
-            this.btn_addRow = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,8 +50,8 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -69,55 +68,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(686, 425);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // pn
-            // 
-            this.pn.HeaderText = "PartNumber";
-            this.pn.Name = "pn";
-            // 
-            // q
-            // 
-            this.q.HeaderText = "Quantity";
-            this.q.Name = "q";
-            // 
-            // selectedItem
-            // 
-            this.selectedItem.HeaderText = "Selected Item";
-            this.selectedItem.Name = "selectedItem";
-            this.selectedItem.ReadOnly = true;
-            // 
-            // idItem
-            // 
-            this.idItem.HeaderText = "idItem";
-            this.idItem.Name = "idItem";
-            this.idItem.ReadOnly = true;
-            this.idItem.Visible = false;
-            // 
-            // SelectedItemDescription
-            // 
-            this.SelectedItemDescription.HeaderText = "Selected Item Description";
-            this.SelectedItemDescription.Name = "SelectedItemDescription";
-            this.SelectedItemDescription.ReadOnly = true;
-            // 
-            // selectBtn
-            // 
-            this.selectBtn.HeaderText = "Select Item";
-            this.selectBtn.Name = "selectBtn";
-            this.selectBtn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.selectBtn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // scanBtn
-            // 
-            this.scanBtn.HeaderText = "Scan";
-            this.scanBtn.Name = "scanBtn";
-            this.scanBtn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.scanBtn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // chbCountOnce
-            // 
-            this.chbCountOnce.HeaderText = "Count Once";
-            this.chbCountOnce.Name = "chbCountOnce";
-            this.chbCountOnce.Width = 40;
             // 
             // btnWriteOff
             // 
@@ -182,6 +132,55 @@
             this.btn_addRow.UseVisualStyleBackColor = true;
             this.btn_addRow.Click += new System.EventHandler(this.btn_addRow_Click);
             // 
+            // pn
+            // 
+            this.pn.HeaderText = "PartNumber";
+            this.pn.Name = "pn";
+            // 
+            // q
+            // 
+            this.q.HeaderText = "Quantity";
+            this.q.Name = "q";
+            // 
+            // selectedItem
+            // 
+            this.selectedItem.HeaderText = "Selected Item";
+            this.selectedItem.Name = "selectedItem";
+            this.selectedItem.ReadOnly = true;
+            // 
+            // idItem
+            // 
+            this.idItem.HeaderText = "idItem";
+            this.idItem.Name = "idItem";
+            this.idItem.ReadOnly = true;
+            this.idItem.Visible = false;
+            // 
+            // SelectedItemDescription
+            // 
+            this.SelectedItemDescription.HeaderText = "Selected Item Description";
+            this.SelectedItemDescription.Name = "SelectedItemDescription";
+            this.SelectedItemDescription.ReadOnly = true;
+            // 
+            // selectBtn
+            // 
+            this.selectBtn.HeaderText = "Select Item";
+            this.selectBtn.Name = "selectBtn";
+            this.selectBtn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.selectBtn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // scanBtn
+            // 
+            this.scanBtn.HeaderText = "Scan";
+            this.scanBtn.Name = "scanBtn";
+            this.scanBtn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.scanBtn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // chbCountOnce
+            // 
+            this.chbCountOnce.HeaderText = "Count Once";
+            this.chbCountOnce.Name = "chbCountOnce";
+            this.chbCountOnce.Width = 40;
+            // 
             // FormWriteoffBOM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,7 +193,6 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnWriteOff);
             this.Controls.Add(this.dataGridView1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormWriteoffBOM";
             this.Text = "FormWriteoffBOM";
             this.Shown += new System.EventHandler(this.FormWriteoffBOM_Shown);

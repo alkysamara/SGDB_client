@@ -245,6 +245,12 @@
     <Compile Include="FormTableResult.Designer.cs">
       <DependentUpon>FormTableResult.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCheckAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCheckAvailability.Designer.cs">
+      <DependentUpon>FormCheckAvailability.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormWriteoffBOM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormTableResult.resx">
       <DependentUpon>FormTableResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCheckAvailability.resx">
+      <DependentUpon>FormCheckAvailability.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormWriteoffBOM.resx">
       <DependentUpon>FormWriteoffBOM.cs</DependentUpon>

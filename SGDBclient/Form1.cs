@@ -15,24 +15,97 @@ namespace SGDBclient {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		public Form1() {
 			InitializeComponent();
-			string pas;
-			if (System.IO.File.Exists("pwd.ini")) {
-				pas = System.IO.File.ReadAllText("pwd.ini");
-			} else {
-				FormEnterPassword formEnterPassord = new FormEnterPassword();
-				formEnterPassord.ShowDialog();
-				pas = formEnterPassord.password;
+			string text;
+			string pas = "";
+			string cString = "";
+			if (System.IO.File.Exists("settings.ini"))
+			{
+				text = System.IO.File.ReadAllText("settings.ini");
+				string[] fields = text.Split(new string[]{"\r\n"}, StringSplitOptions.RemoveEmptyEntries);
+				string port = "";
+				string server = "";
+				string uid = "";
+				string databaseName = "";
+
+				foreach (string field in fields)
+				{
+					if (field.StartsWith("#")) //comments
+						continue;
+					if (field.Contains("server="))
+					{
+						server = field.Replace("server=", "");
+					}
+					if (field.Contains("uid="))
+					{
+						uid = field.Replace("uid=", "");
+					}
+					if (field.Contains("port="))
+					{
+						port = field.Replace("port=", "");
+					}
+					if (field.Contains("pwd="))
+					{
+						pas = field.Replace("pwd=", "");
+					}
+					if (field.Contains("database="))
+					{
+						databaseName = field.Replace("database=", "");
+					}
+				}
+				if (server.Equals(""))
+				{
+					richTextBox1.Text += "No \"server=\" settings found in settings file\n";
+					richTextBox1.ForeColor = Color.Red;
+					return;
+				}
+				if (uid.Equals(""))
+				{
+					richTextBox1.Text += "No \"uid=\" settings found in settings file\n";
+					richTextBox1.ForeColor = Color.Red;
+					return;
+				}
+				if (port.Equals(""))
+				{
+					richTextBox1.Text += "No \"port=\" settings found in settings file\n";
+					richTextBox1.ForeColor = Color.Red;
+					return;
+				}
+				if (databaseName.Equals(""))
+				{
+					richTextBox1.Text += "No \"database=\" settings found in settings file\n";
+					richTextBox1.ForeColor = Color.Red;
+					return;
+				}
+				if (pas.Equals(""))
+				{
+                    if (System.IO.File.Exists("pwd.ini"))
+                    {
+                        pas = System.IO.File.ReadAllText("pwd.ini");
+                    }
+                    else
+                    {
+                        FormEnterPassword formEnterPassord = new FormEnterPassword();
+                        formEnterPassord.ShowDialog();
+                        pas = formEnterPassord.password;
+                    }
+                }
+				cString = "server=" + server + ";port=" + port + ";uid=" + uid + ";pwd=" + pas + ";database=" + databaseName;
+            }
+			else
+			{
+				richTextBox1.Text += "No base settings file found" + "\n";
+				richTextBox1.ForeColor = Color.Red;
+				return;
 			}
-			string asdf = "34"+"53"+(2+1+8*0-3); //немнорго обфурскации, чтобы боты не набежали
-			string connectionString = "server=sg.ssau.ru;port="+asdf+";uid=client;pwd="+pas+"; database=SGitemsDB";
-			SQLconnection = new MySql.Data.MySqlClient.MySqlConnection(connectionString);
+
+			SQLconnection = new MySql.Data.MySqlClient.MySqlConnection(cString);
 			try {
 				SQLconnection.Open();
 				if (!System.IO.File.Exists("pwd.ini")) {
 					System.IO.File.WriteAllText("pwd.ini", pas);
 				}
 			}catch (Exception e) {
-				richTextBox1.Text = e.Message;
+				richTextBox1.Text += e.Message+"\n";
 				richTextBox1.ForeColor = Color.Red;
 			}
 		}

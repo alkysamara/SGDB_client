@@ -14,6 +14,7 @@ namespace SGDBclient {
 		public int selectedItemID = 1;
 		public string selectedItemName = "";
         public string selectedItemDescription = "";
+        public string selectedItemQ = "";
 
         private bool useEnterAndDoubleClick = true;
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
@@ -119,6 +120,7 @@ namespace SGDBclient {
                 selectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
                 selectedItemName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["PartNumber"].Value;
 			    selectedItemDescription = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Description"].Value;
+                selectedItemQ = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Quantity"].Value;
             } catch (Exception) {
                 selectedItemID = 0;
 			}

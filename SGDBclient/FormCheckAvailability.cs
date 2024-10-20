@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,7 @@ namespace SGDBclient
             InitializeComponent();
         }
 
-        private void FormWriteoffBOM_Shown(object sender, EventArgs e)
+        private void FormCheckAvailability_Shown(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "CSV files(*.csv)|*.csv";
@@ -84,6 +85,10 @@ namespace SGDBclient
                 {
                     dataGridView1.Rows[i].Cells["chbCountOnce"].Value = false;
                 }
+                for (int i = 0; i < pn.Length; i++)
+                {
+                    dataGridView1.Rows[i].Cells["addAlternativeBtn"].Value = "Add alternative";
+                }
             }
             else
             {
@@ -125,6 +130,7 @@ namespace SGDBclient
                 senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = fsi.selectedItemID;
                 senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = fsi.selectedItemName;
                 senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Value = fsi.selectedItemDescription;
+                senderGrid.Rows[e.RowIndex].Cells["availableQ"].Value = fsi.selectedItemQ;
                 senderGrid.Rows[e.RowIndex].Cells["selectBtn"].Value = "Change";
                 fsi.Close();
             }
@@ -144,7 +150,7 @@ namespace SGDBclient
                             return;
                         }
                         MySqlDataReader reader;
-                        string sql_querry = "SELECT PartNumber, Description FROM full_item " +
+                        string sql_querry = "SELECT PartNumber, Description, Quantity FROM full_item " +
                             "WHERE full_item.idItem = " + fs.idText;
                         MySqlCommand command = new MySqlCommand(sql_querry, SQLconnection);
                         reader = command.ExecuteReader();
@@ -156,8 +162,10 @@ namespace SGDBclient
                         }
                         senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = reader[0].ToString();
                         senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Value = reader[1].ToString();
+                        senderGrid.Rows[e.RowIndex].Cells["availableQ"].Value = reader[3].ToString();
                         reader.Close();
                         senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = id;
+
                     }
                     catch (Exception ex)
                     {
@@ -165,10 +173,33 @@ namespace SGDBclient
                     }
                 }
             }
+            if ((senderGrid.Columns[e.ColumnIndex].Name == "addAlternativeBtn") && (e.RowIndex >= 0) && (!dataGridView1.Rows[e.RowIndex].Cells["pn"].Value.ToString().Equals("")))
+            {
+                int index = e.RowIndex + 1;
+                senderGrid.Rows.Insert(index, 1);
+                dataGridView1.Rows[index].Cells["pn"].Value = "";
+                dataGridView1.Rows[index].Cells["selectBtn"].Value = "Select";
+                dataGridView1.Rows[index].Cells["scanBtn"].Value = "Scan";
+                dataGridView1.Rows[index].Cells["chbCountOnce"].Value = false;
+
+            }
 
             //check selected item and use colors: green - ok, yellow and orange - need visual check
             string strInitial = senderGrid.Rows[e.RowIndex].Cells["pn"].Value.ToString();
-            string strSelect = senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value.ToString();
+            int offset = 0;
+            while (strInitial.Equals(""))
+            {
+                offset++;
+                if (e.RowIndex - offset < 0) break;
+                strInitial = senderGrid.Rows[e.RowIndex-offset].Cells["pn"].Value.ToString();
+            }
+            var val = senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value;
+            string strSelect;
+            if (val != null)
+                strSelect = val.ToString();
+            else
+                return;
+            //if strSelect is not null => item was selected and further cells are not null
             string strDescription = senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Value.ToString();
             if (strInitial.Equals(strSelect))
             {
@@ -199,7 +230,7 @@ namespace SGDBclient
             this.Close();
         }
 
-        private void btnWriteOff_Click(object sender, EventArgs e)
+        private void btnCountAvailable_Click(object sender, EventArgs e)
         {
             string all_errors = "";
             //check, that everything is selected
@@ -216,12 +247,7 @@ namespace SGDBclient
                 return;
             }
             //check quantities
-            int board_count = 1;
-            if ((!int.TryParse(tb_pcb_count.Text, out board_count)) || (board_count<1))
-            {
-                MessageBox.Show("Board count incorrect!");
-                return;
-            }
+            /*
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 int q;
@@ -235,49 +261,13 @@ namespace SGDBclient
                 {
                     all_errors += "Item " + dataGridView1.Rows[i].Cells[0].Value + " is not enough for this BOM\n";
                 }
-            }
+            }*/
             //check if project was selected
-            if (formSelectedProject == null) 
-            {
-                all_errors += "Project was not set\n";
-                MessageBox.Show(all_errors);
-                return;
-            }
-            //writeoff components
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                int q;
-                if (dataGridView1.Rows[i].Cells["q"].Value.GetType() == typeof(int))
-                    q = (int)dataGridView1.Rows[i].Cells["q"].Value;
-                else
-                    q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
-                if (!((bool)dataGridView1.Rows[i].Cells["chbCountOnce"].Value))
-                    q *= board_count;
-                try
-                {
-                    MySqlCommand command = new MySqlCommand("CALL writeOff(" +
-                        q + ",\"" +
-                        DateTime.Today.ToString("yyyy-MM-dd") + "\"," +
-                        dataGridView1.Rows[i].Cells["idItem"].Value.ToString() + ",\"" +
-                        formSelectedProject.selectedProjectName + "\",\"" +
-                        "Used writeoff BOM" +
-                        "\",\""+ System.Environment.MachineName+ "\")", SQLconnection);
-                    command.ExecuteNonQuery();
-                }
-                catch (Exception ee)
-                {
-                    all_errors += "Trying writeoff " + dataGridView1.Rows[i].Cells[0].Value.ToString() + " failed with exception: " + ee.Message + "\n";
-                }
-            }
+
             if (all_errors.Length > 0)
             {
                 MessageBox.Show(all_errors);
                 return;
-            }
-            else
-            {
-                MessageBox.Show("Successfully written off all components");
-                this.Close();
             }
         }
 
@@ -292,6 +282,7 @@ namespace SGDBclient
             dataGridView1.Rows.Add();
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["selectBtn"].Value = "Select";
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["scanBtn"].Value = "Scan";
+            dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["addAlternative"].Value = "Add alternative";
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["chbCountOnce"].Value = true;
         }
     }

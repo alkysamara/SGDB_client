@@ -83,10 +83,6 @@ namespace SGDBclient
                 }
                 for (int i = 0; i < pn.Length; i++)
                 {
-                    dataGridView1.Rows[i].Cells["chbCountOnce"].Value = false;
-                }
-                for (int i = 0; i < pn.Length; i++)
-                {
                     dataGridView1.Rows[i].Cells["addAlternativeBtn"].Value = "Add alternative";
                 }
             }
@@ -180,7 +176,6 @@ namespace SGDBclient
                 dataGridView1.Rows[index].Cells["pn"].Value = "";
                 dataGridView1.Rows[index].Cells["selectBtn"].Value = "Select";
                 dataGridView1.Rows[index].Cells["scanBtn"].Value = "Scan";
-                dataGridView1.Rows[index].Cells["chbCountOnce"].Value = false;
 
             }
 
@@ -247,6 +242,64 @@ namespace SGDBclient
                 return;
             }
             //check quantities
+            int min_pcbs = int.MaxValue;
+            int min_pcbs_index = 1;
+            int j = 0, current_parent_index = 0, current_available_count = 0;
+			int neededQ;
+
+			try
+            {
+                while (j < dataGridView1.Rows.Count)
+                {
+                    if (!((string)dataGridView1.Rows[j].Cells["pn"].Value).Equals("")) //this is a new item
+                    {
+                        if (j > 0) //finish processing previous item
+                        {
+							neededQ = int.Parse(dataGridView1.Rows[current_parent_index].Cells["q"].Value.ToString());
+							if (neededQ > 0)
+							{
+								int pcbs = current_available_count / neededQ;
+								dataGridView1.Rows[current_parent_index].Cells["suitableFor"].Value = pcbs;
+								if (pcbs < min_pcbs)
+								{
+									min_pcbs = pcbs;
+									min_pcbs_index = current_parent_index;
+								}
+							}
+                        }
+                        current_parent_index = j;
+                        current_available_count = int.Parse(dataGridView1.Rows[j].Cells["AvailableQ"].Value.ToString());
+                    }
+                    else //this is a next line of an older item
+                    {
+						current_available_count += int.Parse(dataGridView1.Rows[j].Cells["AvailableQ"].Value.ToString());
+					}
+                    j++;
+                    
+                }
+				//finish the last item
+				neededQ = int.Parse(dataGridView1.Rows[current_parent_index].Cells["q"].Value.ToString());
+				if (neededQ > 0)
+				{
+					int pcbs = current_available_count / neededQ;
+					dataGridView1.Rows[current_parent_index].Cells["suitableFor"].Value = pcbs;
+					if (pcbs < min_pcbs)
+					{
+						min_pcbs = pcbs;
+						min_pcbs_index = current_parent_index;
+					}
+				}
+				//highlight the bottleneck
+				dataGridView1.Rows[min_pcbs_index].Cells["AvailableQ"].Style.BackColor = Color.Orange;
+				dataGridView1.Rows[min_pcbs_index].Cells["suitableFor"].Style.BackColor = Color.Orange;
+				labelAvailableCount.Text = "Max PCBs: " + min_pcbs;
+			}
+			catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+                return;
+            }
+
             /*
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
@@ -283,7 +336,6 @@ namespace SGDBclient
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["selectBtn"].Value = "Select";
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["scanBtn"].Value = "Scan";
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["addAlternative"].Value = "Add alternative";
-            dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["chbCountOnce"].Value = true;
         }
     }
 }

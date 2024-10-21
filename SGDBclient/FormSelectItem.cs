@@ -120,7 +120,7 @@ namespace SGDBclient {
                 selectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
                 selectedItemName = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["PartNumber"].Value;
 			    selectedItemDescription = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Description"].Value;
-                selectedItemQ = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Quantity"].Value;
+                selectedItemQ = (string)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["Quantity"].Value.ToString();
             } catch (Exception) {
                 selectedItemID = 0;
 			}

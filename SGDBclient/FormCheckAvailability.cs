@@ -19,7 +19,7 @@ namespace SGDBclient
     {
         private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
         FormSelectProject formSelectedProject;
-
+        private bool countSucessfull = false;
 
         public FormCheckAvailability(MySql.Data.MySqlClient.MySqlConnection connection)
         {
@@ -158,7 +158,7 @@ namespace SGDBclient
                         }
                         senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = reader[0].ToString();
                         senderGrid.Rows[e.RowIndex].Cells["selectedItemDescription"].Value = reader[1].ToString();
-                        senderGrid.Rows[e.RowIndex].Cells["availableQ"].Value = reader[3].ToString();
+                        senderGrid.Rows[e.RowIndex].Cells["availableQ"].Value = reader[2].ToString();
                         reader.Close();
                         senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = id;
 
@@ -227,6 +227,7 @@ namespace SGDBclient
 
         private void btnCountAvailable_Click(object sender, EventArgs e)
         {
+            countSucessfull = false;
             string all_errors = "";
             //check, that everything is selected
             for (int i = 0; i< dataGridView1.Rows.Count; i++)
@@ -322,6 +323,7 @@ namespace SGDBclient
                 MessageBox.Show(all_errors);
                 return;
             }
+            countSucessfull = true;
         }
 
         private void btn_project_Click(object sender, EventArgs e)
@@ -336,6 +338,36 @@ namespace SGDBclient
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["selectBtn"].Value = "Select";
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["scanBtn"].Value = "Scan";
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["addAlternative"].Value = "Add alternative";
+        }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            btnCountAvailable_Click(sender, e);
+            if (!countSucessfull) return;
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "CSV files(*.csv)|*.csv";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                string result = "PartNumber;Quantity;SelectedItem;idItem;SelectedItemDescription;AvailableQ;SuitableFor\r\n";
+                try
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        result += dataGridView1.Rows[i].Cells["pn"].Value + ";";
+                        result += dataGridView1.Rows[i].Cells["q"].Value + ";";
+                        result += dataGridView1.Rows[i].Cells["selectedItem"].Value + ";";
+                        result += dataGridView1.Rows[i].Cells["idItem"].Value + ";";
+                        result += dataGridView1.Rows[i].Cells["SelectedItemDescription"].Value + ";";
+                        result += dataGridView1.Rows[i].Cells["availableQ"].Value + ";";
+                        result += dataGridView1.Rows[i].Cells["suitableFor"].Value + "\r\n";
+                    }
+                    System.IO.File.WriteAllText(sfd.FileName, result);
+                    MessageBox.Show("Successfully written file");
+                } catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

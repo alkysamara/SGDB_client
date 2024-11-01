@@ -131,9 +131,9 @@ namespace SGDBclient {
 
         private void selectPackage_Click(object sender, EventArgs e)
         {
-			FormSelectPackage formSelectPackage = new FormSelectPackage(SQLconnection);
-            formSelectPackage.StartPosition = FormStartPosition.CenterParent;
-            formSelectPackage.ShowDialog();
+			FormWriteoffBOM fwoffbom = new FormWriteoffBOM(SQLconnection);
+			fwoffbom.StartPosition = FormStartPosition.CenterParent;
+			fwoffbom.ShowDialog();
 		}
 
         private void button2_Click(object sender, EventArgs e)

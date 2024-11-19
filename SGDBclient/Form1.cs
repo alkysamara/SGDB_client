@@ -124,9 +124,12 @@ namespace SGDBclient {
 
 		private void button1_Click(object sender, EventArgs e) {
 			FormSelectItem formSelectItem = new FormSelectItem(SQLconnection);
-            formSelectItem.StartPosition = FormStartPosition.CenterParent;
-            formSelectItem.ShowDialog();
-			richTextBox1.Text += "Selected component type: "+ formSelectItem.selectedItemName+"\n";
+			formSelectItem.supressEnterAndDoubleClick();
+			formSelectItem.StartPosition = FormStartPosition.CenterParent;
+            formSelectItem.Show();
+			formSelectItem.Top = this.Top;
+			formSelectItem.Left = this.Left;
+			//richTextBox1.Text += "Selected component type: "+ formSelectItem.selectedItemName+"\n";
 		}
 
         private void selectPackage_Click(object sender, EventArgs e)

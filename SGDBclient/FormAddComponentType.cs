@@ -18,12 +18,7 @@ namespace SGDBclient {
 			SQLconnection = con;
 		}
 
-		private void btnAdd_Click(object sender, EventArgs e) {
-			if (textBoxParameters.Text == "{}") {//special case in sql query
-				textBoxParameters.Text = "\\\"{}\\\"";
-			}
-			string parentID;
-			
+		private void btnAdd_Click(object sender, EventArgs e) {			
 			try {
 				//parent can be either an ID of another component type or "NULL" if not used
 				MySqlCommand command;

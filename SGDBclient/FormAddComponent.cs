@@ -25,7 +25,7 @@ namespace SGDBclient {
 			formSelectComponentType = new FormSelectComponentType(SQLconnection);
 			formSelectPackage = new FormSelectPackage(SQLconnection);
 		}
-        public string[] get_params_from_componentType(int id)
+        public void get_params_from_componentType(int id, out string[] typeNames, out string[] typeDescription)
         {
             string[] results;
             string json;
@@ -39,14 +39,15 @@ namespace SGDBclient {
                 json = reader[0].ToString();
                 reader.Close();
                 Dictionary<string, string>  results_dict = JsonSerializer.Deserialize<Dictionary<string, string>>(json);
-                results = results_dict.Keys.ToArray<string>();
-            }
+				typeNames = results_dict.Keys.ToArray<string>();
+				typeDescription = results_dict.Values.ToArray<string>();
+			}
             catch (Exception ee)
             {
                 MessageBox.Show(ee.Message);
-                return new string[] { "" };
-            }
-            return results;
+				typeNames = new string[] { "" };
+				typeDescription = new string[] { "" };
+			}
         }
 
         public static bool addSingleComponent(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string PartNumber, string Parameters, string LCSCpart, string Links, 
@@ -112,7 +113,9 @@ namespace SGDBclient {
             formSelectComponentType.StartPosition = FormStartPosition.CenterParent;
             formSelectComponentType.ShowDialog();
 			labelSelectedComponentType.Text = formSelectComponentType.selectedComponentTypeName;
-            jsonEditorParameters.setList(get_params_from_componentType(formSelectComponentType.selectedComponentTypeID));
+			string[] typeNames, typeDescr;
+			get_params_from_componentType(formSelectComponentType.selectedComponentTypeID, out typeNames, out typeDescr);
+			jsonEditorParameters.setList(typeNames, typeDescr);
         }
 
 		private void buttonEditPackage_Click(object sender, EventArgs e)

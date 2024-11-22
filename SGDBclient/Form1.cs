@@ -13,11 +13,11 @@ using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 namespace SGDBclient {
 	public partial class Form1 : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
+		private string cString = "";
 		public Form1() {
 			InitializeComponent();
 			string text;
 			string pas = "";
-			string cString = "";
 			if (System.IO.File.Exists("settings.ini"))
 			{
 				text = System.IO.File.ReadAllText("settings.ini");
@@ -148,5 +148,21 @@ namespace SGDBclient {
 			fwobom.StartPosition = FormStartPosition.CenterParent;
 			fwobom.ShowDialog();*/
         }
-    }
+
+		private void btn_reconnect_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				SQLconnection.Close();
+				SQLconnection = new MySql.Data.MySqlClient.MySqlConnection(cString);
+				SQLconnection.Open();
+				richTextBox1.ForeColor = Color.White;
+			}
+			catch (Exception ex)
+			{
+				richTextBox1.Text += ex.Message + "\n";
+				richTextBox1.ForeColor = Color.Red;
+			}
+		}
+	}
 }

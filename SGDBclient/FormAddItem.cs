@@ -39,7 +39,7 @@ namespace SGDBclient {
 		}
 
 		public static bool add_single_item(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string Quantity, string Price,
-			int idStorage, int idOrder, int idComponent, int idPerson)
+			int idStorage, int idOrder, int idComponent, int idPerson, string comment)
 		{
             try
             {
@@ -47,13 +47,14 @@ namespace SGDBclient {
                 {
                     Price = "0";
                 }
-                MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Items` (`Quantity`, `Price`, `Storage_idStorage`, `Order_idOrder`, `Component_idComponent`, `Owner_idPerson`) VALUES(\'" +
+                MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Items` (`Quantity`, `Price`, `Storage_idStorage`, `Order_idOrder`, `Component_idComponent`, `Owner_idPerson`, `Comment`) VALUES(\'" +
                     Quantity + "\',\'" +
                     Price + "\',\'" +
                     idStorage + "\',\'" +
                     idOrder + "\',\'" +
                     idComponent + "\',\'" +
-                    idPerson + "\')"
+                    idPerson + "\',\'" +
+					comment + "\')"
                     , SQLconnection);
                 command.ExecuteNonQuery();
             }
@@ -67,7 +68,7 @@ namespace SGDBclient {
 
 		private void btnAdd_Click(object sender, EventArgs e) {
             if (add_single_item(this.SQLconnection, textBoxQuantity.Text, textBoxPrice.Text, StorageListForm.selectedStorageID,
-                OrderListForm.selectedOrderID, ComponentListForm.selectedComponentID, OwnerListForm.selectedOwnerID))
+                OrderListForm.selectedOrderID, ComponentListForm.selectedComponentID, OwnerListForm.selectedOwnerID,tb_comment.Text))
                 this.Close();
         }
 
@@ -102,7 +103,7 @@ namespace SGDBclient {
             ofd.Filter = "CSV files(*.csv)|*.csv";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                const int number_of_columns = 6;
+                const int number_of_columns = 7;
                 string all_error_messages = "";
                 string path = ofd.FileName;
                 string[] lines;
@@ -138,7 +139,7 @@ namespace SGDBclient {
                     if (matrix[i][4] == "") all_error_messages += "idOrder" + i + " is empty\n";
                     if (matrix[i][5] == "") all_error_messages += "Owner" + i + " is empty\n";
 
-                    if (all_error_messages != "")
+					if (all_error_messages != "")
                     {
                         MessageBox.Show(all_error_messages);
                         return;
@@ -242,7 +243,7 @@ namespace SGDBclient {
                 try
                 {
                     for (int i = 1; i < lines.Length; i++)
-                        if (FormAddItem.add_single_item(this.SQLconnection, matrix[i][1], matrix[i][2], int.Parse(matrix[i][3]), int.Parse(matrix[i][4]), int.Parse(matrix[i][0]), int.Parse(matrix[i][5])))
+                        if (FormAddItem.add_single_item(this.SQLconnection, matrix[i][1], matrix[i][2], int.Parse(matrix[i][3]), int.Parse(matrix[i][4]), int.Parse(matrix[i][0]), int.Parse(matrix[i][5]), matrix[i][6]))
                             addcnt++;
 
                 }

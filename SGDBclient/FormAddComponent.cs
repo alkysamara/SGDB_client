@@ -27,7 +27,7 @@ namespace SGDBclient {
 		}
         public void get_params_from_componentType(int id, out string[] typeNames, out string[] typeDescription)
         {
-            string[] results;
+            //string[] results;
             string json;
             try
             {

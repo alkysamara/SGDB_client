@@ -49,7 +49,7 @@ namespace SGDBclient {
             return results;
         }
 
-        public static bool addSingleComponent(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string PartNumber, string Parameters, string LCSCpart, string Links, 
+        public static bool addSingleComponent(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string PartNumber, string Parameters, string Links, 
 			string ComponentType_idComponentType, string Packages_idPackage, string Description)
 		{
             try
@@ -57,10 +57,9 @@ namespace SGDBclient {
                 if (Links == "{}") Links = "\"{}\"";
                 if (Parameters == "{}") Parameters = "\"{}\"";
                 MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, " +
-                    "`LCSCpart`, `Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
+                    "`Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
                     PartNumber + "\'," +
-                    Parameters + ",\'" +
-                    LCSCpart + "\'," +
+                    Parameters + "," +
                     Links + ",\'" +
                     ComponentType_idComponentType + "\',\'" +
                     Packages_idPackage + "\',\'" +
@@ -87,9 +86,9 @@ namespace SGDBclient {
 			}
 			
 			try {
-                addSingleComponent(this.SQLconnection, textBoxPartNumber.Text, jsonEditorParameters.JSON, textBoxLCSC.Text, jsonEditorLinks.JSON,
-					formSelectComponentType.selectedComponentTypeID.ToString(), formSelectPackage.selectedPackageID.ToString(), textBoxDescription.Text);
-				this.Close();
+                if (addSingleComponent(this.SQLconnection, textBoxPartNumber.Text, jsonEditorParameters.JSON, jsonEditorLinks.JSON,
+					formSelectComponentType.selectedComponentTypeID.ToString(), formSelectPackage.selectedPackageID.ToString(), textBoxDescription.Text))
+				    this.Close();
 			} catch (Exception ee) {
 				MessageBox.Show(ee.Message);
 			}
@@ -122,9 +121,10 @@ namespace SGDBclient {
 			labelSelectedPackage.Text = formSelectPackage.selectedPackageName;
 		}
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_addFromCSV_Click(object sender, EventArgs e) 
         {
-            MessageBox.Show("File format: PartNumber, Parameters, LCSCpart, Links, ComponentType, Package, Description");
+            MessageBox.Show("File format: PartNumber, Parameters, Links, ComponentType, Package, Description");
+            int posPartNumber = 0, posParameters = 1, posLinks = 2, posComponentTypes = 3, posPackage = 4, posDescription = 5;
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "CSV files(*.csv)|*.csv";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -148,7 +148,7 @@ namespace SGDBclient {
                 {
                     matrix[i] = lines[i].Split(';');
                 }
-                if (matrix[0].Length != 7)
+                if (matrix[0].Length != 6)
                 {
                     MessageBox.Show("Input file was in wrong format");
                     return;
@@ -156,17 +156,17 @@ namespace SGDBclient {
                 //check all lines for errors
                 for (int i = 1; i < lines.Length; i++)
                 {
-                    if (matrix[i][0] == "") all_error_messages += "Partnumber" + i + " is empty\n";
+                    if (matrix[i][posPartNumber] == "") all_error_messages += "Partnumber" + i + " is empty\n";
                     //check if pn exist
                     MySqlDataReader reader;
                     try
                     {
                         MySqlCommand command = new MySqlCommand("SELECT idComponent FROM Components " +
-                            "WHERE Components.PartNumber LIKE \'" + matrix[i][0] + "\'", SQLconnection);
+                            "WHERE Components.PartNumber LIKE \'" + matrix[i][posPartNumber] + "\'", SQLconnection);
                         reader = command.ExecuteReader();
                         if (reader.Read())
                         {
-                            all_error_messages += "Component " + matrix[i][0] + " already exist in the database\n";
+                            all_error_messages += "Component " + matrix[i][posPartNumber] + " already exist in the database\n";
                         }
                         reader.Close();
                     }
@@ -176,22 +176,22 @@ namespace SGDBclient {
                         return;
                     }
 
-                    if (matrix[i][1] == "") matrix[i][1] = "\"{}\"";
-                    if (matrix[i][3] == "") matrix[i][3] = "\"{}\"";
-                    if (matrix[i][4] == "") all_error_messages += "Component type" + i + " is empty\n";
+                    if (matrix[i][posParameters] == "") matrix[i][posParameters] = "\"{}\"";
+                    if (matrix[i][posLinks] == "") matrix[i][posLinks] = "\"{}\"";
+                    if (matrix[i][posComponentTypes] == "") all_error_messages += "Component type" + i + " is empty\n";
                     //check if ct exist
                     try
                     {
                         MySqlCommand command = new MySqlCommand("SELECT idComponentType FROM ComponentTypes " +
-                            "WHERE ComponentTypes.TypeName LIKE \'" + matrix[i][4] + "\'", SQLconnection);
+                            "WHERE ComponentTypes.TypeName LIKE \'" + matrix[i][posComponentTypes] + "\'", SQLconnection);
                         reader = command.ExecuteReader();
                         if (!reader.Read())
                         {
-                            all_error_messages += "ComponentType " + matrix[i][4] + " does not exist in the database\n";
+                            all_error_messages += "ComponentType " + matrix[i][posComponentTypes] + " does not exist in the database\n";
                         }
                         else
                         {
-                            matrix[i][4] = reader[0].ToString();
+                            matrix[i][posComponentTypes] = reader[0].ToString();
                         }
                         reader.Close();
                     }
@@ -201,20 +201,20 @@ namespace SGDBclient {
                         return;
                     }
 
-                    if (matrix[i][5] == "") all_error_messages += "Package" + i + " is empty\n";
+                    if (matrix[i][posPackage] == "") all_error_messages += "Package" + i + " is empty\n";
                     //check if package exist
                     try
                     {
                         MySqlCommand command = new MySqlCommand("SELECT idPackage FROM Packages " +
-                            "WHERE Packages.PackageName LIKE \'" + matrix[i][5] + "\'", SQLconnection);
+                            "WHERE Packages.PackageName LIKE \'" + matrix[i][posPackage] + "\'", SQLconnection);
                         reader = command.ExecuteReader();
                         if (!reader.Read())
                         {
-                            all_error_messages += "Package " + matrix[i][5] + " does not exist in the database\n";
+                            all_error_messages += "Package " + matrix[i][posPackage] + " does not exist in the database\n";
                         }
                         else
                         {
-                            matrix[i][5] = reader[0].ToString();
+                            matrix[i][posPackage] = reader[0].ToString();
                         }
                         reader.Close();
                     }
@@ -224,7 +224,7 @@ namespace SGDBclient {
                         return;
                     }
 
-                    if (matrix[i][6] == "") all_error_messages += "Description" + i + " is empty\n";
+                    if (matrix[i][posDescription] == "") all_error_messages += "Description" + i + " is empty\n";
                 }
                 //apply changes if no errors
                 if (all_error_messages != "")
@@ -237,7 +237,7 @@ namespace SGDBclient {
                 try
                 {
                     for (int i = 1; i < lines.Length; i++)
-                        if (FormAddComponent.addSingleComponent(this.SQLconnection, matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3], matrix[i][4], matrix[i][5], matrix[i][6]))
+                        if (FormAddComponent.addSingleComponent(this.SQLconnection, matrix[i][posPartNumber], matrix[i][posParameters], matrix[i][posLinks], matrix[i][posComponentTypes], matrix[i][posPackage], matrix[i][posDescription]))
                             addcnt++;
 
                 }

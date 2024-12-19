@@ -253,7 +253,9 @@ namespace SGDBclient
                     q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
                 if (!((bool)dataGridView1.Rows[i].Cells["chbCountOnce"].Value))
                     q *= board_count;
-                try
+				if (q == 0)
+					continue; //do not create 0 history
+				try
                 {
                     MySqlCommand command = new MySqlCommand("CALL writeOff(" +
                         q + ",\"" +

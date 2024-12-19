@@ -12,17 +12,25 @@ namespace SGDBclient {
 	public partial class JSONEditor : Form {
 		public string JSON;
 		Dictionary<string, string> param_values = new Dictionary<string, string>();
+		private string[] paramDescriptions;
 
         public JSONEditor() {
 			InitializeComponent();
 			JSON = "\'{}\'";
         }
 
-		public void setList(string[] param_names)
+		public void setList(string[] paramNames)
 		{
             cb_param_name.Items.Clear();
-			cb_param_name.Items.AddRange(param_names);
-        }
+			cb_param_name.Items.AddRange(paramNames);
+			paramDescriptions = new string[paramNames.Length];
+		}
+		public void setList(string[] paramNames, string[] paramDescriptions)
+		{
+			cb_param_name.Items.Clear();
+			cb_param_name.Items.AddRange(paramNames);
+			this.paramDescriptions = paramDescriptions;
+		}
 
 		private void button1_Click(object sender, EventArgs e) {
 			if (tb_JSON.Text == "") tb_JSON.Text = "\'{}\'";
@@ -45,5 +53,10 @@ namespace SGDBclient {
 			param_values.Clear();
 			tb_JSON.Text = "";
         }
-    }
+
+		private void cb_param_name_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			label3.Text = paramDescriptions[cb_param_name.SelectedIndex];
+		}
+	}
 }

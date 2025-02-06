@@ -53,10 +53,10 @@ namespace SGDBclient {
         public static bool addSingleComponent(MySql.Data.MySqlClient.MySqlConnection SQLconnection, string PartNumber, string Parameters, string Links, 
 			string ComponentType_idComponentType, string Packages_idPackage, string Description)
 		{
-            try
+            try 
             {
-                if (Links == "{}") Links = "\"{}\"";
-                if (Parameters == "{}") Parameters = "\"{}\"";
+                if (Links == "{}") Links = "'{}'";
+                if (Parameters == "{}") Parameters = "'{}'";
                 MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, " +
                     "`Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
                     PartNumber + "\'," +

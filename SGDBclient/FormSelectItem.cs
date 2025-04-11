@@ -383,5 +383,10 @@ namespace SGDBclient {
             form.ShowDialog();
             updateTable();
         }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            updateTable();
+        }
     }
 }

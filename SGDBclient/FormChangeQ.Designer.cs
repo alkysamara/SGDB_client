@@ -75,7 +75,6 @@
 			this.labelNeedQ.TabIndex = 2;
 			this.labelNeedQ.Text = "Stock quantity";
 			this.labelNeedQ.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.labelNeedQ.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// labelProj
 			// 
@@ -191,7 +190,6 @@
 			this.labelDat.TabIndex = 11;
 			this.labelDat.Text = "Date";
 			this.labelDat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.labelDat.Click += new System.EventHandler(this.label5_Click);
 			// 
 			// textBoxData
 			// 
@@ -213,7 +211,6 @@
 			this.textBoxCurQ.ReadOnly = true;
 			this.textBoxCurQ.Size = new System.Drawing.Size(178, 20);
 			this.textBoxCurQ.TabIndex = 10;
-			this.textBoxCurQ.TextChanged += new System.EventHandler(this.textBoxCurQ_TextChanged);
 			// 
 			// comboBoxProj
 			// 
@@ -223,7 +220,6 @@
 			this.comboBoxProj.Name = "comboBoxProj";
 			this.comboBoxProj.Size = new System.Drawing.Size(178, 21);
 			this.comboBoxProj.TabIndex = 13;
-			this.comboBoxProj.SelectedIndexChanged += new System.EventHandler(this.comboBoxProj_SelectedIndexChanged);
 			// 
 			// FormCHangeQ
 			// 
@@ -238,7 +234,6 @@
 			this.Name = "FormCHangeQ";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Add order";
-			this.Load += new System.EventHandler(this.FormCHangeQ_Load);
 			this.panel1.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();

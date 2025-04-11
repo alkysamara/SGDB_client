@@ -32,6 +32,10 @@ namespace SGDBclient {
 					dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
 					dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
 				}
+				else
+				{
+					dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                }
 			}
 			while (reader.Read()) {
 				dataGridView1.Rows.Add();
@@ -61,7 +65,13 @@ namespace SGDBclient {
 					break;
 				}
 			}
-		}
+			dataGridView1.Sort(dataGridView1.Columns["TypeName"],ListSortDirection.Ascending);
+			if (dataGridView1.Columns["TypeParameters"].Width > 200)
+			{
+                dataGridView1.Columns["TypeParameters"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView1.Columns["TypeParameters"].Width = 200;
+			}
+        }
 		public FormSelectComponentType(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
 			SQLconnection = con;

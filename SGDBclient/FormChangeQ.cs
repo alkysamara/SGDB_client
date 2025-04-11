@@ -77,31 +77,6 @@ namespace SGDBclient {
 			this.Close();
 		}
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FormCHangeQ_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxProj_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxCurQ_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAddProj_Click(object sender, EventArgs e)
         {
             FormAddProject fromAddProj = new FormAddProject(SQLconnection);

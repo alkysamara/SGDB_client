@@ -27,7 +27,7 @@ namespace SGDBclient
                 }
             }catch (Exception ex)
             {
-                MessageBox.Show("Error while printing table results");
+                MessageBox.Show("Error while printing table results: " + ex.Message);
             }
         }
     }

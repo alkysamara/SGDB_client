@@ -47,15 +47,18 @@ namespace SGDBclient {
                 {
                     Price = "0";
                 }
-                MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Items` (`Quantity`, `Price`, `Storage_idStorage`, `Order_idOrder`, `Component_idComponent`, `Owner_idPerson`, `Comment`) VALUES(\'" +
-                    Quantity + "\',\'" +
-                    Price + "\',\'" +
-                    idStorage + "\',\'" +
-                    idOrder + "\',\'" +
-                    idComponent + "\',\'" +
-                    idPerson + "\',\'" +
-					comment + "\')"
-                    , SQLconnection);
+                MySqlCommand command = new MySqlCommand("CALL createItemLogged(" +
+                    Quantity + "," +
+                    Price + "," +
+                    idStorage + "," +
+                    idOrder + "," +
+                    idComponent + "," +
+                    idPerson + ",\'" +
+                    comment + "\',\"" +
+                    "Item Create\",\'"+
+                    DateTime.Today.ToString("yyyy-MM-dd") + "\',\"" +
+                    "create new item from SGDB client\",\"" +
+                    System.Environment.MachineName + "\")", SQLconnection);
                 command.ExecuteNonQuery();
             }
             catch (Exception ee)

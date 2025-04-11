@@ -18,8 +18,9 @@ namespace SGDBclient {
 			MySqlDataReader reader;
 			try {
 				MySqlCommand command = new MySqlCommand("SELECT * FROM Storages " +
-					"WHERE Storages.Place LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
-				reader = command.ExecuteReader();
+					"WHERE Storages.Place LIKE \'%" + textBoxSearchString.Text + "%\' or Storages.PlaceDetail LIKE \'%" + textBoxSearchString.Text + "%\' or Storages.AdditionalComments LIKE \'%" + textBoxSearchString.Text + "%\'", SQLconnection);
+
+                reader = command.ExecuteReader();
 			} catch (Exception e) {
 				MessageBox.Show(e.Message);
 				return;

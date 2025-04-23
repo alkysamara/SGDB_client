@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -388,5 +389,81 @@ namespace SGDBclient {
         {
             updateTable();
         }
-    }
+
+		private void btn_setPicture_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				Image img = Clipboard.GetImage();
+				int sizex = img.Width;
+				int sizey = img.Height;
+				int m = Math.Max(sizex, sizey);
+				if (m > 500)
+				{
+					int newsizex = sizex * 500 / m;
+					int newsizey = sizey * 500 / m;
+					Image newImage = new Bitmap(newsizex, newsizey);
+					Graphics.FromImage(newImage).DrawImage(img, 0, 0, newsizex, newsizey);
+					pictureBox1.Image = newImage;
+				}
+				else
+				{
+					pictureBox1.Image = img;
+				}
+				pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+
+				img = pictureBox1.Image;
+				
+				var ms = new MemoryStream();
+				img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+				byte[] b = ms.ToArray();
+
+				int currentSelectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
+
+				MySqlCommand command = new MySqlCommand("", SQLconnection);
+
+				command.CommandText = "UPDATE Items SET Img = @userImage WHERE idItem = " + currentSelectedItemID;
+
+				MySqlParameter paramUserImage = new MySqlParameter("@userImage", MySqlDbType.Blob, b.Length);
+
+				paramUserImage.Value = b;
+
+				command.Parameters.Add(paramUserImage);
+
+				command.ExecuteNonQuery();
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("There was a problem when creating new image: " + ex.Message);
+			}
+		}
+
+		//load image for selected item
+		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+		{
+			MySqlDataReader reader;
+			try
+			{
+				int currentSelectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
+				MySqlCommand command = new MySqlCommand("SELECT Img FROM Items WHERE idItem = " + currentSelectedItemID, SQLconnection);
+				reader = command.ExecuteReader();
+				reader.Read();
+				if (!reader[0].GetType().Equals(typeof(DBNull)))
+				{
+					byte[] imageBytes = (byte[])reader[0];
+					reader.Close();
+					pictureBox1.Image = Image.FromStream(new MemoryStream(imageBytes));
+				}
+				else
+				{
+					pictureBox1.Image = null;
+					reader.Close();
+				}
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("There was a problem when loading image from database: " + ex.Message);
+			}
+		}
+	}
 }

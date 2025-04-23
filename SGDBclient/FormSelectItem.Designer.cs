@@ -28,354 +28,416 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelectItem));
-            this.buttonSelect = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonRefreshTable = new System.Windows.Forms.Button();
-            this.buttonAddComponent = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_add_item = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_history = new System.Windows.Forms.Button();
-            this.btn_scan = new System.Windows.Forms.Button();
-            this.chb_id = new System.Windows.Forms.CheckBox();
-            this.btn_move_component = new System.Windows.Forms.Button();
-            this.btn_check_availability = new System.Windows.Forms.Button();
-            this.btn_change_q = new System.Windows.Forms.Button();
-            this.btn_component_filter = new System.Windows.Forms.Button();
-            this.btn_package_filter = new System.Windows.Forms.Button();
-            this.chb_Component_filter = new System.Windows.Forms.CheckBox();
-            this.chb_package_filter = new System.Windows.Forms.CheckBox();
-            this.textBoxComponent = new System.Windows.Forms.TextBox();
-            this.textBoxPackage = new System.Windows.Forms.TextBox();
-            this.btn_component_type_filter = new System.Windows.Forms.Button();
-            this.chb_ctype_filter = new System.Windows.Forms.CheckBox();
-            this.textBoxCType = new System.Windows.Forms.TextBox();
-            this.chb_storage_filter = new System.Windows.Forms.CheckBox();
-            this.btn_storage_filter = new System.Windows.Forms.Button();
-            this.textBoxStorage = new System.Windows.Forms.TextBox();
-            this.textBoxSearchString = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // buttonSelect
-            // 
-            this.buttonSelect.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonSelect.Location = new System.Drawing.Point(0, 0);
-            this.buttonSelect.Name = "buttonSelect";
-            this.buttonSelect.Size = new System.Drawing.Size(75, 34);
-            this.buttonSelect.TabIndex = 0;
-            this.buttonSelect.Text = "Select";
-            this.buttonSelect.UseVisualStyleBackColor = true;
-            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 126);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(981, 450);
-            this.dataGridView1.TabIndex = 1;
-            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // buttonRefreshTable
-            // 
-            this.buttonRefreshTable.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonRefreshTable.Location = new System.Drawing.Point(887, 0);
-            this.buttonRefreshTable.Name = "buttonRefreshTable";
-            this.buttonRefreshTable.Size = new System.Drawing.Size(94, 34);
-            this.buttonRefreshTable.TabIndex = 2;
-            this.buttonRefreshTable.Text = "Refresh table";
-            this.buttonRefreshTable.UseVisualStyleBackColor = true;
-            this.buttonRefreshTable.Click += new System.EventHandler(this.buttonRefresh_Click);
-            // 
-            // buttonAddComponent
-            // 
-            this.buttonAddComponent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonAddComponent.Location = new System.Drawing.Point(498, 0);
-            this.buttonAddComponent.Name = "buttonAddComponent";
-            this.buttonAddComponent.Size = new System.Drawing.Size(75, 34);
-            this.buttonAddComponent.TabIndex = 3;
-            this.buttonAddComponent.Text = "Add component";
-            this.buttonAddComponent.UseVisualStyleBackColor = true;
-            this.buttonAddComponent.Click += new System.EventHandler(this.btnAddComponent_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btn_add_item);
-            this.panel1.Controls.Add(this.buttonSelect);
-            this.panel1.Controls.Add(this.buttonRefreshTable);
-            this.panel1.Controls.Add(this.buttonAddComponent);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 576);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(981, 34);
-            this.panel1.TabIndex = 4;
-            // 
-            // btn_add_item
-            // 
-            this.btn_add_item.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_add_item.Location = new System.Drawing.Point(417, 0);
-            this.btn_add_item.Name = "btn_add_item";
-            this.btn_add_item.Size = new System.Drawing.Size(75, 34);
-            this.btn_add_item.TabIndex = 4;
-            this.btn_add_item.Text = "Add Item";
-            this.btn_add_item.UseVisualStyleBackColor = true;
-            this.btn_add_item.Click += new System.EventHandler(this.btn_add_item_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.btn_history);
-            this.panel2.Controls.Add(this.btn_scan);
-            this.panel2.Controls.Add(this.chb_id);
-            this.panel2.Controls.Add(this.btn_move_component);
-            this.panel2.Controls.Add(this.btn_check_availability);
-            this.panel2.Controls.Add(this.btn_change_q);
-            this.panel2.Controls.Add(this.btn_component_filter);
-            this.panel2.Controls.Add(this.btn_package_filter);
-            this.panel2.Controls.Add(this.chb_Component_filter);
-            this.panel2.Controls.Add(this.chb_package_filter);
-            this.panel2.Controls.Add(this.textBoxComponent);
-            this.panel2.Controls.Add(this.textBoxPackage);
-            this.panel2.Controls.Add(this.btn_component_type_filter);
-            this.panel2.Controls.Add(this.chb_ctype_filter);
-            this.panel2.Controls.Add(this.textBoxCType);
-            this.panel2.Controls.Add(this.chb_storage_filter);
-            this.panel2.Controls.Add(this.btn_storage_filter);
-            this.panel2.Controls.Add(this.textBoxStorage);
-            this.panel2.Controls.Add(this.textBoxSearchString);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(981, 126);
-            this.panel2.TabIndex = 5;
-            // 
-            // btn_history
-            // 
-            this.btn_history.Location = new System.Drawing.Point(569, 37);
-            this.btn_history.Name = "btn_history";
-            this.btn_history.Size = new System.Drawing.Size(87, 23);
-            this.btn_history.TabIndex = 36;
-            this.btn_history.Text = "History";
-            this.btn_history.UseVisualStyleBackColor = true;
-            this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
-            // 
-            // btn_scan
-            // 
-            this.btn_scan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_scan.Location = new System.Drawing.Point(901, 11);
-            this.btn_scan.Name = "btn_scan";
-            this.btn_scan.Size = new System.Drawing.Size(77, 21);
-            this.btn_scan.TabIndex = 35;
-            this.btn_scan.Text = "Scan";
-            this.btn_scan.UseVisualStyleBackColor = true;
-            this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
-            // 
-            // chb_id
-            // 
-            this.chb_id.AutoSize = true;
-            this.chb_id.Location = new System.Drawing.Point(12, 14);
-            this.chb_id.Name = "chb_id";
-            this.chb_id.Size = new System.Drawing.Size(34, 17);
-            this.chb_id.TabIndex = 34;
-            this.chb_id.Text = "id";
-            this.chb_id.UseVisualStyleBackColor = true;
-            // 
-            // btn_move_component
-            // 
-            this.btn_move_component.Location = new System.Drawing.Point(453, 62);
-            this.btn_move_component.Name = "btn_move_component";
-            this.btn_move_component.Size = new System.Drawing.Size(110, 23);
-            this.btn_move_component.TabIndex = 33;
-            this.btn_move_component.Text = "Move Component";
-            this.btn_move_component.UseVisualStyleBackColor = true;
-            this.btn_move_component.Click += new System.EventHandler(this.button1_Click_2);
-            // 
-            // btn_check_availability
-            // 
-            this.btn_check_availability.Location = new System.Drawing.Point(690, 35);
-            this.btn_check_availability.Name = "btn_check_availability";
-            this.btn_check_availability.Size = new System.Drawing.Size(141, 23);
-            this.btn_check_availability.TabIndex = 32;
-            this.btn_check_availability.Text = "Check BOM availability";
-            this.btn_check_availability.UseVisualStyleBackColor = true;
-            this.btn_check_availability.Click += new System.EventHandler(this.btn_check_availability_Click);
-            // 
-            // btn_change_q
-            // 
-            this.btn_change_q.Location = new System.Drawing.Point(453, 88);
-            this.btn_change_q.Name = "btn_change_q";
-            this.btn_change_q.Size = new System.Drawing.Size(110, 23);
-            this.btn_change_q.TabIndex = 31;
-            this.btn_change_q.Text = "Change Quantity";
-            this.btn_change_q.UseVisualStyleBackColor = true;
-            this.btn_change_q.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // btn_component_filter
-            // 
-            this.btn_component_filter.Location = new System.Drawing.Point(453, 37);
-            this.btn_component_filter.Name = "btn_component_filter";
-            this.btn_component_filter.Size = new System.Drawing.Size(110, 23);
-            this.btn_component_filter.TabIndex = 30;
-            this.btn_component_filter.Text = "Select component";
-            this.btn_component_filter.UseVisualStyleBackColor = true;
-            this.btn_component_filter.Click += new System.EventHandler(this.btn_component_filter_Click);
-            // 
-            // btn_package_filter
-            // 
-            this.btn_package_filter.Location = new System.Drawing.Point(157, 88);
-            this.btn_package_filter.Name = "btn_package_filter";
-            this.btn_package_filter.Size = new System.Drawing.Size(141, 23);
-            this.btn_package_filter.TabIndex = 27;
-            this.btn_package_filter.Text = "Select package";
-            this.btn_package_filter.UseVisualStyleBackColor = true;
-            this.btn_package_filter.Click += new System.EventHandler(this.btn_package_filter_Click);
-            // 
-            // chb_Component_filter
-            // 
-            this.chb_Component_filter.AutoSize = true;
-            this.chb_Component_filter.Location = new System.Drawing.Point(308, 42);
-            this.chb_Component_filter.Name = "chb_Component_filter";
-            this.chb_Component_filter.Size = new System.Drawing.Size(15, 14);
-            this.chb_Component_filter.TabIndex = 29;
-            this.chb_Component_filter.UseVisualStyleBackColor = true;
-            // 
-            // chb_package_filter
-            // 
-            this.chb_package_filter.AutoSize = true;
-            this.chb_package_filter.Location = new System.Drawing.Point(12, 93);
-            this.chb_package_filter.Name = "chb_package_filter";
-            this.chb_package_filter.Size = new System.Drawing.Size(15, 14);
-            this.chb_package_filter.TabIndex = 26;
-            this.chb_package_filter.UseVisualStyleBackColor = true;
-            // 
-            // textBoxComponent
-            // 
-            this.textBoxComponent.Enabled = false;
-            this.textBoxComponent.Location = new System.Drawing.Point(325, 39);
-            this.textBoxComponent.Name = "textBoxComponent";
-            this.textBoxComponent.Size = new System.Drawing.Size(122, 20);
-            this.textBoxComponent.TabIndex = 28;
-            this.textBoxComponent.Text = "<click select>";
-            // 
-            // textBoxPackage
-            // 
-            this.textBoxPackage.Enabled = false;
-            this.textBoxPackage.Location = new System.Drawing.Point(47, 90);
-            this.textBoxPackage.Name = "textBoxPackage";
-            this.textBoxPackage.Size = new System.Drawing.Size(104, 20);
-            this.textBoxPackage.TabIndex = 25;
-            this.textBoxPackage.Text = "<click select>";
-            // 
-            // btn_component_type_filter
-            // 
-            this.btn_component_type_filter.Location = new System.Drawing.Point(157, 62);
-            this.btn_component_type_filter.Name = "btn_component_type_filter";
-            this.btn_component_type_filter.Size = new System.Drawing.Size(141, 23);
-            this.btn_component_type_filter.TabIndex = 24;
-            this.btn_component_type_filter.Text = "Select Component Type";
-            this.btn_component_type_filter.UseVisualStyleBackColor = true;
-            this.btn_component_type_filter.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // chb_ctype_filter
-            // 
-            this.chb_ctype_filter.AutoSize = true;
-            this.chb_ctype_filter.Location = new System.Drawing.Point(12, 67);
-            this.chb_ctype_filter.Name = "chb_ctype_filter";
-            this.chb_ctype_filter.Size = new System.Drawing.Size(15, 14);
-            this.chb_ctype_filter.TabIndex = 23;
-            this.chb_ctype_filter.UseVisualStyleBackColor = true;
-            // 
-            // textBoxCType
-            // 
-            this.textBoxCType.Enabled = false;
-            this.textBoxCType.Location = new System.Drawing.Point(47, 64);
-            this.textBoxCType.Name = "textBoxCType";
-            this.textBoxCType.Size = new System.Drawing.Size(104, 20);
-            this.textBoxCType.TabIndex = 22;
-            this.textBoxCType.Text = "<click select>";
-            // 
-            // chb_storage_filter
-            // 
-            this.chb_storage_filter.AutoSize = true;
-            this.chb_storage_filter.Location = new System.Drawing.Point(12, 41);
-            this.chb_storage_filter.Name = "chb_storage_filter";
-            this.chb_storage_filter.Size = new System.Drawing.Size(15, 14);
-            this.chb_storage_filter.TabIndex = 9;
-            this.chb_storage_filter.UseVisualStyleBackColor = true;
-            // 
-            // btn_storage_filter
-            // 
-            this.btn_storage_filter.Location = new System.Drawing.Point(157, 36);
-            this.btn_storage_filter.Name = "btn_storage_filter";
-            this.btn_storage_filter.Size = new System.Drawing.Size(141, 23);
-            this.btn_storage_filter.TabIndex = 8;
-            this.btn_storage_filter.Text = "Select storage";
-            this.btn_storage_filter.UseVisualStyleBackColor = true;
-            this.btn_storage_filter.Click += new System.EventHandler(this.btn_storage_filter_Click);
-            // 
-            // textBoxStorage
-            // 
-            this.textBoxStorage.Enabled = false;
-            this.textBoxStorage.Location = new System.Drawing.Point(47, 38);
-            this.textBoxStorage.Name = "textBoxStorage";
-            this.textBoxStorage.Size = new System.Drawing.Size(104, 20);
-            this.textBoxStorage.TabIndex = 7;
-            this.textBoxStorage.Text = "<click select>";
-            // 
-            // textBoxSearchString
-            // 
-            this.textBoxSearchString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSelectItem));
+			this.buttonSelect = new System.Windows.Forms.Button();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.buttonRefreshTable = new System.Windows.Forms.Button();
+			this.buttonAddComponent = new System.Windows.Forms.Button();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.btn_add_item = new System.Windows.Forms.Button();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
+			this.btn_history = new System.Windows.Forms.Button();
+			this.btn_scan = new System.Windows.Forms.Button();
+			this.chb_id = new System.Windows.Forms.CheckBox();
+			this.btn_move_component = new System.Windows.Forms.Button();
+			this.btn_check_availability = new System.Windows.Forms.Button();
+			this.btn_change_q = new System.Windows.Forms.Button();
+			this.btn_component_filter = new System.Windows.Forms.Button();
+			this.btn_package_filter = new System.Windows.Forms.Button();
+			this.chb_Component_filter = new System.Windows.Forms.CheckBox();
+			this.chb_package_filter = new System.Windows.Forms.CheckBox();
+			this.textBoxComponent = new System.Windows.Forms.TextBox();
+			this.textBoxPackage = new System.Windows.Forms.TextBox();
+			this.btn_component_type_filter = new System.Windows.Forms.Button();
+			this.chb_ctype_filter = new System.Windows.Forms.CheckBox();
+			this.textBoxCType = new System.Windows.Forms.TextBox();
+			this.chb_storage_filter = new System.Windows.Forms.CheckBox();
+			this.btn_storage_filter = new System.Windows.Forms.Button();
+			this.textBoxStorage = new System.Windows.Forms.TextBox();
+			this.textBoxSearchString = new System.Windows.Forms.TextBox();
+			this.panel3 = new System.Windows.Forms.Panel();
+			this.btn_setPicture = new System.Windows.Forms.Button();
+			this.pictureBox3 = new System.Windows.Forms.PictureBox();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.panel1.SuspendLayout();
+			this.panel2.SuspendLayout();
+			this.panel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// buttonSelect
+			// 
+			this.buttonSelect.Dock = System.Windows.Forms.DockStyle.Left;
+			this.buttonSelect.Location = new System.Drawing.Point(0, 0);
+			this.buttonSelect.Name = "buttonSelect";
+			this.buttonSelect.Size = new System.Drawing.Size(75, 34);
+			this.buttonSelect.TabIndex = 0;
+			this.buttonSelect.Text = "Select";
+			this.buttonSelect.UseVisualStyleBackColor = true;
+			this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
+			// 
+			// dataGridView1
+			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlDark;
+			this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView1.Location = new System.Drawing.Point(0, 126);
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.Size = new System.Drawing.Size(1236, 456);
+			this.dataGridView1.TabIndex = 1;
+			this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+			this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+			this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+			// 
+			// buttonRefreshTable
+			// 
+			this.buttonRefreshTable.Dock = System.Windows.Forms.DockStyle.Right;
+			this.buttonRefreshTable.Location = new System.Drawing.Point(1142, 0);
+			this.buttonRefreshTable.Name = "buttonRefreshTable";
+			this.buttonRefreshTable.Size = new System.Drawing.Size(94, 34);
+			this.buttonRefreshTable.TabIndex = 2;
+			this.buttonRefreshTable.Text = "Refresh table";
+			this.buttonRefreshTable.UseVisualStyleBackColor = true;
+			this.buttonRefreshTable.Click += new System.EventHandler(this.buttonRefresh_Click);
+			// 
+			// buttonAddComponent
+			// 
+			this.buttonAddComponent.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.buttonAddComponent.Location = new System.Drawing.Point(626, 0);
+			this.buttonAddComponent.Name = "buttonAddComponent";
+			this.buttonAddComponent.Size = new System.Drawing.Size(75, 34);
+			this.buttonAddComponent.TabIndex = 3;
+			this.buttonAddComponent.Text = "Add component";
+			this.buttonAddComponent.UseVisualStyleBackColor = true;
+			this.buttonAddComponent.Click += new System.EventHandler(this.btnAddComponent_Click);
+			// 
+			// panel1
+			// 
+			this.panel1.Controls.Add(this.btn_add_item);
+			this.panel1.Controls.Add(this.buttonSelect);
+			this.panel1.Controls.Add(this.buttonRefreshTable);
+			this.panel1.Controls.Add(this.buttonAddComponent);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel1.Location = new System.Drawing.Point(0, 582);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(1236, 34);
+			this.panel1.TabIndex = 4;
+			// 
+			// btn_add_item
+			// 
+			this.btn_add_item.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.btn_add_item.Location = new System.Drawing.Point(545, 0);
+			this.btn_add_item.Name = "btn_add_item";
+			this.btn_add_item.Size = new System.Drawing.Size(75, 34);
+			this.btn_add_item.TabIndex = 4;
+			this.btn_add_item.Text = "Add Item";
+			this.btn_add_item.UseVisualStyleBackColor = true;
+			this.btn_add_item.Click += new System.EventHandler(this.btn_add_item_Click);
+			// 
+			// panel2
+			// 
+			this.panel2.Controls.Add(this.button1);
+			this.panel2.Controls.Add(this.btn_history);
+			this.panel2.Controls.Add(this.btn_scan);
+			this.panel2.Controls.Add(this.chb_id);
+			this.panel2.Controls.Add(this.btn_move_component);
+			this.panel2.Controls.Add(this.btn_check_availability);
+			this.panel2.Controls.Add(this.btn_change_q);
+			this.panel2.Controls.Add(this.btn_component_filter);
+			this.panel2.Controls.Add(this.btn_package_filter);
+			this.panel2.Controls.Add(this.chb_Component_filter);
+			this.panel2.Controls.Add(this.chb_package_filter);
+			this.panel2.Controls.Add(this.textBoxComponent);
+			this.panel2.Controls.Add(this.textBoxPackage);
+			this.panel2.Controls.Add(this.btn_component_type_filter);
+			this.panel2.Controls.Add(this.chb_ctype_filter);
+			this.panel2.Controls.Add(this.textBoxCType);
+			this.panel2.Controls.Add(this.chb_storage_filter);
+			this.panel2.Controls.Add(this.btn_storage_filter);
+			this.panel2.Controls.Add(this.textBoxStorage);
+			this.panel2.Controls.Add(this.textBoxSearchString);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel2.Location = new System.Drawing.Point(0, 0);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(1236, 126);
+			this.panel2.TabIndex = 5;
+			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.button1.BackColor = System.Drawing.SystemColors.Info;
+			this.button1.Location = new System.Drawing.Point(1156, 90);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(77, 21);
+			this.button1.TabIndex = 37;
+			this.button1.Text = "Search!";
+			this.button1.UseVisualStyleBackColor = false;
+			this.button1.Click += new System.EventHandler(this.button1_Click_3);
+			// 
+			// btn_history
+			// 
+			this.btn_history.Location = new System.Drawing.Point(569, 37);
+			this.btn_history.Name = "btn_history";
+			this.btn_history.Size = new System.Drawing.Size(87, 23);
+			this.btn_history.TabIndex = 36;
+			this.btn_history.Text = "History";
+			this.btn_history.UseVisualStyleBackColor = true;
+			this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
+			// 
+			// btn_scan
+			// 
+			this.btn_scan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btn_scan.Location = new System.Drawing.Point(1156, 11);
+			this.btn_scan.Name = "btn_scan";
+			this.btn_scan.Size = new System.Drawing.Size(77, 21);
+			this.btn_scan.TabIndex = 35;
+			this.btn_scan.Text = "Scan";
+			this.btn_scan.UseVisualStyleBackColor = true;
+			this.btn_scan.Click += new System.EventHandler(this.btn_scan_Click);
+			// 
+			// chb_id
+			// 
+			this.chb_id.AutoSize = true;
+			this.chb_id.Location = new System.Drawing.Point(12, 14);
+			this.chb_id.Name = "chb_id";
+			this.chb_id.Size = new System.Drawing.Size(34, 17);
+			this.chb_id.TabIndex = 34;
+			this.chb_id.Text = "id";
+			this.chb_id.UseVisualStyleBackColor = true;
+			// 
+			// btn_move_component
+			// 
+			this.btn_move_component.Location = new System.Drawing.Point(453, 62);
+			this.btn_move_component.Name = "btn_move_component";
+			this.btn_move_component.Size = new System.Drawing.Size(110, 23);
+			this.btn_move_component.TabIndex = 33;
+			this.btn_move_component.Text = "Move Component";
+			this.btn_move_component.UseVisualStyleBackColor = true;
+			this.btn_move_component.Click += new System.EventHandler(this.button1_Click_2);
+			// 
+			// btn_check_availability
+			// 
+			this.btn_check_availability.Location = new System.Drawing.Point(690, 35);
+			this.btn_check_availability.Name = "btn_check_availability";
+			this.btn_check_availability.Size = new System.Drawing.Size(141, 23);
+			this.btn_check_availability.TabIndex = 32;
+			this.btn_check_availability.Text = "Check BOM availability";
+			this.btn_check_availability.UseVisualStyleBackColor = true;
+			this.btn_check_availability.Click += new System.EventHandler(this.btn_check_availability_Click);
+			// 
+			// btn_change_q
+			// 
+			this.btn_change_q.Location = new System.Drawing.Point(453, 88);
+			this.btn_change_q.Name = "btn_change_q";
+			this.btn_change_q.Size = new System.Drawing.Size(110, 23);
+			this.btn_change_q.TabIndex = 31;
+			this.btn_change_q.Text = "Change Quantity";
+			this.btn_change_q.UseVisualStyleBackColor = true;
+			this.btn_change_q.Click += new System.EventHandler(this.button1_Click_1);
+			// 
+			// btn_component_filter
+			// 
+			this.btn_component_filter.Location = new System.Drawing.Point(453, 37);
+			this.btn_component_filter.Name = "btn_component_filter";
+			this.btn_component_filter.Size = new System.Drawing.Size(110, 23);
+			this.btn_component_filter.TabIndex = 30;
+			this.btn_component_filter.Text = "Select component";
+			this.btn_component_filter.UseVisualStyleBackColor = true;
+			this.btn_component_filter.Click += new System.EventHandler(this.btn_component_filter_Click);
+			// 
+			// btn_package_filter
+			// 
+			this.btn_package_filter.Location = new System.Drawing.Point(157, 88);
+			this.btn_package_filter.Name = "btn_package_filter";
+			this.btn_package_filter.Size = new System.Drawing.Size(141, 23);
+			this.btn_package_filter.TabIndex = 27;
+			this.btn_package_filter.Text = "Select package";
+			this.btn_package_filter.UseVisualStyleBackColor = true;
+			this.btn_package_filter.Click += new System.EventHandler(this.btn_package_filter_Click);
+			// 
+			// chb_Component_filter
+			// 
+			this.chb_Component_filter.AutoSize = true;
+			this.chb_Component_filter.Location = new System.Drawing.Point(308, 42);
+			this.chb_Component_filter.Name = "chb_Component_filter";
+			this.chb_Component_filter.Size = new System.Drawing.Size(15, 14);
+			this.chb_Component_filter.TabIndex = 29;
+			this.chb_Component_filter.UseVisualStyleBackColor = true;
+			// 
+			// chb_package_filter
+			// 
+			this.chb_package_filter.AutoSize = true;
+			this.chb_package_filter.Location = new System.Drawing.Point(12, 93);
+			this.chb_package_filter.Name = "chb_package_filter";
+			this.chb_package_filter.Size = new System.Drawing.Size(15, 14);
+			this.chb_package_filter.TabIndex = 26;
+			this.chb_package_filter.UseVisualStyleBackColor = true;
+			// 
+			// textBoxComponent
+			// 
+			this.textBoxComponent.Enabled = false;
+			this.textBoxComponent.Location = new System.Drawing.Point(325, 39);
+			this.textBoxComponent.Name = "textBoxComponent";
+			this.textBoxComponent.Size = new System.Drawing.Size(122, 20);
+			this.textBoxComponent.TabIndex = 28;
+			this.textBoxComponent.Text = "<click select>";
+			// 
+			// textBoxPackage
+			// 
+			this.textBoxPackage.Enabled = false;
+			this.textBoxPackage.Location = new System.Drawing.Point(47, 90);
+			this.textBoxPackage.Name = "textBoxPackage";
+			this.textBoxPackage.Size = new System.Drawing.Size(104, 20);
+			this.textBoxPackage.TabIndex = 25;
+			this.textBoxPackage.Text = "<click select>";
+			// 
+			// btn_component_type_filter
+			// 
+			this.btn_component_type_filter.Location = new System.Drawing.Point(157, 62);
+			this.btn_component_type_filter.Name = "btn_component_type_filter";
+			this.btn_component_type_filter.Size = new System.Drawing.Size(141, 23);
+			this.btn_component_type_filter.TabIndex = 24;
+			this.btn_component_type_filter.Text = "Select Component Type";
+			this.btn_component_type_filter.UseVisualStyleBackColor = true;
+			this.btn_component_type_filter.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// chb_ctype_filter
+			// 
+			this.chb_ctype_filter.AutoSize = true;
+			this.chb_ctype_filter.Location = new System.Drawing.Point(12, 67);
+			this.chb_ctype_filter.Name = "chb_ctype_filter";
+			this.chb_ctype_filter.Size = new System.Drawing.Size(15, 14);
+			this.chb_ctype_filter.TabIndex = 23;
+			this.chb_ctype_filter.UseVisualStyleBackColor = true;
+			// 
+			// textBoxCType
+			// 
+			this.textBoxCType.Enabled = false;
+			this.textBoxCType.Location = new System.Drawing.Point(47, 64);
+			this.textBoxCType.Name = "textBoxCType";
+			this.textBoxCType.Size = new System.Drawing.Size(104, 20);
+			this.textBoxCType.TabIndex = 22;
+			this.textBoxCType.Text = "<click select>";
+			// 
+			// chb_storage_filter
+			// 
+			this.chb_storage_filter.AutoSize = true;
+			this.chb_storage_filter.Location = new System.Drawing.Point(12, 41);
+			this.chb_storage_filter.Name = "chb_storage_filter";
+			this.chb_storage_filter.Size = new System.Drawing.Size(15, 14);
+			this.chb_storage_filter.TabIndex = 9;
+			this.chb_storage_filter.UseVisualStyleBackColor = true;
+			// 
+			// btn_storage_filter
+			// 
+			this.btn_storage_filter.Location = new System.Drawing.Point(157, 36);
+			this.btn_storage_filter.Name = "btn_storage_filter";
+			this.btn_storage_filter.Size = new System.Drawing.Size(141, 23);
+			this.btn_storage_filter.TabIndex = 8;
+			this.btn_storage_filter.Text = "Select storage";
+			this.btn_storage_filter.UseVisualStyleBackColor = true;
+			this.btn_storage_filter.Click += new System.EventHandler(this.btn_storage_filter_Click);
+			// 
+			// textBoxStorage
+			// 
+			this.textBoxStorage.Enabled = false;
+			this.textBoxStorage.Location = new System.Drawing.Point(47, 38);
+			this.textBoxStorage.Name = "textBoxStorage";
+			this.textBoxStorage.Size = new System.Drawing.Size(104, 20);
+			this.textBoxStorage.TabIndex = 7;
+			this.textBoxStorage.Text = "<click select>";
+			// 
+			// textBoxSearchString
+			// 
+			this.textBoxSearchString.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxSearchString.Location = new System.Drawing.Point(47, 12);
-            this.textBoxSearchString.Name = "textBoxSearchString";
-            this.textBoxSearchString.Size = new System.Drawing.Size(848, 20);
-            this.textBoxSearchString.TabIndex = 0;
-            this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackColor = System.Drawing.SystemColors.Info;
-            this.button1.Location = new System.Drawing.Point(901, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 21);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Search!";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_3);
-            // 
-            // FormSelectItem
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(981, 610);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormSelectItem";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Select item";
-            this.Shown += new System.EventHandler(this.FormSelectItem_Shown);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.ResumeLayout(false);
+			this.textBoxSearchString.Location = new System.Drawing.Point(47, 12);
+			this.textBoxSearchString.Name = "textBoxSearchString";
+			this.textBoxSearchString.Size = new System.Drawing.Size(1103, 20);
+			this.textBoxSearchString.TabIndex = 0;
+			this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
+			// 
+			// panel3
+			// 
+			this.panel3.Controls.Add(this.btn_setPicture);
+			this.panel3.Controls.Add(this.pictureBox3);
+			this.panel3.Controls.Add(this.pictureBox2);
+			this.panel3.Controls.Add(this.pictureBox1);
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+			this.panel3.Location = new System.Drawing.Point(1098, 126);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(138, 456);
+			this.panel3.TabIndex = 6;
+			// 
+			// btn_setPicture
+			// 
+			this.btn_setPicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btn_setPicture.Location = new System.Drawing.Point(3, 408);
+			this.btn_setPicture.Name = "btn_setPicture";
+			this.btn_setPicture.Size = new System.Drawing.Size(132, 38);
+			this.btn_setPicture.TabIndex = 38;
+			this.btn_setPicture.Text = "Set picture from clipboard";
+			this.btn_setPicture.UseVisualStyleBackColor = true;
+			this.btn_setPicture.Click += new System.EventHandler(this.btn_setPicture_Click);
+			// 
+			// pictureBox3
+			// 
+			this.pictureBox3.Location = new System.Drawing.Point(3, 272);
+			this.pictureBox3.Name = "pictureBox3";
+			this.pictureBox3.Size = new System.Drawing.Size(130, 130);
+			this.pictureBox3.TabIndex = 2;
+			this.pictureBox3.TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Location = new System.Drawing.Point(3, 136);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(130, 130);
+			this.pictureBox2.TabIndex = 1;
+			this.pictureBox2.TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(130, 130);
+			this.pictureBox1.TabIndex = 0;
+			this.pictureBox1.TabStop = false;
+			// 
+			// FormSelectItem
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(1236, 616);
+			this.Controls.Add(this.panel3);
+			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.panel2);
+			this.Controls.Add(this.panel1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.Name = "FormSelectItem";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Select item";
+			this.Shown += new System.EventHandler(this.FormSelectItem_Shown);
+			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel2.ResumeLayout(false);
+			this.panel2.PerformLayout();
+			this.panel3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			this.ResumeLayout(false);
 
         }
 
@@ -408,5 +470,10 @@
         private System.Windows.Forms.Button btn_history;
         private System.Windows.Forms.Button btn_add_item;
         private System.Windows.Forms.Button button1;
-    }
+		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox pictureBox3;
+		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.Button btn_setPicture;
+	}
 }

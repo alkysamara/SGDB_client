@@ -392,16 +392,17 @@ namespace SGDBclient {
 
 		private void btn_setPicture_Click(object sender, EventArgs e)
 		{
+            const int max_image_size_item = 500;
 			try
 			{
 				Image img = Clipboard.GetImage();
 				int sizex = img.Width;
 				int sizey = img.Height;
 				int m = Math.Max(sizex, sizey);
-				if (m > 500)
+				if (m > max_image_size_item)
 				{
-					int newsizex = sizex * 500 / m;
-					int newsizey = sizey * 500 / m;
+					int newsizex = sizex * max_image_size_item / m;
+					int newsizey = sizey * max_image_size_item / m;
 					Image newImage = new Bitmap(newsizex, newsizey);
 					Graphics.FromImage(newImage).DrawImage(img, 0, 0, newsizex, newsizey);
 					pictureBox1.Image = newImage;
@@ -441,7 +442,7 @@ namespace SGDBclient {
 		//load image for selected item
 		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			MySqlDataReader reader;
+			MySqlDataReader reader = null;
 			try
 			{
 				int currentSelectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
@@ -462,8 +463,50 @@ namespace SGDBclient {
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show("There was a problem when loading image from database: " + ex.Message);
-			}
-		}
+				MessageBox.Show("There was a problem when loading item image from database: " + ex.Message);
+                if (!reader.IsClosed) reader.Close();
+            }
+
+
+            try 
+            {
+                int currentSelectedPackageID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idPackage"].Value;
+                MySqlCommand command = new MySqlCommand("SELECT Img FROM Packages WHERE idPackage = " + currentSelectedPackageID, SQLconnection);
+                reader = command.ExecuteReader();
+                reader.Read();
+                if (!reader[0].GetType().Equals(typeof(DBNull))) {
+                    byte[] imageBytes = (byte[])reader[0];
+                    reader.Close();
+                    pictureBox3.Image = Image.FromStream(new MemoryStream(imageBytes));
+                    pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+                } else {
+                    pictureBox3.Image = null;
+                    reader.Close();
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("There was a problem when loading item image from database: " + ex.Message);
+                if (!reader.IsClosed) reader.Close();
+            }
+
+
+            try {
+                int currentSelectedComponentID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idComponent"].Value;
+                MySqlCommand command = new MySqlCommand("SELECT Img FROM Components WHERE idComponent = " + currentSelectedComponentID, SQLconnection);
+                reader = command.ExecuteReader();
+                reader.Read();
+                if (!reader[0].GetType().Equals(typeof(DBNull))) {
+                    byte[] imageBytes = (byte[])reader[0];
+                    reader.Close();
+                    pictureBox2.Image = Image.FromStream(new MemoryStream(imageBytes));
+                    pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+                } else {
+                    pictureBox2.Image = null;
+                    reader.Close();
+                }
+            } catch (Exception ex) {
+                MessageBox.Show("There was a problem when loading component image from database: " + ex.Message);
+                if (!reader.IsClosed) reader.Close();
+            }
+        }
 	}
 }

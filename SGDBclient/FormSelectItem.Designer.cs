@@ -36,6 +36,9 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btn_add_item = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.btn_owner_filter = new System.Windows.Forms.Button();
+			this.chb_Owner_filter = new System.Windows.Forms.CheckBox();
+			this.textBoxOwner = new System.Windows.Forms.TextBox();
 			this.button1 = new System.Windows.Forms.Button();
 			this.btn_history = new System.Windows.Forms.Button();
 			this.btn_scan = new System.Windows.Forms.Button();
@@ -61,6 +64,7 @@
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.chb_show_empty = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -147,6 +151,10 @@
 			// 
 			// panel2
 			// 
+			this.panel2.Controls.Add(this.chb_show_empty);
+			this.panel2.Controls.Add(this.btn_owner_filter);
+			this.panel2.Controls.Add(this.chb_Owner_filter);
+			this.panel2.Controls.Add(this.textBoxOwner);
 			this.panel2.Controls.Add(this.button1);
 			this.panel2.Controls.Add(this.btn_history);
 			this.panel2.Controls.Add(this.btn_scan);
@@ -173,13 +181,42 @@
 			this.panel2.Size = new System.Drawing.Size(1236, 126);
 			this.panel2.TabIndex = 5;
 			// 
+			// btn_owner_filter
+			// 
+			this.btn_owner_filter.Location = new System.Drawing.Point(453, 65);
+			this.btn_owner_filter.Name = "btn_owner_filter";
+			this.btn_owner_filter.Size = new System.Drawing.Size(110, 23);
+			this.btn_owner_filter.TabIndex = 40;
+			this.btn_owner_filter.Text = "Select owner";
+			this.btn_owner_filter.UseVisualStyleBackColor = true;
+			this.btn_owner_filter.Click += new System.EventHandler(this.btn_owner_filter_Click);
+			// 
+			// chb_Owner_filter
+			// 
+			this.chb_Owner_filter.AutoSize = true;
+			this.chb_Owner_filter.Location = new System.Drawing.Point(308, 70);
+			this.chb_Owner_filter.Name = "chb_Owner_filter";
+			this.chb_Owner_filter.Size = new System.Drawing.Size(15, 14);
+			this.chb_Owner_filter.TabIndex = 39;
+			this.chb_Owner_filter.UseVisualStyleBackColor = true;
+			this.chb_Owner_filter.CheckedChanged += new System.EventHandler(this.chb_owner_CheckedChanged);
+			// 
+			// textBoxOwner
+			// 
+			this.textBoxOwner.Enabled = false;
+			this.textBoxOwner.Location = new System.Drawing.Point(325, 67);
+			this.textBoxOwner.Name = "textBoxOwner";
+			this.textBoxOwner.Size = new System.Drawing.Size(122, 20);
+			this.textBoxOwner.TabIndex = 38;
+			this.textBoxOwner.Text = "<click select>";
+			// 
 			// button1
 			// 
 			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.button1.BackColor = System.Drawing.SystemColors.Info;
-			this.button1.Location = new System.Drawing.Point(1156, 90);
+			this.button1.Location = new System.Drawing.Point(1142, 90);
 			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(77, 21);
+			this.button1.Size = new System.Drawing.Size(91, 21);
 			this.button1.TabIndex = 37;
 			this.button1.Text = "Search!";
 			this.button1.UseVisualStyleBackColor = false;
@@ -189,7 +226,7 @@
 			// 
 			this.btn_history.Location = new System.Drawing.Point(569, 37);
 			this.btn_history.Name = "btn_history";
-			this.btn_history.Size = new System.Drawing.Size(87, 23);
+			this.btn_history.Size = new System.Drawing.Size(110, 23);
 			this.btn_history.TabIndex = 36;
 			this.btn_history.Text = "History";
 			this.btn_history.UseVisualStyleBackColor = true;
@@ -218,7 +255,7 @@
 			// 
 			// btn_move_component
 			// 
-			this.btn_move_component.Location = new System.Drawing.Point(453, 62);
+			this.btn_move_component.Location = new System.Drawing.Point(569, 64);
 			this.btn_move_component.Name = "btn_move_component";
 			this.btn_move_component.Size = new System.Drawing.Size(110, 23);
 			this.btn_move_component.TabIndex = 33;
@@ -228,7 +265,7 @@
 			// 
 			// btn_check_availability
 			// 
-			this.btn_check_availability.Location = new System.Drawing.Point(690, 35);
+			this.btn_check_availability.Location = new System.Drawing.Point(720, 35);
 			this.btn_check_availability.Name = "btn_check_availability";
 			this.btn_check_availability.Size = new System.Drawing.Size(141, 23);
 			this.btn_check_availability.TabIndex = 32;
@@ -238,7 +275,7 @@
 			// 
 			// btn_change_q
 			// 
-			this.btn_change_q.Location = new System.Drawing.Point(453, 88);
+			this.btn_change_q.Location = new System.Drawing.Point(569, 90);
 			this.btn_change_q.Name = "btn_change_q";
 			this.btn_change_q.Size = new System.Drawing.Size(110, 23);
 			this.btn_change_q.TabIndex = 31;
@@ -274,6 +311,7 @@
 			this.chb_Component_filter.Size = new System.Drawing.Size(15, 14);
 			this.chb_Component_filter.TabIndex = 29;
 			this.chb_Component_filter.UseVisualStyleBackColor = true;
+			this.chb_Component_filter.CheckedChanged += new System.EventHandler(this.chb_Component_filter_CheckedChanged);
 			// 
 			// chb_package_filter
 			// 
@@ -283,6 +321,7 @@
 			this.chb_package_filter.Size = new System.Drawing.Size(15, 14);
 			this.chb_package_filter.TabIndex = 26;
 			this.chb_package_filter.UseVisualStyleBackColor = true;
+			this.chb_package_filter.CheckedChanged += new System.EventHandler(this.chb_package_filter_CheckedChanged);
 			// 
 			// textBoxComponent
 			// 
@@ -320,6 +359,7 @@
 			this.chb_ctype_filter.Size = new System.Drawing.Size(15, 14);
 			this.chb_ctype_filter.TabIndex = 23;
 			this.chb_ctype_filter.UseVisualStyleBackColor = true;
+			this.chb_ctype_filter.CheckedChanged += new System.EventHandler(this.chb_ctype_filter_CheckedChanged);
 			// 
 			// textBoxCType
 			// 
@@ -338,6 +378,7 @@
 			this.chb_storage_filter.Size = new System.Drawing.Size(15, 14);
 			this.chb_storage_filter.TabIndex = 9;
 			this.chb_storage_filter.UseVisualStyleBackColor = true;
+			this.chb_storage_filter.CheckedChanged += new System.EventHandler(this.chb_storage_filter_CheckedChanged);
 			// 
 			// btn_storage_filter
 			// 
@@ -415,6 +456,16 @@
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
 			// 
+			// chb_show_empty
+			// 
+			this.chb_show_empty.AutoSize = true;
+			this.chb_show_empty.Location = new System.Drawing.Point(1142, 71);
+			this.chb_show_empty.Name = "chb_show_empty";
+			this.chb_show_empty.Size = new System.Drawing.Size(84, 17);
+			this.chb_show_empty.TabIndex = 41;
+			this.chb_show_empty.Text = "Show empty";
+			this.chb_show_empty.UseVisualStyleBackColor = true;
+			// 
 			// FormSelectItem
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,5 +526,9 @@
 		private System.Windows.Forms.PictureBox pictureBox3;
 		private System.Windows.Forms.PictureBox pictureBox2;
 		private System.Windows.Forms.Button btn_setPicture;
+		private System.Windows.Forms.Button btn_owner_filter;
+		private System.Windows.Forms.CheckBox chb_Owner_filter;
+		private System.Windows.Forms.TextBox textBoxOwner;
+		private System.Windows.Forms.CheckBox chb_show_empty;
 	}
 }

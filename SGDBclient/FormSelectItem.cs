@@ -26,9 +26,10 @@ namespace SGDBclient {
         private FormSelectComponent ComponentListForm;
         private FormSelectComponentType CTypetListForm;
 		private FormSelectPackage PackageListForm;
+		private FormSelectOwner OwnerListForm;
 
         private void updateTable() {
-            if ((textBoxSearchString.Text == "")&&!chb_Component_filter.Checked&&!chb_ctype_filter.Checked&&!chb_package_filter.Checked&&!chb_storage_filter.Checked)
+            if ((textBoxSearchString.Text == "")&&!chb_Component_filter.Checked&&!chb_ctype_filter.Checked&&!chb_package_filter.Checked&&!chb_storage_filter.Checked&&!chb_Owner_filter.Checked)
             {
                 dataGridView1.Rows.Clear();
                 dataGridView1.Columns.Clear();
@@ -44,28 +45,43 @@ namespace SGDBclient {
                     }
                     else //use partnumber or description to search
                     {
-                        sql_querry = "SELECT * FROM full_item " +
-                        "WHERE (full_item.Quantity > 0) and (full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\' or " +
-                        "full_item.Description LIKE \'%" + textBoxSearchString.Text + "%\')";
-                    }
-                    if (chb_Component_filter.Checked && (ComponentListForm != null))
-                    {
-                        sql_querry += "AND (idComponent = " + ComponentListForm.selectedComponentID + ")";
-                    }
-                    if (chb_ctype_filter.Checked && (CTypetListForm != null))
-                    {
-                        sql_querry += "AND (idComponentType = " + CTypetListForm.selectedComponentTypeID + ")";
-                    }
-                    if (chb_package_filter.Checked && (PackageListForm != null))
-                    {
-                        sql_querry += "AND (idPackage = " + PackageListForm.selectedPackageID + ")";
-                    }
-                    if (chb_storage_filter.Checked && (StorageListForm != null))
-                    {
-                        sql_querry += "AND (idStorage = " + StorageListForm.selectedStorageID + ")";
-                    }
+						if (chb_show_empty.Checked)
+						{
+							sql_querry = "SELECT * FROM full_item " +
+							"WHERE (full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\' or " +
+							"full_item.Description LIKE \'%" + textBoxSearchString.Text + "%\')";
+						}
+						else
+						{
+							sql_querry = "SELECT * FROM full_item " +
+							"WHERE (full_item.Quantity > 0) and (full_item.PartNumber LIKE \'%" + textBoxSearchString.Text + "%\' or " +
+							"full_item.Description LIKE \'%" + textBoxSearchString.Text + "%\')";
+						}
+                        
 
-                    MySqlCommand command = new MySqlCommand(sql_querry, SQLconnection);
+						if (chb_Component_filter.Checked && (ComponentListForm != null))
+						{
+							sql_querry += "AND (idComponent = " + ComponentListForm.selectedComponentID + ")";
+						}
+						if (chb_ctype_filter.Checked && (CTypetListForm != null))
+						{
+							sql_querry += "AND (idComponentType = " + CTypetListForm.selectedComponentTypeID + ")";
+						}
+						if (chb_package_filter.Checked && (PackageListForm != null))
+						{
+							sql_querry += "AND (idPackage = " + PackageListForm.selectedPackageID + ")";
+						}
+						if (chb_storage_filter.Checked && (StorageListForm != null))
+						{
+							sql_querry += "AND (idStorage = " + StorageListForm.selectedStorageID + ")";
+						}
+						if (chb_Owner_filter.Checked && (OwnerListForm != null))
+						{
+							sql_querry += "AND (idOwner = " + OwnerListForm.selectedOwnerID + ")";
+						}
+					}
+
+					MySqlCommand command = new MySqlCommand(sql_querry, SQLconnection);
                     reader = command.ExecuteReader();
                 } catch (Exception e) {
                     MessageBox.Show(e.Message);
@@ -161,6 +177,7 @@ namespace SGDBclient {
             StorageListForm.StartPosition = FormStartPosition.CenterParent;
             StorageListForm.ShowDialog();
             textBoxStorage.Text = StorageListForm.selectedStorageName;
+			updateTable();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -172,7 +189,8 @@ namespace SGDBclient {
             CTypetListForm.StartPosition = FormStartPosition.CenterParent;
             CTypetListForm.ShowDialog();
             textBoxCType.Text = CTypetListForm.selectedComponentTypeName;
-        }
+			updateTable();
+		}
 
         private void btn_package_filter_Click(object sender, EventArgs e)
         {
@@ -183,7 +201,8 @@ namespace SGDBclient {
             PackageListForm.StartPosition = FormStartPosition.CenterParent;
             PackageListForm.ShowDialog();
             textBoxPackage.Text = PackageListForm.selectedPackageName;
-        }
+			updateTable();
+		}
 
         private void btn_component_filter_Click(object sender, EventArgs e)
         {
@@ -194,7 +213,8 @@ namespace SGDBclient {
             ComponentListForm.StartPosition = FormStartPosition.CenterParent;
             ComponentListForm.ShowDialog();
             textBoxComponent.Text = ComponentListForm.selectedComponentName;
-        }
+			updateTable();
+		}
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -508,5 +528,47 @@ namespace SGDBclient {
                 if (!reader.IsClosed) reader.Close();
             }
         }
+
+		private void chb_storage_filter_CheckedChanged(object sender, EventArgs e)
+		{
+			if (StorageListForm != null)
+				updateTable();
+		}
+
+		private void chb_ctype_filter_CheckedChanged(object sender, EventArgs e)
+		{
+			if (CTypetListForm != null)
+				updateTable();
+		}
+
+		private void chb_package_filter_CheckedChanged(object sender, EventArgs e)
+		{
+			if (PackageListForm != null)
+				updateTable();
+		}
+
+		private void chb_Component_filter_CheckedChanged(object sender, EventArgs e)
+		{
+			if (ComponentListForm != null)
+				updateTable();
+		}
+
+		private void chb_owner_CheckedChanged(object sender, EventArgs e)
+		{
+			if (OwnerListForm != null)
+				updateTable();
+		}
+
+		private void btn_owner_filter_Click(object sender, EventArgs e)
+		{
+			if (OwnerListForm == null)
+			{
+				OwnerListForm = new FormSelectOwner(SQLconnection);
+			}
+			OwnerListForm.StartPosition = FormStartPosition.CenterParent;
+			OwnerListForm.ShowDialog();
+			textBoxOwner.Text = OwnerListForm.selectedOwnerName;
+			updateTable();
+		}
 	}
 }

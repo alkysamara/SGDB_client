@@ -28,8 +28,23 @@ namespace SGDBclient {
 		private FormSelectPackage PackageListForm;
 		private FormSelectOwner OwnerListForm;
 
-        private void updateTable() {
-            if ((textBoxSearchString.Text == "")&&!chb_Component_filter.Checked&&!chb_ctype_filter.Checked&&!chb_package_filter.Checked&&!chb_storage_filter.Checked&&!chb_Owner_filter.Checked)
+        private async void updateTable() {
+			MySqlCommand command1 = new MySqlCommand("SELECT 1", SQLconnection);
+			try
+			{
+				command1.CommandTimeout = 1; // Set a short timeout for the health check
+											//command.ExecuteScalar(); //simple lightweiht command to test connection
+				var reader = await command1.ExecuteReaderAsync();
+				object res = await reader.ReadAsync();
+				reader.Close();
+			}
+			catch (Exception ee) //try reconnect if not sucessfull
+			{
+				//connection_reconnect();
+				MessageBox.Show(ee.Message);
+			}
+
+			if ((textBoxSearchString.Text == "")&&!chb_Component_filter.Checked&&!chb_ctype_filter.Checked&&!chb_package_filter.Checked&&!chb_storage_filter.Checked&&!chb_Owner_filter.Checked)
             {
                 dataGridView1.Rows.Clear();
                 dataGridView1.Columns.Clear();
@@ -484,7 +499,7 @@ namespace SGDBclient {
 			catch (Exception ex)
 			{
 				MessageBox.Show("There was a problem when loading item image from database: " + ex.Message);
-                if (!reader.IsClosed) reader.Close();
+                if ((reader != null ) && (!reader.IsClosed)) reader.Close();
             }
 
 
@@ -505,7 +520,7 @@ namespace SGDBclient {
                 }
             } catch (Exception ex) {
                 MessageBox.Show("There was a problem when loading item image from database: " + ex.Message);
-                if (!reader.IsClosed) reader.Close();
+                if ((reader!=null)&&(!reader.IsClosed)) reader.Close();
             }
 
 
@@ -525,7 +540,7 @@ namespace SGDBclient {
                 }
             } catch (Exception ex) {
                 MessageBox.Show("There was a problem when loading component image from database: " + ex.Message);
-                if (!reader.IsClosed) reader.Close();
+                if ((reader != null) && (!reader.IsClosed)) reader.Close();
             }
         }
 

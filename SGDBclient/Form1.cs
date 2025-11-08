@@ -164,5 +164,42 @@ namespace SGDBclient {
 				richTextBox1.ForeColor = Color.Red;
 			}
 		}
+
+		private async void timer1_Tick(object sender, EventArgs e)
+		{
+			if (SQLconnection.State != ConnectionState.Open)
+			{
+				connection_reconnect();
+				return;
+			}
+			/*MySqlCommand command = new MySqlCommand("SELECT 1", SQLconnection);
+			try
+			{
+				command.CommandTimeout = 1; // Set a short timeout for the health check
+											//command.ExecuteScalar(); //simple lightweiht command to test connection
+				var reader = await command.ExecuteReaderAsync();
+				object res = await reader.ReadAsync();
+				reader.Close();
+			}
+			catch (Exception ee) //try reconnect if not sucessfull
+			{
+				connection_reconnect();
+			}*/
+		}
+
+		private void connection_reconnect()
+		{
+			try
+			{
+				SQLconnection.Close();
+				SQLconnection.Open();
+				richTextBox1.ForeColor = Color.White;
+			}
+			catch (Exception ex)
+			{
+				richTextBox1.Text += ex.Message + "\n";
+				richTextBox1.ForeColor = Color.Red;
+			}
+		}
 	}
 }

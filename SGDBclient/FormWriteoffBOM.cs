@@ -243,8 +243,13 @@ namespace SGDBclient
                 MessageBox.Show(all_errors);
                 return;
             }
-            //writeoff components
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+			if (all_errors.Length > 0)
+			{
+				MessageBox.Show(all_errors);
+				return;
+			}
+			//writeoff components
+			for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 int q;
                 if (dataGridView1.Rows[i].Cells["q"].Value.GetType() == typeof(int))

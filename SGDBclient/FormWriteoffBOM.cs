@@ -265,7 +265,12 @@ namespace SGDBclient
                         "Used writeoff BOM" +
                         "\",\""+ System.Environment.MachineName+ "\")", SQLconnection);
                     command.ExecuteNonQuery();
-                }
+					if (dataGridView1.Rows[i].Cells["q"].Value.GetType() == typeof(int))
+						dataGridView1.Rows[i].Cells["q"].Value = 0;
+					else
+						dataGridView1.Rows[i].Cells["q"].Value = "0";
+
+				}
                 catch (Exception ee)
                 {
                     all_errors += "Trying writeoff " + dataGridView1.Rows[i].Cells[0].Value.ToString() + " failed with exception: " + ee.Message + "\n";

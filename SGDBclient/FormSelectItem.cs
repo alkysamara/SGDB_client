@@ -104,12 +104,18 @@ namespace SGDBclient {
                 }
                 dataGridView1.Rows.Clear();
                 dataGridView1.Columns.Clear();
-                for (int i = 0; i < reader.FieldCount; i++) {
+				dataGridView1.Columns.Add(reader.GetName(0), reader.GetName(0));
+				dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+				for (int i = 1; i < reader.FieldCount; i++) {
                     dataGridView1.Columns.Add(reader.GetName(i), reader.GetName(i));
-                    if (reader.GetName(i).StartsWith("id") || reader.GetName(i).Contains("_id")) { //this is an id field, hide it
+                    if (reader.GetName(i).StartsWith("id") || reader.GetName(i).Contains("_id")) { //this is an id field, hide it, but not the first one
                         dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
                         dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
-                    }
+					}
+					else
+					{
+						dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+					}
                     if (reader.GetName(i).Contains("Parameters"))
                     { //this is a wery long field
                         dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize

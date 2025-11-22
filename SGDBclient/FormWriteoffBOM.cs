@@ -163,7 +163,12 @@ namespace SGDBclient
                     {
                         MessageBox.Show(ex.Message);
                     }
-                }
+				}
+				else
+				{
+					MessageBox.Show("Scan is empty!");
+					return;
+				}
             }
 
             //check selected item and use colors: green - ok, yellow and orange - need visual check

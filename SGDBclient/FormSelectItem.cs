@@ -591,5 +591,10 @@ namespace SGDBclient {
 			textBoxOwner.Text = OwnerListForm.selectedOwnerName;
 			updateTable();
 		}
+
+		private void chb_show_empty_CheckedChanged(object sender, EventArgs e)
+		{
+			updateTable();
+		}
 	}
 }

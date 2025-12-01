@@ -114,13 +114,15 @@ namespace SGDBclient
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var senderGrid = (DataGridView)sender;
+			if (e.RowIndex < 0) return; //click on header when sort is disabled may cause this case
+			var senderGrid = (DataGridView)sender;
 
-            if ((senderGrid.Columns[e.ColumnIndex].Name == "chbCountOnce")) return;
+			bool noValidElementClicked = true;
 
             if ((senderGrid.Columns[e.ColumnIndex].Name == "selectBtn") && (e.RowIndex >= 0)) //pressed select button
             {
-                FormSelectItem fsi = new FormSelectItem(this.SQLconnection,(string)senderGrid.Rows[e.RowIndex].Cells[0].Value);
+				noValidElementClicked = false;
+				FormSelectItem fsi = new FormSelectItem(this.SQLconnection,(string)senderGrid.Rows[e.RowIndex].Cells[0].Value);
                 fsi.ShowDialog();
                 senderGrid.Rows[e.RowIndex].Cells["idItem"].Value = fsi.selectedItemID;
                 senderGrid.Rows[e.RowIndex].Cells["selectedItem"].Value = fsi.selectedItemName;
@@ -130,7 +132,8 @@ namespace SGDBclient
             }
             if ((senderGrid.Columns[e.ColumnIndex].Name == "scanBtn") && (e.RowIndex >= 0)) //pressed scan button
             {
-                FormScan fs = new FormScan();
+				noValidElementClicked = false;
+				FormScan fs = new FormScan();
                 fs.StartPosition = FormStartPosition.CenterParent;
                 fs.ShowDialog();
                 if (fs.idText != "")
@@ -170,6 +173,11 @@ namespace SGDBclient
 					return;
 				}
             }
+
+			if (noValidElementClicked)
+			{
+				return;
+			}
 
             //check selected item and use colors: green - ok, yellow and orange - need visual check
             string strInitial = senderGrid.Rows[e.RowIndex].Cells["pn"].Value.ToString();
@@ -311,5 +319,50 @@ namespace SGDBclient
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["scanBtn"].Value = "Scan";
             dataGridView1.Rows[dataGridView1.RowCount - 1].Cells["chbCountOnce"].Value = true;
         }
-    }
+
+		private void tb_pcb_count_Leave(object sender, EventArgs e)
+		{
+			int board_count = 1;
+			if ((!int.TryParse(tb_pcb_count.Text, out board_count)) || (board_count < 1))
+			{
+				MessageBox.Show("Board count incorrect!");
+				return;
+			}
+			for (int i = 0; i < dataGridView1.Rows.Count; i++)
+			{
+				int q;
+				if (dataGridView1.Rows[i].Cells["q"].Value.GetType() == typeof(int))
+					q = (int)dataGridView1.Rows[i].Cells["q"].Value;
+				else
+					q = int.Parse((string)dataGridView1.Rows[i].Cells["q"].Value);
+				if (!((bool)dataGridView1.Rows[i].Cells["chbCountOnce"].Value))
+					q *= board_count;
+
+				dataGridView1.Rows[i].Cells["tq"].Value = q;
+			}
+		}
+
+		private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+		{
+			if (e.ColumnIndex == dataGridView1.Columns["q"].Index)
+			{
+				int board_count = 1;
+				if ((!int.TryParse(tb_pcb_count.Text, out board_count)) || (board_count < 1))
+				{
+					MessageBox.Show("Board count incorrect!");
+					return;
+				}
+
+				int q;
+				if (dataGridView1.Rows[e.RowIndex].Cells["q"].Value.GetType() == typeof(int))
+					q = (int)dataGridView1.Rows[e.RowIndex].Cells["q"].Value;
+				else
+					q = int.Parse((string)dataGridView1.Rows[e.RowIndex].Cells["q"].Value);
+				if (!((bool)dataGridView1.Rows[e.RowIndex].Cells["chbCountOnce"].Value))
+					q *= board_count;
+
+				dataGridView1.Rows[e.RowIndex].Cells["tq"].Value = q;
+			}
+		}
+	}
 }

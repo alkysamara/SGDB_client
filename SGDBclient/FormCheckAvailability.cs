@@ -115,6 +115,7 @@ namespace SGDBclient
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+			if (e.RowIndex < 0) return; //click on header when sort is disabled may cause this case
             var senderGrid = (DataGridView)sender;
 
             if ((senderGrid.Columns[e.ColumnIndex].Name == "chbCountOnce")) return;
@@ -171,12 +172,15 @@ namespace SGDBclient
             }
             if ((senderGrid.Columns[e.ColumnIndex].Name == "addAlternativeBtn") && (e.RowIndex >= 0) && (!dataGridView1.Rows[e.RowIndex].Cells["pn"].Value.ToString().Equals("")))
             {
-                int index = e.RowIndex + 1;
+				foreach (DataGridViewColumn c in dataGridView1.Columns)
+				{
+					c.SortMode = DataGridViewColumnSortMode.NotSortable;
+				}
+				int index = e.RowIndex + 1;
                 senderGrid.Rows.Insert(index, 1);
                 dataGridView1.Rows[index].Cells["pn"].Value = "";
                 dataGridView1.Rows[index].Cells["selectBtn"].Value = "Select";
                 dataGridView1.Rows[index].Cells["scanBtn"].Value = "Scan";
-
             }
 
             //check selected item and use colors: green - ok, yellow and orange - need visual check

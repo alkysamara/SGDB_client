@@ -36,6 +36,7 @@
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btn_add_item = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.chb_show_empty = new System.Windows.Forms.CheckBox();
 			this.btn_owner_filter = new System.Windows.Forms.Button();
 			this.chb_Owner_filter = new System.Windows.Forms.CheckBox();
 			this.textBoxOwner = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
-			this.chb_show_empty = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -180,6 +180,17 @@
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(1236, 126);
 			this.panel2.TabIndex = 5;
+			// 
+			// chb_show_empty
+			// 
+			this.chb_show_empty.AutoSize = true;
+			this.chb_show_empty.Location = new System.Drawing.Point(1142, 71);
+			this.chb_show_empty.Name = "chb_show_empty";
+			this.chb_show_empty.Size = new System.Drawing.Size(84, 17);
+			this.chb_show_empty.TabIndex = 41;
+			this.chb_show_empty.Text = "Show empty";
+			this.chb_show_empty.UseVisualStyleBackColor = true;
+			this.chb_show_empty.CheckedChanged += new System.EventHandler(this.chb_show_empty_CheckedChanged);
 			// 
 			// btn_owner_filter
 			// 
@@ -455,16 +466,6 @@
 			this.pictureBox1.Size = new System.Drawing.Size(130, 130);
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
-			// 
-			// chb_show_empty
-			// 
-			this.chb_show_empty.AutoSize = true;
-			this.chb_show_empty.Location = new System.Drawing.Point(1142, 71);
-			this.chb_show_empty.Name = "chb_show_empty";
-			this.chb_show_empty.Size = new System.Drawing.Size(84, 17);
-			this.chb_show_empty.TabIndex = 41;
-			this.chb_show_empty.Text = "Show empty";
-			this.chb_show_empty.UseVisualStyleBackColor = true;
 			// 
 			// FormSelectItem
 			// 

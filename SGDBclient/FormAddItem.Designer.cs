@@ -41,7 +41,9 @@ namespace SGDBclient
 			this.btnAdd = new System.Windows.Forms.Button();
 			this.textBoxQuantity = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.label7 = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.tb_comment = new System.Windows.Forms.TextBox();
 			this.textBoxOwner = new System.Windows.Forms.TextBox();
 			this.textBoxComponent = new System.Windows.Forms.TextBox();
 			this.textBoxOrder = new System.Windows.Forms.TextBox();
@@ -52,8 +54,6 @@ namespace SGDBclient
 			this.btnSelectOrder = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btn_add_from_csv = new System.Windows.Forms.Button();
-			this.label7 = new System.Windows.Forms.Label();
-			this.tb_comment = new System.Windows.Forms.TextBox();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -167,6 +167,15 @@ namespace SGDBclient
 			this.panel1.Size = new System.Drawing.Size(94, 216);
 			this.panel1.TabIndex = 10;
 			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(13, 188);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(51, 13);
+			this.label7.TabIndex = 8;
+			this.label7.Text = "Comment";
+			// 
 			// panel2
 			// 
 			this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -184,6 +193,14 @@ namespace SGDBclient
 			this.panel2.Name = "panel2";
 			this.panel2.Size = new System.Drawing.Size(130, 216);
 			this.panel2.TabIndex = 11;
+			// 
+			// tb_comment
+			// 
+			this.tb_comment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.tb_comment.Location = new System.Drawing.Point(5, 185);
+			this.tb_comment.Name = "tb_comment";
+			this.tb_comment.Size = new System.Drawing.Size(120, 20);
+			this.tb_comment.TabIndex = 14;
 			// 
 			// textBoxOwner
 			// 
@@ -219,6 +236,7 @@ namespace SGDBclient
 			this.textBoxPrice.Name = "textBoxPrice";
 			this.textBoxPrice.Size = new System.Drawing.Size(120, 20);
 			this.textBoxPrice.TabIndex = 2;
+			this.textBoxPrice.TextChanged += new System.EventHandler(this.textBoxPrice_TextChanged);
 			// 
 			// panel3
 			// 
@@ -284,23 +302,6 @@ namespace SGDBclient
 			this.btn_add_from_csv.Text = "Add from CSV";
 			this.btn_add_from_csv.UseVisualStyleBackColor = true;
 			this.btn_add_from_csv.Click += new System.EventHandler(this.btn_add_from_csv_Click);
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(13, 188);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(51, 13);
-			this.label7.TabIndex = 8;
-			this.label7.Text = "Comment";
-			// 
-			// tb_comment
-			// 
-			this.tb_comment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.tb_comment.Location = new System.Drawing.Point(5, 185);
-			this.tb_comment.Name = "tb_comment";
-			this.tb_comment.Size = new System.Drawing.Size(120, 20);
-			this.tb_comment.TabIndex = 14;
 			// 
 			// FormAddItem
 			// 

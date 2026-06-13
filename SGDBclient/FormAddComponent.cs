@@ -85,7 +85,25 @@ namespace SGDBclient {
 				MessageBox.Show("You should specify Package");
 				return;
 			}
-			
+			try
+			{
+				MySqlDataReader reader;
+				MySqlCommand command = new MySqlCommand("SELECT idComponent FROM Components WHERE Components.Partnumber LIKE \'%" + textBoxPartNumber.Text + "%\'", SQLconnection);
+				command.ExecuteNonQuery();
+				reader = command.ExecuteReader();
+				reader.Read();
+				if (reader.HasRows)
+				{
+					MessageBox.Show("Component with this partnumber already exists in database!");
+					reader.Close();
+					return;
+				}
+				reader.Close();
+			} catch (Exception ee)
+			{
+				MessageBox.Show(ee.Message);
+			}
+
 			try {
                 if (addSingleComponent(this.SQLconnection, textBoxPartNumber.Text, jsonEditorParameters.JSON, jsonEditorLinks.JSON,
 					formSelectComponentType.selectedComponentTypeID.ToString(), formSelectPackage.selectedPackageID.ToString(), textBoxDescription.Text))

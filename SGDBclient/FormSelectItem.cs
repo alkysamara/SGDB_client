@@ -198,7 +198,9 @@ namespace SGDBclient {
             StorageListForm.StartPosition = FormStartPosition.CenterParent;
             StorageListForm.ShowDialog();
             textBoxStorage.Text = StorageListForm.selectedStorageName;
-			updateTable();
+			if (textBoxStorage.Text != "")
+				chb_storage_filter.Checked = true;
+			//updateTable();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -210,7 +212,9 @@ namespace SGDBclient {
             CTypetListForm.StartPosition = FormStartPosition.CenterParent;
             CTypetListForm.ShowDialog();
             textBoxCType.Text = CTypetListForm.selectedComponentTypeName;
-			updateTable();
+			if (textBoxCType.Text != "")
+				chb_ctype_filter.Checked = true;
+			//updateTable();
 		}
 
         private void btn_package_filter_Click(object sender, EventArgs e)
@@ -222,7 +226,9 @@ namespace SGDBclient {
             PackageListForm.StartPosition = FormStartPosition.CenterParent;
             PackageListForm.ShowDialog();
             textBoxPackage.Text = PackageListForm.selectedPackageName;
-			updateTable();
+			if (textBoxPackage.Text != "")
+				chb_package_filter.Checked = true;
+			//updateTable();
 		}
 
         private void btn_component_filter_Click(object sender, EventArgs e)
@@ -234,7 +240,9 @@ namespace SGDBclient {
             ComponentListForm.StartPosition = FormStartPosition.CenterParent;
             ComponentListForm.ShowDialog();
             textBoxComponent.Text = ComponentListForm.selectedComponentName;
-			updateTable();
+			if (textBoxComponent.Text != "")
+				chb_Component_filter.Checked = true;
+			//updateTable();
 		}
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -398,6 +406,7 @@ namespace SGDBclient {
                 }
 
             }
+			updateTable();
         }
 
         private void btn_scan_Click(object sender, EventArgs e)
@@ -589,7 +598,9 @@ namespace SGDBclient {
 			OwnerListForm.StartPosition = FormStartPosition.CenterParent;
 			OwnerListForm.ShowDialog();
 			textBoxOwner.Text = OwnerListForm.selectedOwnerName;
-			updateTable();
+			//updateTable();
+			if (textBoxOwner.Text != "")
+				chb_Owner_filter.Checked = true;
 		}
 
 		private void chb_show_empty_CheckedChanged(object sender, EventArgs e)

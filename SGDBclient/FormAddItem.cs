@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
@@ -258,5 +259,11 @@ namespace SGDBclient {
                 MessageBox.Show("Added " + addcnt + " new items");
             }
         }
-    }
+
+		private void textBoxPrice_TextChanged(object sender, EventArgs e)
+		{
+			textBoxPrice.Text = textBoxPrice.Text.Replace(',', '.');
+			textBoxPrice.Text = Regex.Replace(textBoxPrice.Text, @"[^0-9,.]", "");
+		}
+	}
 }

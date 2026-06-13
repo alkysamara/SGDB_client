@@ -39,6 +39,7 @@ namespace SGDBclient {
 					dataGridView1.Rows[dataGridView1.RowCount - 1].Cells[j].Value = reader[j];
 			}
 			reader.Close();
+			dataGridView1.Sort(dataGridView1.Columns["Date"], ListSortDirection.Descending);
 		}
 		public FormSelectOrder(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();

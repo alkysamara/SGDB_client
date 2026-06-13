@@ -57,6 +57,14 @@ namespace SGDBclient {
 		private void cb_param_name_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			label3.Text = paramDescriptions[cb_param_name.SelectedIndex];
+			string val = "";
+			if (param_values.TryGetValue(cb_param_name.Text, out val))
+			{
+				tb_param_value.Text = val;
+			}
+			else{
+				tb_param_value.Text = "";
+			}
 		}
 	}
 }

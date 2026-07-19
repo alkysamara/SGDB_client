@@ -42,11 +42,11 @@ namespace SGDBclient {
 				for (int i = 0; i < reader.FieldCount; i++)
 				{
 					dataGridView1.Columns.Add(reader.GetName(i), reader.GetName(i));
-					if ((reader.GetName(i).StartsWith("id") || reader.GetName(i).Contains("_id")))
+					/*if ((reader.GetName(i).StartsWith("id") || reader.GetName(i).Contains("_id")))
 					{ //this is an id field, hide it
 						dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize
 						dataGridView1.Columns[i].Width = 1; //minimal width to 'hide' it
-					}
+					}*/
 					if (reader.GetName(i).Contains("Parameters") || reader.GetName(i).Contains("Links") || reader.GetName(i).Contains("Description"))
 					{ //this is a wery long field
 						dataGridView1.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None; //switch off autosize

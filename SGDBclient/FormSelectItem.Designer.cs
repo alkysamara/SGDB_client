@@ -265,6 +265,7 @@
             this.chb_id.TabIndex = 34;
             this.chb_id.Text = "id";
             this.chb_id.UseVisualStyleBackColor = true;
+            this.chb_id.CheckedChanged += new System.EventHandler(this.chb_id_CheckedChanged);
             // 
             // btn_move_component
             // 
@@ -420,6 +421,7 @@
             this.textBoxSearchString.Name = "textBoxSearchString";
             this.textBoxSearchString.Size = new System.Drawing.Size(1103, 20);
             this.textBoxSearchString.TabIndex = 0;
+            this.textBoxSearchString.TextChanged += new System.EventHandler(this.textBoxSearchString_TextChanged);
             this.textBoxSearchString.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearchString_KeyDown);
             // 
             // panel3

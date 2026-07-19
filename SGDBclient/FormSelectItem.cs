@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -638,6 +639,23 @@ namespace SGDBclient {
                 if ((reader != null) && (!reader.IsClosed)) reader.Close();
             }
             updateTable();
+        }
+
+        private void chb_id_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chb_id.Checked)
+            {
+                textBoxSearchString.Text = Regex.Replace(textBoxSearchString.Text, @"[^0-9]", "");
+            }
+            textBoxSearchString.Focus();
+        }
+
+        private void textBoxSearchString_TextChanged(object sender, EventArgs e)
+        {
+            if (chb_id.Checked)
+            {
+                textBoxSearchString.Text = Regex.Replace(textBoxSearchString.Text, @"[^0-9]", "");
+            }
         }
     }
 }

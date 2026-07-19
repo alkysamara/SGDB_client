@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
@@ -607,5 +608,36 @@ namespace SGDBclient {
 		{
 			updateTable();
 		}
-	}
+
+        private void btn_changeComment_Click(object sender, EventArgs e)
+        {
+            MySqlDataReader reader = null;
+            try
+            {
+                int currentSelectedItemID = (int)dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex].Cells["idItem"].Value;
+                MySqlCommand command = new MySqlCommand("SELECT Comment FROM Items WHERE idItem = " + currentSelectedItemID, SQLconnection);
+                reader = command.ExecuteReader();
+                reader.Read();
+                string comment = "";
+                if (!reader[0].GetType().Equals(typeof(DBNull)))
+                {
+                    comment = (string)reader[0];
+                }
+                reader.Close();
+                FormChangeText fct = new FormChangeText(comment);
+                fct.ShowDialog();
+                if (!(String.Compare(comment, fct.text) == 0))
+                {
+                    MySqlCommand command1 = new MySqlCommand("UPDATE Items SET Comment = \'" +fct.text + "\' WHERE idItem = " + currentSelectedItemID, SQLconnection);
+                    command1.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was a problem when setting new comment to database: " + ex.Message);
+                if ((reader != null) && (!reader.IsClosed)) reader.Close();
+            }
+            updateTable();
+        }
+    }
 }

@@ -33,7 +33,9 @@ namespace SGDBclient {
 			}
 			StorageListForm.ShowDialog();
 			textBoxStorage.Text = StorageListForm.selectedStorageName;
-		}
+            textBoxStorage.BackColor = SystemColors.Window;
+
+        }
 
 		private void btnCancel_Click(object sender, EventArgs e) {
 			this.Close();
@@ -59,7 +61,7 @@ namespace SGDBclient {
                     "Item Create\",\'"+
                     DateTime.Today.ToString("yyyy-MM-dd") + "\',\"" +
                     "create new item from SGDB client\",\"" +
-                    System.Environment.MachineName + "\")", SQLconnection);
+                    System.Environment.MachineName + "\",\"" + Form1.currentUsername + "\")", SQLconnection);
                 command.ExecuteNonQuery();
             }
             catch (Exception ee)
@@ -82,7 +84,8 @@ namespace SGDBclient {
 			}
 			OwnerListForm.ShowDialog();
 			textBoxOwner.Text = OwnerListForm.selectedOwnerName;
-		}
+            textBoxOwner.BackColor = SystemColors.Window;
+        }
 
 		private void btnSelectOrder_Click(object sender, EventArgs e) {
 			if (OrderListForm == null) {
@@ -90,7 +93,8 @@ namespace SGDBclient {
 			}
 			OrderListForm.ShowDialog();
 			textBoxOrder.Text = OrderListForm.selectedOrderName;
-		}
+            textBoxOrder.BackColor = SystemColors.Window;
+        }
 
 		private void btnSelectComponent_Click(object sender, EventArgs e) {
 			if (ComponentListForm == null) {
@@ -98,7 +102,8 @@ namespace SGDBclient {
 			}
 			ComponentListForm.ShowDialog();
 			textBoxComponent.Text = ComponentListForm.selectedComponentName;
-		}
+            textBoxComponent.BackColor = SystemColors.Window;
+        }
 
         private void btn_add_from_csv_Click(object sender, EventArgs e)
         {
@@ -264,6 +269,26 @@ namespace SGDBclient {
 		{
 			textBoxPrice.Text = textBoxPrice.Text.Replace(',', '.');
 			textBoxPrice.Text = Regex.Replace(textBoxPrice.Text, @"[^0-9,.]", "");
-		}
-	}
+            if (textBoxPrice.Text.Length > 0)
+            {
+                textBoxPrice.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                textBoxPrice.BackColor = Color.Yellow;
+            }
+        }
+
+        private void textBoxQuantity_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxQuantity.Text.Length > 0)
+            {
+                textBoxQuantity.BackColor = SystemColors.Window;
+            }
+            else
+            {
+                textBoxQuantity.BackColor = Color.Yellow;
+            }
+        }
+    }
 }

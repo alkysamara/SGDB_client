@@ -416,6 +416,7 @@ namespace SGDBclient {
             chb_id.Checked = true;
             textBoxSearchString.Text = "";
             textBoxSearchString.Focus();
+            
         }
 
         private void FormSelectItem_Shown(object sender, EventArgs e)
@@ -625,7 +626,7 @@ namespace SGDBclient {
                     comment = (string)reader[0];
                 }
                 reader.Close();
-                FormChangeText fct = new FormChangeText(comment);
+                FormChangeText fct = new FormChangeText(comment, "Enter new comment");
                 fct.ShowDialog();
                 if (!(String.Compare(comment, fct.text) == 0))
                 {

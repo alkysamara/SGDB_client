@@ -64,7 +64,7 @@
 			this.btn_addFromCSV.Location = new System.Drawing.Point(87, 5);
 			this.btn_addFromCSV.Name = "btn_addFromCSV";
 			this.btn_addFromCSV.Size = new System.Drawing.Size(113, 23);
-			this.btn_addFromCSV.TabIndex = 9;
+			this.btn_addFromCSV.TabIndex = 8;
 			this.btn_addFromCSV.Text = "Add from CSV";
 			this.btn_addFromCSV.UseVisualStyleBackColor = true;
 			this.btn_addFromCSV.Click += new System.EventHandler(this.btn_addFromCSV_Click);
@@ -75,7 +75,7 @@
 			this.button2.Location = new System.Drawing.Point(206, 5);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(75, 23);
-			this.button2.TabIndex = 10;
+			this.button2.TabIndex = 9;
 			this.button2.Text = "Cancel";
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.btnClick_Click);
@@ -85,7 +85,7 @@
 			this.buttonAdd.Location = new System.Drawing.Point(6, 5);
 			this.buttonAdd.Name = "buttonAdd";
 			this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-			this.buttonAdd.TabIndex = 8;
+			this.buttonAdd.TabIndex = 7;
 			this.buttonAdd.Text = "Add";
 			this.buttonAdd.UseVisualStyleBackColor = true;
 			this.buttonAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -95,18 +95,20 @@
 			this.textBoxDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxDescription.BackColor = System.Drawing.Color.Yellow;
 			this.textBoxDescription.Location = new System.Drawing.Point(103, 128);
 			this.textBoxDescription.MaxLength = 255;
 			this.textBoxDescription.Name = "textBoxDescription";
 			this.textBoxDescription.Size = new System.Drawing.Size(128, 20);
-			this.textBoxDescription.TabIndex = 7;
+			this.textBoxDescription.TabIndex = 6;
+			this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
 			// 
 			// buttonEditComponentType
 			// 
 			this.buttonEditComponentType.Location = new System.Drawing.Point(237, 28);
 			this.buttonEditComponentType.Name = "buttonEditComponentType";
 			this.buttonEditComponentType.Size = new System.Drawing.Size(44, 19);
-			this.buttonEditComponentType.TabIndex = 5;
+			this.buttonEditComponentType.TabIndex = 2;
 			this.buttonEditComponentType.Text = "Edit";
 			this.buttonEditComponentType.UseVisualStyleBackColor = true;
 			this.buttonEditComponentType.Click += new System.EventHandler(this.buttonEditComponentType_Click);
@@ -116,7 +118,7 @@
 			this.buttonEditLinks.Location = new System.Drawing.Point(237, 53);
 			this.buttonEditLinks.Name = "buttonEditLinks";
 			this.buttonEditLinks.Size = new System.Drawing.Size(44, 19);
-			this.buttonEditLinks.TabIndex = 4;
+			this.buttonEditLinks.TabIndex = 3;
 			this.buttonEditLinks.Text = "Edit";
 			this.buttonEditLinks.UseVisualStyleBackColor = true;
 			this.buttonEditLinks.Click += new System.EventHandler(this.buttonEditLinks_Click);
@@ -126,7 +128,7 @@
 			this.buttonEditPackage.Location = new System.Drawing.Point(237, 103);
 			this.buttonEditPackage.Name = "buttonEditPackage";
 			this.buttonEditPackage.Size = new System.Drawing.Size(44, 19);
-			this.buttonEditPackage.TabIndex = 6;
+			this.buttonEditPackage.TabIndex = 5;
 			this.buttonEditPackage.Text = "Edit";
 			this.buttonEditPackage.UseVisualStyleBackColor = true;
 			this.buttonEditPackage.Click += new System.EventHandler(this.buttonEditPackage_Click);
@@ -136,7 +138,7 @@
 			this.buttonEditParameters.Location = new System.Drawing.Point(237, 78);
 			this.buttonEditParameters.Name = "buttonEditParameters";
 			this.buttonEditParameters.Size = new System.Drawing.Size(44, 19);
-			this.buttonEditParameters.TabIndex = 2;
+			this.buttonEditParameters.TabIndex = 4;
 			this.buttonEditParameters.Text = "Edit";
 			this.buttonEditParameters.UseVisualStyleBackColor = true;
 			this.buttonEditParameters.Click += new System.EventHandler(this.buttonEditParameters_Click);
@@ -144,6 +146,7 @@
 			// labelSelectedPackage
 			// 
 			this.labelSelectedPackage.AutoSize = true;
+			this.labelSelectedPackage.BackColor = System.Drawing.Color.Yellow;
 			this.labelSelectedPackage.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.labelSelectedPackage.Location = new System.Drawing.Point(103, 100);
 			this.labelSelectedPackage.Name = "labelSelectedPackage";
@@ -157,11 +160,13 @@
 			this.textBoxPartNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBoxPartNumber.BackColor = System.Drawing.Color.Yellow;
 			this.textBoxPartNumber.Location = new System.Drawing.Point(103, 3);
 			this.textBoxPartNumber.MaxLength = 45;
 			this.textBoxPartNumber.Name = "textBoxPartNumber";
 			this.textBoxPartNumber.Size = new System.Drawing.Size(128, 20);
 			this.textBoxPartNumber.TabIndex = 1;
+			this.textBoxPartNumber.TextChanged += new System.EventHandler(this.textBoxPartNumber_TextChanged);
 			// 
 			// label2
 			// 
@@ -222,6 +227,7 @@
 			// labelSelectedComponentType
 			// 
 			this.labelSelectedComponentType.AutoSize = true;
+			this.labelSelectedComponentType.BackColor = System.Drawing.Color.Yellow;
 			this.labelSelectedComponentType.Dock = System.Windows.Forms.DockStyle.Left;
 			this.labelSelectedComponentType.Location = new System.Drawing.Point(103, 25);
 			this.labelSelectedComponentType.Name = "labelSelectedComponentType";
@@ -258,11 +264,11 @@
 			this.tableLayoutPanel1.Controls.Add(this.label6, 0, 4);
 			this.tableLayoutPanel1.Controls.Add(this.labelSelectedPackage, 1, 4);
 			this.tableLayoutPanel1.Controls.Add(this.label7, 0, 5);
-			this.tableLayoutPanel1.Controls.Add(this.textBoxDescription, 1, 5);
 			this.tableLayoutPanel1.Controls.Add(this.buttonEditParameters, 2, 3);
 			this.tableLayoutPanel1.Controls.Add(this.buttonEditComponentType, 2, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label5, 0, 1);
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
+			this.tableLayoutPanel1.Controls.Add(this.textBoxDescription, 1, 5);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 6;

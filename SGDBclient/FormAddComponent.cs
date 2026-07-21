@@ -58,13 +58,15 @@ namespace SGDBclient {
                 if (Links == "{}") Links = "'{}'";
                 if (Parameters == "{}") Parameters = "'{}'";
                 MySqlCommand command = new MySqlCommand("INSERT INTO `SGitemsDB`.`Components` (`PartNumber`, `Parameters`, " +
-                    "`Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`) VALUES(\'" +
+                    "`Links`, `ComponentType_idComponentType`, `Packages_idPackage`, `Description`, `ComponentCreatedBy`, `ComponentCreatedDate`) VALUES(\'" +
                     PartNumber + "\'," +
                     Parameters + "," +
                     Links + ",\'" +
                     ComponentType_idComponentType + "\',\'" +
                     Packages_idPackage + "\',\'" +
-                    Description + "\'" +
+                    Description + "\',\'" +
+                    Form1.currentUsername + "\',\'" +
+                    DateTime.Today.ToString("yyyy-MM-dd") + "\'" +
                     ")", SQLconnection);
                 command.ExecuteNonQuery();
             }
@@ -133,6 +135,7 @@ namespace SGDBclient {
 			string[] typeNames, typeDescr;
 			get_params_from_componentType(formSelectComponentType.selectedComponentTypeID, out typeNames, out typeDescr);
 			jsonEditorParameters.setList(typeNames, typeDescr);
+            labelSelectedComponentType.BackColor = SystemColors.Control;
         }
 
 		private void buttonEditPackage_Click(object sender, EventArgs e)
@@ -140,6 +143,7 @@ namespace SGDBclient {
             formSelectPackage.StartPosition = FormStartPosition.CenterParent;
             formSelectPackage.ShowDialog();
 			labelSelectedPackage.Text = formSelectPackage.selectedPackageName;
+			labelSelectedPackage.BackColor = SystemColors.Control;
 		}
 
         private void btn_addFromCSV_Click(object sender, EventArgs e) 
@@ -276,7 +280,23 @@ namespace SGDBclient {
 
         }
 
-        private void btnClick_Click(object sender, EventArgs e) {
+		private void textBoxPartNumber_TextChanged(object sender, EventArgs e) {
+			if (textBoxPartNumber.Text.Length > 0) {
+				textBoxPartNumber.BackColor = SystemColors.Control;
+			} else {
+				textBoxPartNumber.BackColor = Color.Yellow;
+			}
+		}
+
+		private void textBoxDescription_TextChanged(object sender, EventArgs e) {
+			if (textBoxDescription.Text.Length > 0) {
+				textBoxDescription.BackColor = SystemColors.Control;
+			} else {
+				textBoxDescription.BackColor = Color.Yellow;
+			}
+		}
+
+		private void btnClick_Click(object sender, EventArgs e) {
 			this.Close();
 		}
 	}

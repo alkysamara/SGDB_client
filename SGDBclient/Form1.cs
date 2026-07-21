@@ -14,7 +14,18 @@ namespace SGDBclient {
 	public partial class Form1 : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private string cString = "";
-		public Form1() {
+		private static string _currentUsername = "";
+
+		public static string currentUsername
+		{
+			get
+			{
+				return _currentUsername;
+            }
+		}
+
+
+        public Form1() {
 			InitializeComponent();
 			string text;
 			string pas = "";
@@ -108,6 +119,12 @@ namespace SGDBclient {
 				richTextBox1.Text += e.Message+"\n";
 				richTextBox1.ForeColor = Color.Red;
 			}
+			FormChangeText fct = new FormChangeText("","Enter user name");
+			while (currentUsername.Equals(""))
+			{
+                fct.ShowDialog();
+                _currentUsername = fct.text;
+            }
 		}
 
 		private void btnAddNewItem_Click(object sender, EventArgs e) {

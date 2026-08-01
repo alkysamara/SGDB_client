@@ -399,7 +399,8 @@ namespace SGDBclient {
                         " WHERE idItem = " + id, SQLconnection);
                     int q = command.ExecuteNonQuery();
                     MessageBox.Show("Squccessfully updated rows: " + q);
-                    return;
+					updateTable();
+					return;
                 }
                 catch (Exception ex)
                 {
@@ -408,7 +409,6 @@ namespace SGDBclient {
                 }
 
             }
-			updateTable();
         }
 
         private void btn_scan_Click(object sender, EventArgs e)

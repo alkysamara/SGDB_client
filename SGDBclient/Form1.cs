@@ -95,9 +95,9 @@ namespace SGDBclient {
                     }
                     else
                     {
-                        FormEnterPassword formEnterPassord = new FormEnterPassword();
+						FormChangeText formEnterPassord = new FormChangeText("","Enter password");
                         formEnterPassord.ShowDialog();
-                        pas = formEnterPassord.password;
+                        pas = formEnterPassord.Text;
                     }
                 }
 				cString = "server=" + server + ";port=" + port + ";uid=" + uid + ";pwd=" + pas + ";database=" + databaseName;
@@ -119,12 +119,19 @@ namespace SGDBclient {
 				richTextBox1.Text += e.Message+"\n";
 				richTextBox1.ForeColor = Color.Red;
 			}
-			FormChangeText fct = new FormChangeText("","Enter user name");
+			/*FormChangeText fct = new FormChangeText("","Enter user name");
 			while (currentUsername.Equals(""))
 			{
                 fct.ShowDialog();
                 _currentUsername = fct.text;
-            }
+            }*/
+			FormEnterPassword fep = new FormEnterPassword(SQLconnection);
+			while (currentUsername.Equals(""))
+			{
+				fep.ShowDialog();
+				if (fep.Validated)
+					_currentUsername = fep.ValidatedUser;
+			}
 		}
 
 		private void btnAddNewItem_Click(object sender, EventArgs e) {

@@ -21,7 +21,7 @@ namespace SGDBclient {
 			labelError.Text = "";
 		}
 
-		private void textBoxPassword_KeyDown(object sender, KeyEventArgs e) {
+		private void textBoxUsername_KeyDown(object sender, KeyEventArgs e) {
 			if (e.KeyCode == Keys.Enter) {
 				e.SuppressKeyPress = true;
 				buttonOk_Click(null, null);
@@ -47,6 +47,15 @@ namespace SGDBclient {
 				}
 				else labelError.Text = "Autentification failed, try again";
 				reader.Close();
+			}
+		}
+
+		private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				e.SuppressKeyPress = true;
+				buttonOk_Click(null, null);
 			}
 		}
 	}

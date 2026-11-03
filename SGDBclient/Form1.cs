@@ -132,6 +132,10 @@ namespace SGDBclient {
 				if (fep.Validated)
 					_currentUsername = fep.ValidatedUser;
 			}
+			if (!System.IO.File.Exists("rules.ini"))
+			{
+				MessageBox.Show(System.IO.File.ReadAllText("rules.ini"));
+			}
 		}
 
 		private void btnAddNewItem_Click(object sender, EventArgs e) {

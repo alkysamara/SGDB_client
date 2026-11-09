@@ -6,7 +6,13 @@ using System.Windows.Forms;
 
 namespace SGDBclient
 {
-    static class Program
+	public static class CurrentUser
+	{
+		public static string userName = "";
+		public static bool validated = false;
+		public static bool readOnly = true;
+	}
+	static class Program
     {
         /// <summary>
         /// The main entry point for the application.

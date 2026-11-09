@@ -20,6 +20,12 @@ namespace SGDBclient {
 
 		public FormAddItem(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
 			SQLconnection = con;
             OwnerListForm = new FormSelectOwner(SQLconnection);
             OrderListForm = new FormSelectOrder(SQLconnection);
@@ -61,7 +67,7 @@ namespace SGDBclient {
                     "Item Create\",\'"+
                     DateTime.Today.ToString("yyyy-MM-dd") + "\',\"" +
                     "create new item from SGDB client\",\"" +
-                    System.Environment.MachineName + "\",\"" + Form1.currentUsername + "\")", SQLconnection);
+                    System.Environment.MachineName + "\",\"" + CurrentUser.userName + "\")", SQLconnection);
                 command.ExecuteNonQuery();
             }
             catch (Exception ee)

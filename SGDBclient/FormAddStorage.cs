@@ -14,6 +14,12 @@ namespace SGDBclient {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		public FormAddStorage(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
 			SQLconnection = con;
 		}
 

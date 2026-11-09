@@ -18,7 +18,13 @@ namespace SGDBclient
         public FormAddProject(MySql.Data.MySqlClient.MySqlConnection con)
         {
             InitializeComponent();
-            SQLconnection = con;
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
+			SQLconnection = con;
         }
 
         private void btnAddProj_Click(object sender, EventArgs e)

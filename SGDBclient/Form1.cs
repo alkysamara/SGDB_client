@@ -11,19 +11,10 @@ using System.Data.SqlClient;
 using MySql.Data.MySqlClient; //use in pm console: Install-Package MySql.Data
 
 namespace SGDBclient {
+	
 	public partial class Form1 : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		private string cString = "";
-		private static string _currentUsername = "";
-
-		public static string currentUsername
-		{
-			get
-			{
-				return _currentUsername;
-            }
-		}
-
 
         public Form1() {
 			InitializeComponent();
@@ -126,13 +117,13 @@ namespace SGDBclient {
                 _currentUsername = fct.text;
             }*/
 			FormEnterPassword fep = new FormEnterPassword(SQLconnection);
-			while (currentUsername.Equals(""))
+			fep.ShowDialog();
+			if (CurrentUser.userName.Equals(""))
 			{
-				fep.ShowDialog();
-				if (fep.Validated)
-					_currentUsername = fep.ValidatedUser;
+				Load += (s, e) => Close();
+				return;
 			}
-			if (!System.IO.File.Exists("rules.ini"))
+			if (System.IO.File.Exists("rules.ini") && !CurrentUser.userName.Equals("Unautorized user")) 
 			{
 				MessageBox.Show(System.IO.File.ReadAllText("rules.ini"));
 			}

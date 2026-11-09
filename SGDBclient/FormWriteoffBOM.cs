@@ -24,7 +24,13 @@ namespace SGDBclient
         {
             this.SQLconnection = connection;
             InitializeComponent();
-        }
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
+		}
 
         private void FormWriteoffBOM_Shown(object sender, EventArgs e)
         {

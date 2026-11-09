@@ -20,7 +20,13 @@ namespace SGDBclient
         public FormEditParams(MySql.Data.MySqlClient.MySqlConnection con, int id)
         {
             InitializeComponent();
-            Sqlconnection = con;
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
+			Sqlconnection = con;
             idComponent = id;
 
             MySqlDataReader reader;

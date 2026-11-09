@@ -13,6 +13,12 @@ namespace SGDBclient {
 		public string text = "";
 		public FormChangeText(string initialText, string prompt) {
 			InitializeComponent();
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
 			textBoxText.Text = initialText;
 			this.Text = prompt;
         }

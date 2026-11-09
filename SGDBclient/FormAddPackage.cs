@@ -16,6 +16,12 @@ namespace SGDBclient {
 		public String json = "'{}'";
 		public FormAddPackage(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
 			SQLconnection = con;
 		}
 

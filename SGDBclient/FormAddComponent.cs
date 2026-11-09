@@ -19,12 +19,12 @@ namespace SGDBclient {
 		private FormSelectPackage formSelectPackage;
 		public FormAddComponent(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
-			/*if (CurrentUser.readOnly)
+			if (CurrentUser.readOnly)
 			{
 				MessageBox.Show("This action is restricted in read-only mode");
-				this.Close();
+				Load += (s, e) => Close();
 				return;
-			}*/
+			}
 			SQLconnection = con;
 			jsonEditorParameters = new JSONEditor();
 			jsonEditorLinks = new JSONEditor();
@@ -71,7 +71,7 @@ namespace SGDBclient {
                     ComponentType_idComponentType + "\',\'" +
                     Packages_idPackage + "\',\'" +
                     Description + "\',\'" +
-                    Form1.currentUsername + "\',\'" +
+                    CurrentUser.userName + "\',\'" +
                     DateTime.Today.ToString("yyyy-MM-dd") + "\'" +
                     ")", SQLconnection);
                 command.ExecuteNonQuery();

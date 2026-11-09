@@ -18,6 +18,12 @@ namespace SGDBclient {
 		
 		public FormCHangeQ(MySql.Data.MySqlClient.MySqlConnection con, int idItem, int Qty) {
 			InitializeComponent();
+			if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				Load += (s, e) => Close();
+				return;
+			}
 			SQLconnection = con;
 			this.idItem = idItem;
 			textBoxData.Text = DateTime.Today.ToString("yyyy-MM-dd");

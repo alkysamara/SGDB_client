@@ -13,9 +13,6 @@ using System.Security.Cryptography;
 namespace SGDBclient {
 	public partial class FormEnterPassword : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
-		public bool Validated = false;
-		public bool readOnly = false;
-		public string ValidatedUser = "";
 		public FormEnterPassword(MySql.Data.MySqlClient.MySqlConnection SQLconnection) {
 			InitializeComponent();
 			this.SQLconnection = SQLconnection;
@@ -42,8 +39,8 @@ namespace SGDBclient {
 				reader.Read();
 				if ((int)reader[0] == 1)
 				{
-					Validated = true;
-					ValidatedUser = textBoxUsername.Text;
+					CurrentUser.validated = true;
+					CurrentUser.userName = textBoxUsername.Text;
 					reader.Close();
 					this.Close();
 				}
@@ -66,8 +63,9 @@ namespace SGDBclient {
 
 		private void btn_readonly_Click(object sender, EventArgs e)
 		{
-			readOnly = true;
-			Validated = true;
+			CurrentUser.readOnly = true;
+			CurrentUser.validated = true;
+			CurrentUser.userName = "Unautorized user";
 			this.Close();
 		}
 	}

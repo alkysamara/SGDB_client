@@ -15,6 +15,12 @@ namespace SGDBclient {
 		private FormSelectComponentType ComponentTypeListForm;
 		public FormAddComponentType(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
+			/*if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				this.Close();
+				return;
+			}*/
 			SQLconnection = con;
 		}
 

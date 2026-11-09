@@ -30,15 +30,16 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.labelError = new System.Windows.Forms.Label();
+			this.btn_readonly = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// buttonOk
 			// 
 			this.buttonOk.Location = new System.Drawing.Point(87, 64);
 			this.buttonOk.Name = "buttonOk";
-			this.buttonOk.Size = new System.Drawing.Size(75, 23);
+			this.buttonOk.Size = new System.Drawing.Size(66, 23);
 			this.buttonOk.TabIndex = 3;
-			this.buttonOk.Text = "Ok";
+			this.buttonOk.Text = "Login";
 			this.buttonOk.UseVisualStyleBackColor = true;
 			this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
 			// 
@@ -87,11 +88,22 @@
 			this.labelError.TabIndex = 5;
 			this.labelError.Text = "label3";
 			// 
+			// btn_readonly
+			// 
+			this.btn_readonly.Location = new System.Drawing.Point(159, 64);
+			this.btn_readonly.Name = "btn_readonly";
+			this.btn_readonly.Size = new System.Drawing.Size(66, 23);
+			this.btn_readonly.TabIndex = 6;
+			this.btn_readonly.Text = "Read-only";
+			this.btn_readonly.UseVisualStyleBackColor = true;
+			this.btn_readonly.Click += new System.EventHandler(this.btn_readonly_Click);
+			// 
 			// FormEnterPassword
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(237, 111);
+			this.Controls.Add(this.btn_readonly);
 			this.Controls.Add(this.labelError);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -115,5 +127,6 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label labelError;
+		private System.Windows.Forms.Button btn_readonly;
 	}
 }

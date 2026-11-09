@@ -14,6 +14,7 @@ namespace SGDBclient {
 	public partial class FormEnterPassword : Form {
 		private MySql.Data.MySqlClient.MySqlConnection SQLconnection;
 		public bool Validated = false;
+		public bool readOnly = false;
 		public string ValidatedUser = "";
 		public FormEnterPassword(MySql.Data.MySqlClient.MySqlConnection SQLconnection) {
 			InitializeComponent();
@@ -43,10 +44,14 @@ namespace SGDBclient {
 				{
 					Validated = true;
 					ValidatedUser = textBoxUsername.Text;
+					reader.Close();
 					this.Close();
 				}
-				else labelError.Text = "Autentification failed, try again";
-				reader.Close();
+				else
+				{
+					labelError.Text = "Autentification failed, try again";
+					reader.Close();
+				}
 			}
 		}
 
@@ -57,6 +62,13 @@ namespace SGDBclient {
 				e.SuppressKeyPress = true;
 				buttonOk_Click(null, null);
 			}
+		}
+
+		private void btn_readonly_Click(object sender, EventArgs e)
+		{
+			readOnly = true;
+			Validated = true;
+			this.Close();
 		}
 	}
 }

@@ -19,6 +19,12 @@ namespace SGDBclient {
 		private FormSelectPackage formSelectPackage;
 		public FormAddComponent(MySql.Data.MySqlClient.MySqlConnection con) {
 			InitializeComponent();
+			/*if (CurrentUser.readOnly)
+			{
+				MessageBox.Show("This action is restricted in read-only mode");
+				this.Close();
+				return;
+			}*/
 			SQLconnection = con;
 			jsonEditorParameters = new JSONEditor();
 			jsonEditorLinks = new JSONEditor();
